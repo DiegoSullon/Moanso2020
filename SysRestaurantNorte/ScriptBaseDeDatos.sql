@@ -1,0 +1,204 @@
+CREATE DATABASE restaurante
+go
+USE [restaurante]
+GO
+/****** Object: Table [dbo].[platillo] ******/
+CREATE TABLE [dbo].[Carta](
+	[idCarta] [int] IDENTITY(1,1) NOT NULL,
+	[nombreCarta] [nvarchar](50) NULL,
+	[descripcion] [nvarchar](50) NULL,
+ CONSTRAINT [PK_Platillo] PRIMARY KEY CLUSTERED 
+(
+	[idCarta] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+insert into Carta values(1,'Carta Principal','Carta Principal del restaurante')
+GO
+/****** Object: Table [dbo].[platillo] ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Platillo](
+	[idPlatillo] [int] IDENTITY(1,1) NOT NULL,
+	[idCarta][int]NULL,
+	[nombrePlatillo] [nvarchar](50) NULL,
+	[descripcion] [nvarchar](50) NULL,
+	[estPlatillo] [bit] NULL,
+ CONSTRAINT [FK_IdCarta] FOREIGN KEY (idCarta) REFERENCES Carta(idCarta),
+ CONSTRAINT [PK_Platillo] PRIMARY KEY CLUSTERED 
+(
+	[idPlatillo] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+/****** Object:  StoredProcedure [dbo].[spBuscarPlatilloNumero]  ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create  PROCEDURE [dbo].[spBuscarPlatilloNumero] 
+  @idPlatillo int
+  as
+  Begin Select * from Platillo
+  where idPlatillo= @idPlatillo
+  end
+GO
+/****** Object:  StoredProcedure [dbo].[spBuscarPlatilloNombre]  ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create  PROCEDURE [dbo].[spBuscarPlatilloNombre] 
+  @nombrePlatillo int
+  as
+  Begin Select * from Platillo
+  where nombrePlatillo = @nombrePlatillo
+  end
+GO
+/****** Object:  StoredProcedure [dbo].[spDeshabilitaPlatillo] ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create  PROCEDURE [dbo].[spDeshabilitaPlatillo] 
+(@idPlatillo int
+)
+as
+begin 
+	update  Platillo set 
+	estPlatillo = 0
+	where idPlatillo = @idPlatillo
+end
+GO
+
+/****** Object:  StoredProcedure [dbo].[spEditaPlatillo] ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create  PROCEDURE [dbo].[spEditaPlatillo] 
+(@idPlatillo int,
+@nombrePlatillo varchar(50),
+@descripcion varchar(50),
+@estPlatillo bit
+)
+as
+begin 
+	update  Platillo set 
+	nombrePlatillo = @nombrePlatillo,
+	descripcion = @descripcion,
+	estPlatillo = @estPlatillo
+	where idPlatillo = @idPlatillo
+end
+GO
+/****** Object:  StoredProcedure [dbo].[spInsertaPlatillo]******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[spInsertaPlatillo] 
+(
+@nombrePlatillo varchar(50),
+@descripcion varchar(50),
+@estPlatillo bit
+)
+as
+begin 
+	insert into Platillo(idCarta,nombrePlatillo,descripcion,estPlatillo) values
+	(1, @nombrePlatillo,@descripcion, @estPlatillo)--1 es el id de la Carta Principal
+end
+GO
+/****** Object:  StoredProcedure [dbo].[spListaPlatillos]******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].spListaPlatillos
+AS
+	SELECT * from Platillo where estPlatillo='1'
+GO
+
+/************************************************************************************************************************/
+
+/****** Object: Table [dbo].[platillo] ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Mesa](
+	[idMesa] [int] IDENTITY(1,1) NOT NULL,
+	[cantAsientos][int]NULL,
+	[descripcion] [nvarchar](50) NULL,
+	[estMesa] [bit] NULL,
+ CONSTRAINT [PK_Mesa] PRIMARY KEY CLUSTERED 
+(
+	[idMesa] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+/****** Object:  StoredProcedure [dbo].[spListaMesas]******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].spListaMesas
+AS
+	SELECT * from Mesa
+GO
+/****** Object:  StoredProcedure [dbo].[spInsertaMesa]******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[spInsertaMesa] 
+(
+@cantAsientos int,
+@descripcion varchar(50),
+@estMesa bit
+)
+as
+begin 
+	insert into Mesa(cantAsientos,descripcion,estMesa) values
+	(@cantAsientos,@descripcion,@estMesa)
+end
+GO
+/****** Object:  StoredProcedure [dbo].[spEditaMesa] ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create  PROCEDURE [dbo].[spEditaMesa] 
+(@idMesa int,
+@cantAsientos int,
+@descripcion varchar(50),
+@estMesa bit
+)
+as
+begin 
+	update  Mesa set 
+	cantAsientos = @cantAsientos,
+	descripcion = @descripcion,
+	estMesa = @estMesa
+	where idMesa = @idMesa
+end
+GO
+
+/****** Object:  StoredProcedure [dbo].[spDeshabilitaPlatillo] ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create  PROCEDURE [dbo].[spDeshabilitaMesa] 
+(@idMesa int
+)
+as
+begin 
+	update  Mesa set 
+	estMesa = 0
+	where idMesa = @idMesa
+end
+GO
