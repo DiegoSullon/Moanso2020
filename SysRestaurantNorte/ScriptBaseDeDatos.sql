@@ -311,9 +311,10 @@ GO
 
 create proc spInsertaDetalle
 @idPedido int,
-@idPlatillo int
+@idPlatillo int,
+@cantidad int
 as
-insert into Detalle values (@idPedido,@idPlatillo)
+insert into Detalle values (@idPedido,@idPlatillo,@cantidad)
 go
 
 create proc spEliminaDetalle
@@ -324,7 +325,6 @@ go
 
 
 insert into Platillo(nombrePlatillo,descripcion,estPlatillo) 
-go
 values 
 	('Arroz Con Pollo','Riquisimo Arroz Con Pollo',1),
 	('Lomo Saltado','Acompañado de Papas Fritas',1)
