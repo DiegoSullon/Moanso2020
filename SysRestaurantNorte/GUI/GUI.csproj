@@ -78,6 +78,12 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="formMesas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formMesas.Designer.cs">
+      <DependentUpon>formMesas.cs</DependentUpon>
+    </Compile>
     <Compile Include="insertSector.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +109,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formMesas.resx">
+      <DependentUpon>formMesas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="insertSector.resx">
       <DependentUpon>insertSector.cs</DependentUpon>
@@ -176,6 +185,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\delete_40px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table_40px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LOGO.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fd0b9609923d4b29fee6065fb22411b6.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
