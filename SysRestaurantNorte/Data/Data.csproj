@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="datPlatillos.cs" />
     <Compile Include="Conexion.cs" />
     <Compile Include="datSector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
