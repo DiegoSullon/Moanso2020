@@ -92,7 +92,7 @@ namespace GUI
 
         private void btnlogin_Click(object sender, EventArgs e)
         {
-            if (txtuser.Text != "USUARIO" && txtuser.TextLength > 2)
+            if (txtuser.Text != "USUARIO" && txtuser.TextLength > 0)
             {
                 if (txtpass.Text != "CONTRASEÑA")
                 {/*

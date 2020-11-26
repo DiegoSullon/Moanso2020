@@ -22,7 +22,7 @@ namespace Data
         public SqlConnection Conectar()
         {
             SqlConnection cn = new SqlConnection();
-            cn.ConnectionString = "Data Source=DESKTOP-FV5LUU9\\SQLEXPRESS; Initial Catalog=restaurante; Integrated Security=true";
+            cn.ConnectionString = "Data Source=DESKTOP-3507G87\\SQLEXPRESS; Initial Catalog=restaurante; Integrated Security=true";
 
             return cn;
         }
