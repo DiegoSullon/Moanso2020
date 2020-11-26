@@ -2,7 +2,7 @@ CREATE DATABASE restaurante
 go
 USE [restaurante]
 GO
-/****** Object: Table [dbo].[platillo] ******/
+/****** Object: Table [dbo].[Carta] ******/
 /*CREATE TABLE [dbo].[Carta](
 	[idCarta] [int] IDENTITY(1,1) NOT NULL,
 	[nombreCarta] [nvarchar](50) NULL,
@@ -266,6 +266,7 @@ create table Pedido (
 	[dniCliente] [int] NOT NULL,
 	[descripcion] varchar(50) NULL,
 	CONSTRAINT [FK_dniCliente] FOREIGN KEY (dniCliente) REFERENCES cliente(dniCliente),
+	CONSTRAINT [FK_idMesa] FOREIGN KEY (idMesa) REFERENCES Mesa(idMesa)
 )
 GO
 
@@ -302,6 +303,7 @@ create table Detalle(
 	[idDetalle] [int] primary key IDENTITY(1,1) NOT NULL,
 	[idPedido] [int]  NOT NULL,
 	[idPlatillo] [int]  NOT NULL,
+	[cantidad][int] NOT NULL
 	CONSTRAINT [idPedido] FOREIGN KEY (idPedido) REFERENCES Pedido(idPedido),
 	CONSTRAINT [idPlatillo] FOREIGN KEY (idPlatillo) REFERENCES Platillo(idPlatillo)
 )
@@ -319,3 +321,53 @@ create proc spEliminaDetalle
 as
 delete Detalle where idDetalle=@idDetalle
 go
+
+
+insert into Platillo(nombrePlatillo,descripcion,estPlatillo) 
+go
+values 
+	('Arroz Con Pollo','Riquisimo Arroz Con Pollo',1),
+	('Lomo Saltado','Acompañado de Papas Fritas',1)
+go
+select * from Platillo
+go
+insert into cliente(dniCliente,nombre,razonSocial,correo,celular,direccion,fecRegCliente) values (72918470,'Jose','XD','josema@gmail.com',960492627,'CIX','1/16/2007')
+go
+select * from Cliente
+go
+insert into Mesa(cantAsientos,descripcion,estMesa) values(4,'Mesa Cuadrada',1)
+go
+select * from mesa
+go
+insert into Pedido(idMesa,dniCliente) 
+values
+	(1,72918470),
+	(1,72918470)
+go
+select * from Pedido
+go
+/* PEDIDO 1*/
+insert into Detalle(idPedido,idPlatillo,cantidad) 
+values
+	(1,2,2),
+	(1,1,2)
+go
+/*Pedido 2*/
+insert into Detalle(idPedido,idPlatillo,cantidad) 
+values 
+	(2,1,5)
+go
+select * from Detalle
+go
+
+
+/*select Platillo.nombrePlatillo,Platillo.descripcion,Detalle.cantidad from Pedido inner join Detalle on Pedido.idPedido=Detalle.idPedido inner join Platillo on Detalle.idPlatillo = Platillo.idPlatillo 
+go*/
+
+create proc spMostrarDetallePlatillos
+@idPedido int 
+as
+select Platillo.nombrePlatillo,Platillo.descripcion,Detalle.cantidad from Pedido inner join Detalle on Pedido.idPedido=Detalle.idPedido inner join Platillo on Detalle.idPlatillo = Platillo.idPlatillo 
+where Pedido.idPedido = @idPedido
+go
+
