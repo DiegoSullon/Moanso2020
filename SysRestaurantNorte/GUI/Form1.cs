@@ -17,13 +17,14 @@ namespace GUI
         public Form1()
         {
             InitializeComponent();
-            ListSector();
+            Listplatillo();
 
     
    
            
         }
-        public void ListSector()
+
+        public void Listplatillo()
         {
             dgvSectors.DataSource = logplatillo.Instancia.listarPlatillos();
         }
@@ -57,14 +58,14 @@ namespace GUI
             id = filaActual.Cells[0].Value.ToString();
             //MessageBox.Show(idCliente.ToString());
             logplatillo.Instancia.eliminarPlatillo(id);
-            ListSector();
+            Listplatillo();
         }
 
         private void dgvCliente_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
-
+        
         private void searchButton_Click(object sender, EventArgs e)
         {
             string search = "";
@@ -74,7 +75,7 @@ namespace GUI
 
             for (int i=0;i<lista.Count;i++)
             {
-                if(lista[i].idPlatillo.Contains(search)|| lista[i].nombrePlatillo.Contains(search))
+                if(lista[i].nombrePlatillo.Contains(search))
                 {
                     lista2.Add(lista[i]);
                 }
@@ -83,7 +84,7 @@ namespace GUI
             dgvSectors.DataSource = lista2;
 
         }
-
+        
         private void Form1_Load(object sender, EventArgs e)
         {
 

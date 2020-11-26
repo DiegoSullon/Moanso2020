@@ -50,18 +50,18 @@ namespace GUI
                 {
                     try
                     {
-                        entSector c = new entSector();
+                        entplatillo p = new entplatillo();
 
-                        c.id = inId.Text.Trim();
-                        c.name = inName.Text.Trim();
-                        c.price = Convert.ToSingle(inPrice.Value);
-                        logSector.Instancia.insertarSector(c);
+                        p.idPlatillo = Convert.ToInt32(inId);
+                        p.nombrePlatillo = inName.Text.Trim();
+                        p.descripcion = inDescrp.Text.Trim();
+                        logplatillo.Instancia.insertarPlatillo(p);
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show("Error" + ex);
                     }
-                    main.ListSector();
+                    main.Listplatillo();
                     this.Close();
                 }
             
@@ -69,18 +69,28 @@ namespace GUI
             }
             else
             {
-                entSector c = new entSector();
+                entplatillo p = new entplatillo();
 
-                c.id = inId.Text.Trim();
-                c.name = inName.Text.Trim();
-                c.price = Convert.ToSingle(inPrice.Value);
-
-                logSector.Instancia.editarSector(c);
-                main.ListSector();
+                p.idPlatillo = Convert.ToInt32(inId);
+                p.nombrePlatillo = inName.Text.Trim();
+                p.descripcion = inDescrp.Text.Trim();
+                p.estPlatillo = Convert.ToBoolean(inEstado);
+                logplatillo.Instancia.insertarPlatillo(p);
+                main.Listplatillo();
                 this.Close();
             }
             
            
+        }
+
+        private void insertPlat_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
