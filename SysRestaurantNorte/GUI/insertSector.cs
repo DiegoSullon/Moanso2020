@@ -52,9 +52,7 @@ namespace GUI
                     {
                         Client c = new Client();
 
-                        c.id = inId.Text.Trim();
                         c.name = inName.Text.Trim();
-                        c.price = Convert.ToSingle(inPrice.Value);
                         ClientController.Instancia.insertarSector(c);
                     }
                     catch (Exception ex)
@@ -71,9 +69,7 @@ namespace GUI
             {
                 Client c = new Client();
 
-                c.id = inId.Text.Trim();
                 c.name = inName.Text.Trim();
-                c.price = Convert.ToSingle(inPrice.Value);
 
                 ClientController.Instancia.editarSector(c);
                 main.ListSector();

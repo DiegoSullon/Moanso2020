@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="entSector.cs" />
+    <Compile Include="Client.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Platillo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
