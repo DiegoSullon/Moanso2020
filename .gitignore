@@ -37,3 +37,4 @@ msbuild.wrn
 SysRestaurantNorte/SysRestaurantNorte/.vs/SysRestaurantNorte/v16/Server/sqlite3/storage.ide-wal
 *.ide-wal
 *.ide
+*.ide-wal
