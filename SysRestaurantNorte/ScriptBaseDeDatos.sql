@@ -111,6 +111,11 @@ begin
 	(@nombrePlatillo,@descripcion, @estPlatillo)
 end
 GO
+
+
+spInsertaPlatillo('dx','xd','Desc',0)
+
+
 /****** Object:  StoredProcedure [dbo].[spListaPlatillos]******/
 SET ANSI_NULLS ON
 GO
@@ -162,10 +167,12 @@ CREATE PROCEDURE [dbo].[spInsertaMesa]
 )
 as
 begin 
-	insert into Mesa(cantAsientos,descripcion,estMesa) values
-	(@cantAsientos,@descripcion,@estMesa)
+	insert into Mesa values (@cantAsientos,@descripcion,@estMesa)
 end
 GO
+
+
+
 /****** Object:  StoredProcedure [dbo].[spEditaMesa] ******/
 SET ANSI_NULLS ON
 GO
@@ -192,16 +199,11 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-create  PROCEDURE [dbo].[spDeshabilitaMesa] 
-(@idMesa int
-)
+create proc spEliminaMesa
+@idMesa int
 as
-begin 
-	update  Mesa set 
-	estMesa = 0
-	where idMesa = @idMesa
-end
-GO 
+delete Mesa where idMesa=@idMesa
+go
 
 create table cliente (
 	[id] [int] IDENTITY(1,1) NOT NULL,
@@ -221,6 +223,7 @@ as
 select *from cliente 
 go
 
+spMostrarCliente
 
 --Procedimiento almacenado Insertar, agregar
 create proc spInsertarCliente
@@ -258,8 +261,8 @@ as
 delete cliente where dniCliente=@dniCliente
 go
 
-/*PEDIDO*/
 
+/*PEDIDO*/
 create table Pedido (
 	[idPedido] [int] primary key IDENTITY(1,1) NOT NULL,
 	[idMesa] [int] NULL  ,
