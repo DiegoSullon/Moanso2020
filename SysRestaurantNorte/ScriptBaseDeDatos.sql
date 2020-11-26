@@ -1,6 +1,6 @@
-CREATE DATABASE restaurante
+CREATE DATABASE restaurante5
 go
-USE [restaurante]
+USE [restaurante5]
 GO
 /****** Object: Table [dbo].[platillo] ******/
 /*CREATE TABLE [dbo].[Carta](
@@ -42,7 +42,8 @@ GO
 create  PROCEDURE [dbo].[spBuscarPlatilloNumero] 
   @idPlatillo int
   as
-  Begin Select * from Platillo
+  Begin 
+  Select * from Platillo
   where idPlatillo= @idPlatillo
   end
 GO
@@ -266,7 +267,7 @@ create table Pedido (
 	[idMesa] [int] NULL  ,
 	[dniCliente] [int] NOT NULL,
 	[descripcion] varchar(50) NULL,
-
+	CONSTRAINT [FK_dniCliente] FOREIGN KEY (dniCliente) REFERENCES cliente(dniCliente),
 )
 GO
 
@@ -278,7 +279,7 @@ go
 create proc spInsertarPedido
 @idMesa int,
 @dniCliente int,
-@descripcion
+@descripcion varchar(50)
 as
 insert into Pedido values (@idMesa,@dniCliente,@descripcion)
 go
@@ -299,3 +300,24 @@ as
 delete Pedido where idPedido=@idPedido
 go
 
+create table Detalle(
+	[idDetalle] [int] primary key IDENTITY(1,1) NOT NULL,
+	[idPedido] [int] foreign key (idPedido) references Pedido(idPedido) NOT NULL,
+	[idPlatillo] [int] foreign key (idPlatillo) references Platillo(idPlatillo) NOT NULL,
+	CONSTRAINT [idPedido] FOREIGN KEY (idPedido) REFERENCES Pedido(idPedido),
+	CONSTRAINT [idPlatillo] FOREIGN KEY (idPlatillo) REFERENCES Platillo(idPlatillo)
+)
+GO
+
+create proc spInsertaDetalle
+@idPedido int,
+@idPlatillo int
+as
+insert into Detalle values (@idPedido,@idPlatillo)
+go
+
+create proc spEliminaDetalle
+@idDetalle int
+as
+delete Detalle where idDetalle=@idDetalle
+go
