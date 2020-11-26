@@ -396,3 +396,67 @@ select * from Detalle
 go
 
 
+
+/******************************************************************************************************************************/
+create table Rol(
+	idRol[int] IDENTITY(1,1)NOT NULL,
+	descripcion[nvarchar](50) NOT NULL,
+)
+go
+
+insert into Rol values('Cajero'),('Mesero'),('Gerente'),('Cocina')
+go
+/******************************************************************************************************************************/
+
+create table Empleado (
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[dni] [nvarchar](50) NOT NULL primary key ,
+	[nombre][nvarchar](50) NOT NULL,
+	[correo][nvarchar](50) unique NULL,
+	[idRol][int] NULL,
+)
+ALTER TABLE Empleado add unique (dni);
+GO
+
+create proc spMostrarEmpleado
+as 
+select * from Empleado 
+go
+
+--Procedimiento almacenado Insertar, agregar
+create proc spInsertaEmpleado
+@dni varchar(50) ,
+@nombre varchar(50) ,
+@correo varchar(50) ,
+@idRol int
+as
+insert into Empleado values (@dni,@nombre,@correo,@idRol)
+go
+
+create  PROCEDURE [dbo].[spBuscarEmpleado] 
+  @id int
+  as
+  Begin 
+  Select * from Empleado
+  where id= @id
+  end
+GO
+
+--Procedimiento almacenado Editar Modiicar
+create proc spEditarEmpleado
+@id int,
+@nombre varchar(50) ,
+@correo varchar(50) ,
+@idRol int
+as
+update Empleado set nombre =@nombre,correo=@correo,idRol=@idRol
+where id=@id
+go
+
+
+--Procedimiento almacenado Elimicar
+create proc spEliminarEmpleado
+@id int
+as
+delete Empleado where id=@id
+go
