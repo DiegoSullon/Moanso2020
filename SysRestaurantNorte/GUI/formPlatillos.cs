@@ -24,7 +24,6 @@ namespace GUI
             txtDescripcion.Text = " ";
             cbEstado.Checked = false;
             txtNombre.Text = " ";
-            txtPrecio.Text = " ";
         }
 
 

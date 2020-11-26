@@ -18,7 +18,6 @@ namespace Data
             get { return Conexion._instancia; }
         }
     
-           
         public SqlConnection Conectar()
         {
             SqlConnection cn = new SqlConnection();
