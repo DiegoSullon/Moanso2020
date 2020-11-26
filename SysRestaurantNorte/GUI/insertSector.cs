@@ -50,12 +50,10 @@ namespace GUI
                 {
                     try
                     {
-                        entSector c = new entSector();
+                        Client c = new Client();
 
-                        c.id = inId.Text.Trim();
                         c.name = inName.Text.Trim();
-                        c.price = Convert.ToSingle(inPrice.Value);
-                        logSector.Instancia.insertarSector(c);
+                        ClientController.Instancia.insertarSector(c);
                     }
                     catch (Exception ex)
                     {
@@ -69,13 +67,11 @@ namespace GUI
             }
             else
             {
-                entSector c = new entSector();
+                Client c = new Client();
 
-                c.id = inId.Text.Trim();
                 c.name = inName.Text.Trim();
-                c.price = Convert.ToSingle(inPrice.Value);
 
-                logSector.Instancia.editarSector(c);
+                ClientController.Instancia.editarSector(c);
                 main.ListSector();
                 this.Close();
             }

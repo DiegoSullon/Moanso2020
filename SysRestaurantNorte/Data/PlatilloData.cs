@@ -10,36 +10,38 @@ using Entity;
 namespace Data
 
 {
-    public class datSector
+    public class datPlatillo
     {
         //patron de Diseño Singleton
-        private static readonly datSector _instancia = new datSector();
-        public static datSector Instancia
+        private static readonly datPlatillo _instance = new datPlatillo();
+        public static datPlatillo instance
         {
-            get { return _instancia; }
+            get { return _instance; }
         }
 
         //Listado
-        public List<entSector> listar()
+        public List<Platillo> listar()
         {
             SqlCommand cmd = null;
-            List<entSector> lista = new List<entSector>();
-            try {
+            List<Platillo> lista = new List<Platillo>();
+            try
+            {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spListar",cn);
+                cmd = new SqlCommand("spListaPlatillos", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    entSector SEC = new entSector();
-                    SEC.id = dr["id"].ToString();
-                    SEC.name = dr["name"].ToString();
-                    SEC.price = Convert.ToSingle(dr["price"]);
-                    lista.Add(SEC);
+                    Platillo PLA = new Platillo();
+                    PLA.id = Convert.ToInt32(dr["idPlatillo"]);
+                    PLA.name = dr["nombrePlatillo"].ToString();
+                    PLA.description = dr["descripcion"].ToString();
+                    PLA.state = Convert.ToBoolean(dr["estPlatillo"]);
                 }
-            } 
-            catch ( Exception e) {
+            }
+            catch (Exception e)
+            {
                 Console.WriteLine("Error en la conexion");
                 throw e;
             }
@@ -47,22 +49,22 @@ namespace Data
             return lista;
 
         }
-     
-     //Insertar
 
-        public Boolean insertar(entSector SEC)
+        //Insertar
+
+        public Boolean insertar(Platillo PLAT)
         {
             SqlCommand cmd = null;
             Boolean inserta = false;
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("insertar", cn);
+                cmd = new SqlCommand("spInsertaPlatillo", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@id", SEC.id);
-                cmd.Parameters.AddWithValue("@name", SEC.name);
-                cmd.Parameters.AddWithValue("@price", SEC.price);
+                cmd.Parameters.AddWithValue("@nombrePlatillo", PLAT.name);
+                cmd.Parameters.AddWithValue("@descripcion", PLAT.description);
+                cmd.Parameters.AddWithValue("@estPlatillo", PLAT.state);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
@@ -79,18 +81,18 @@ namespace Data
         }
 
         //Editar
-        public Boolean editar(entSector SEC)
+        public Boolean editar(Platillo PLAT)
         {
             SqlCommand cmd = null;
             Boolean edita = false;
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spModificar", cn);
+                cmd = new SqlCommand("spEditaPlatillo", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id", SEC.id);
-                cmd.Parameters.AddWithValue("@name", SEC.name);
-                cmd.Parameters.AddWithValue("@price", SEC.price);
+                cmd.Parameters.AddWithValue("@nombrePlatillo", PLAT.name);
+                cmd.Parameters.AddWithValue("@descripcion", PLAT.description);
+                cmd.Parameters.AddWithValue("@estPlatillo", PLAT.state);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
@@ -108,16 +110,16 @@ namespace Data
 
 
         //Eliminar
-        public Boolean eliminar(string id)
+        public Boolean eliminar(int id)
         {
             SqlCommand cmd = null;
             Boolean elimina = false;
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spEliminar", cn);
+                cmd = new SqlCommand("spDeshabilitaPlatillo", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@idPlatillo", id);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
@@ -132,6 +134,6 @@ namespace Data
             finally { cmd.Connection.Close(); }
             return elimina;
         }
-        
+
     }
 }
