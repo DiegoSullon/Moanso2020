@@ -297,7 +297,6 @@ delete Pedido where idPedido=@idPedido
 go
 
 create table Detalle(
-	[idDetalle] [int] primary key IDENTITY(1,1) NOT NULL,
 	[idPedido] [int]  NOT NULL,
 	[idPlatillo] [int]  NOT NULL,
 	CONSTRAINT [idPedido] FOREIGN KEY (idPedido) REFERENCES Pedido(idPedido),
@@ -313,9 +312,9 @@ insert into Detalle values (@idPedido,@idPlatillo)
 go
 
 create proc spEliminaDetalle
-@idDetalle int
+@idPedido int
 as
-delete Detalle where idDetalle=@idDetalle
+delete Detalle where idPedido=@idPedido
 go
 
 
@@ -356,7 +355,8 @@ select * from Detalle
 go
 
 
-/*select Platillo.nombrePlatillo,Platillo.descripcion,Detalle.cantidad from Pedido inner join Detalle on Pedido.idPedido=Detalle.idPedido inner join Platillo on Detalle.idPlatillo = Platillo.idPlatillo 
+/*select Platillo.nombrePlatillo,Platillo.descripcion,
+.cantidad from Pedido inner join Detalle on Pedido.idPedido=Detalle.idPedido inner join Platillo on Detalle.idPlatillo = Platillo.idPlatillo 
 go*/
 
 create proc spMostrarDetallePlatillos
