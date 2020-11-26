@@ -34,7 +34,7 @@ bld/
 msbuild.log
 msbuild.err
 msbuild.wrn
-SysRestaurantNorte/SysRestaurantNorte/.vs/SysRestaurantNorte/v16/Server/sqlite3/storage.ide
 SysRestaurantNorte/SysRestaurantNorte/.vs/SysRestaurantNorte/v16/Server/sqlite3/storage.ide-wal
-SysRestaurantNorte/SysRestaurantNorte/.vs/SysRestaurantNorte/v16/Server/sqlite3/storage.ide-wal
+*.ide-wal
+*.ide
 *.ide-wal
