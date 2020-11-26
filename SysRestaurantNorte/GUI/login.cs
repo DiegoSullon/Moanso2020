@@ -100,7 +100,7 @@ namespace GUI
                     var validLogin = user.LoginUser(txtuser.Text, txtpass.Text);
                     if (validLogin == true)
                     {*/
-                        mainMenu mainMenu = new mainMenu();
+                        MenuVertical mainMenu = new MenuVertical();
                         MessageBox.Show(" Bienvenido ");
                         mainMenu.Show();
                         mainMenu.FormClosed += Logout;
