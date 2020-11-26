@@ -88,7 +88,7 @@ namespace Data
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spModificar", cn);
+                cmd = new SqlCommand("spEditaPlatillo", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@nombrePlatillo", PLAT.nombrePlatillo);
                 cmd.Parameters.AddWithValue("@descripcion", PLAT.descripcion);
@@ -117,9 +117,9 @@ namespace Data
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spEliminar", cn);
+                cmd = new SqlCommand("spDeshabilitaPlatillo", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@idPlatillo", id);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)

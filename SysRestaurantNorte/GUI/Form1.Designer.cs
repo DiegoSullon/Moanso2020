@@ -120,6 +120,7 @@
             this.Controls.Add(this.dgvSectors);
             this.Name = "Form1";
             this.Text = "MantenedorSectores";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSectors)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

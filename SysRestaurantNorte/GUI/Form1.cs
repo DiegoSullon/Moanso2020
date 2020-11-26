@@ -25,8 +25,7 @@ namespace GUI
         }
         public void ListSector()
         {
-            dgvSectors.DataSource = logSector.Instancia.listarSectors();
-          
+            dgvSectors.DataSource = logplatillo.Instancia.listarPlatillos();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -35,7 +34,7 @@ namespace GUI
         }
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            insertSector insertForm = new insertSector(this);
+            insertPlat insertForm = new insertPlat(this);
             insertForm.Show();
 
         }
@@ -46,7 +45,7 @@ namespace GUI
             string id = "";
             DataGridViewRow filaActual = dgvSectors.CurrentRow;
             id = filaActual.Cells[0].Value.ToString();
-            insertSector edit = new insertSector(this, id);
+            insertPlat edit = new insertPlat(this, id);
             edit.Show();
         }
 
@@ -57,7 +56,7 @@ namespace GUI
             DataGridViewRow filaActual = dgvSectors.CurrentRow;
             id = filaActual.Cells[0].Value.ToString();
             //MessageBox.Show(idCliente.ToString());
-            logSector.Instancia.eliminarSector(id);
+            logplatillo.Instancia.eliminarPlatillo(id);
             ListSector();
         }
 
@@ -69,19 +68,24 @@ namespace GUI
         private void searchButton_Click(object sender, EventArgs e)
         {
             string search = "";
-            List<entSector> lista = logSector.Instancia.listarSectors();
-            List<entSector> lista2 = new List<entSector>();
+            List<entplatillo> lista = logplatillo.Instancia.listarPlatillos();
+            List<entplatillo> lista2 = new List<entplatillo>();
             search = inSearch.Text;
 
             for (int i=0;i<lista.Count;i++)
             {
-                if(lista[i].id.Contains(search)|| lista[i].name.Contains(search))
+                if(lista[i].idPlatillo.Contains(search)|| lista[i].nombrePlatillo.Contains(search))
                 {
                     lista2.Add(lista[i]);
                 }
             }
 
             dgvSectors.DataSource = lista2;
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
 
         }
     }

@@ -12,16 +12,16 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class insertSector : Form
+    public partial class insertPlat : Form
     {
         Form1 main;
         bool editar =false;
-        public insertSector(Form1 main)
+        public insertPlat(Form1 main)
         {
             this.main = main;
             InitializeComponent();
         }
-        public insertSector(Form1 main, string id)
+        public insertPlat(Form1 main, string id)
         {
             editar = true;
             InitializeComponent();

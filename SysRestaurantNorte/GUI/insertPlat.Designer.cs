@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class insertSector
+    partial class insertPlat
     {
         /// <summary>
         /// Required designer variable.
@@ -81,7 +81,7 @@
             // 
             // inId
             // 
-            this.inId.Location = new System.Drawing.Point(216, 64);
+            this.inId.Location = new System.Drawing.Point(216, 62);
             this.inId.Name = "inId";
             this.inId.Size = new System.Drawing.Size(173, 20);
             this.inId.TabIndex = 11;
