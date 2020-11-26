@@ -300,8 +300,8 @@ go
 
 create table Detalle(
 	[idDetalle] [int] primary key IDENTITY(1,1) NOT NULL,
-	[idPedido] [int] foreign key (idPedido) references Pedido(idPedido) NOT NULL,
-	[idPlatillo] [int] foreign key (idPlatillo) references Platillo(idPlatillo) NOT NULL,
+	[idPedido] [int]  NOT NULL,
+	[idPlatillo] [int]  NOT NULL,
 	CONSTRAINT [idPedido] FOREIGN KEY (idPedido) REFERENCES Pedido(idPedido),
 	CONSTRAINT [idPlatillo] FOREIGN KEY (idPlatillo) REFERENCES Platillo(idPlatillo)
 )
