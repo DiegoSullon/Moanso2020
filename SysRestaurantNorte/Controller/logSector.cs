@@ -12,7 +12,6 @@ namespace Controller
     public class logSector
     {
         #region singleton
-        //patron de Diseño Singleton
         private static readonly logSector _instancia = new logSector();
         public static logSector Instancia
         {
