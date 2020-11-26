@@ -371,3 +371,22 @@ select Platillo.nombrePlatillo,Platillo.descripcion,Detalle.cantidad from Pedido
 where Pedido.idPedido = @idPedido
 go
 
+
+create table MedioDePago(
+	[idMedioDePago][int] primary key IDENTITY(1,1) NOT NULL,
+	[descripcion][nvarchar](50) NOT NULL,--efectivo,debito,credito
+)
+go
+insert into MedioDePago values ('efectivo'),('debito'),('credito')
+go
+select * from MedioDePago
+go
+create table Venta(
+	[idVenta] [int] primary key IDENTITY(1,1) NOT NULL,
+	[idPedido] [int]  NOT NULL,
+	[idMedioDePago] [int]  NOT NULL,
+	[fechaVenta] [date] NOT NULL,
+	CONSTRAINT [idPedidoVenta] FOREIGN KEY (idPedido) REFERENCES Pedido(idPedido),
+	CONSTRAINT [idMedioDePago] FOREIGN KEY (idMedioDePago) REFERENCES MedioDePago(idMedioDePago)
+)
+GO
