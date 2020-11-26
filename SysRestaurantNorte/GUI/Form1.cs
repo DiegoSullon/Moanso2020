@@ -53,9 +53,9 @@ namespace GUI
 
         private void btnDeshabilitar_Click(object sender, EventArgs e)
         {
-            int id=0;
+            string id="";
             DataGridViewRow filaActual = dgvSectors.CurrentRow;
-            id = Convert.ToInt32( filaActual.Cells[0]);
+            id = filaActual.Cells[0].ToString();
             //MessageBox.Show(idCliente.ToString());
             ClientController.Instancia.eliminarSector(id);
             ListSector();

@@ -49,11 +49,11 @@ namespace Controller
             }
 
         }
-        public void eliminarSector(int id)
+        public void eliminarSector(string dni)
         {
             try
             {
-                ClientData.Instancia.eliminar(id);
+                ClientData.Instancia.eliminar(dni);
             }
             catch (Exception e)
             {

@@ -59,7 +59,7 @@ namespace GUI
             this.btnEditar.BackColor = System.Drawing.Color.MidnightBlue;
             this.btnEditar.FlatAppearance.BorderSize = 0;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnEditar.Location = new System.Drawing.Point(676, 314);
             this.btnEditar.Name = "btnEditar";
@@ -67,20 +67,22 @@ namespace GUI
             this.btnEditar.TabIndex = 54;
             this.btnEditar.Text = "EDITAR";
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnListarT
             // 
             this.btnListarT.BackColor = System.Drawing.Color.DarkOrange;
             this.btnListarT.FlatAppearance.BorderSize = 0;
             this.btnListarT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnListarT.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnListarT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnListarT.ForeColor = System.Drawing.Color.White;
-            this.btnListarT.Location = new System.Drawing.Point(503, 154);
+            this.btnListarT.Location = new System.Drawing.Point(503, 153);
             this.btnListarT.Name = "btnListarT";
-            this.btnListarT.Size = new System.Drawing.Size(145, 20);
+            this.btnListarT.Size = new System.Drawing.Size(145, 21);
             this.btnListarT.TabIndex = 53;
             this.btnListarT.Text = "LISTAR TODO";
             this.btnListarT.UseVisualStyleBackColor = false;
+            this.btnListarT.Click += new System.EventHandler(this.btnListarT_Click);
             // 
             // dgvLista
             // 
@@ -89,6 +91,7 @@ namespace GUI
             this.dgvLista.Name = "dgvLista";
             this.dgvLista.Size = new System.Drawing.Size(614, 161);
             this.dgvLista.TabIndex = 51;
+            this.dgvLista.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLista_CellContentClick);
             // 
             // txtDni
             // 
@@ -151,22 +154,22 @@ namespace GUI
             // lbID
             // 
             this.lbID.AutoSize = true;
-            this.lbID.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbID.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lbID.Location = new System.Drawing.Point(117, 418);
             this.lbID.Name = "lbID";
-            this.lbID.Size = new System.Drawing.Size(33, 18);
+            this.lbID.Size = new System.Drawing.Size(34, 20);
             this.lbID.TabIndex = 44;
             this.lbID.Text = "-----";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial Rounded MT Bold", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label7.Location = new System.Drawing.Point(178, 53);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(453, 33);
+            this.label7.Size = new System.Drawing.Size(443, 33);
             this.label7.TabIndex = 43;
             this.label7.Text = "CLIENTES DEL RESTAURANTE";
             // 
@@ -175,7 +178,7 @@ namespace GUI
             this.btnNuevo.BackColor = System.Drawing.Color.Green;
             this.btnNuevo.FlatAppearance.BorderSize = 0;
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevo.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnNuevo.Location = new System.Drawing.Point(676, 185);
             this.btnNuevo.Name = "btnNuevo";
@@ -190,21 +193,22 @@ namespace GUI
             this.bntBuscar.BackColor = System.Drawing.Color.DarkOrange;
             this.bntBuscar.FlatAppearance.BorderSize = 0;
             this.bntBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bntBuscar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bntBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bntBuscar.ForeColor = System.Drawing.Color.White;
             this.bntBuscar.Location = new System.Drawing.Point(258, 153);
             this.bntBuscar.Name = "bntBuscar";
-            this.bntBuscar.Size = new System.Drawing.Size(75, 20);
+            this.bntBuscar.Size = new System.Drawing.Size(75, 21);
             this.bntBuscar.TabIndex = 41;
             this.bntBuscar.Text = "BUSCAR";
             this.bntBuscar.UseVisualStyleBackColor = false;
+            this.bntBuscar.Click += new System.EventHandler(this.bntBuscar_Click);
             // 
             // btnEliminar
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnEliminar.FlatAppearance.BorderSize = 0;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnEliminar.Location = new System.Drawing.Point(676, 251);
             this.btnEliminar.Name = "btnEliminar";
@@ -212,6 +216,7 @@ namespace GUI
             this.btnEliminar.TabIndex = 40;
             this.btnEliminar.Text = "ELIMINAR";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // groupBox
             // 
@@ -242,7 +247,7 @@ namespace GUI
             this.btnGuardar.BackColor = System.Drawing.Color.DarkOrange;
             this.btnGuardar.FlatAppearance.BorderSize = 0;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnGuardar.Location = new System.Drawing.Point(642, 58);
             this.btnGuardar.Name = "btnGuardar";
@@ -250,48 +255,49 @@ namespace GUI
             this.btnGuardar.TabIndex = 0;
             this.btnGuardar.Text = "GUARDAR";
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label2.Location = new System.Drawing.Point(5, 55);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 22);
+            this.label2.Size = new System.Drawing.Size(89, 24);
             this.label2.TabIndex = 5;
             this.label2.Text = "Nombre :";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label3.Location = new System.Drawing.Point(6, 93);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 22);
+            this.label3.Size = new System.Drawing.Size(53, 24);
             this.label3.TabIndex = 6;
             this.label3.Text = "Dni : ";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label1.Location = new System.Drawing.Point(6, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 22);
+            this.label1.Size = new System.Drawing.Size(37, 24);
             this.label1.TabIndex = 4;
             this.label1.Text = "ID :";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label4.Location = new System.Drawing.Point(293, 23);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 22);
+            this.label4.Size = new System.Drawing.Size(78, 24);
             this.label4.TabIndex = 7;
             this.label4.Text = "Correo :";
             // 

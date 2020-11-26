@@ -7,16 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Controller;
+using Entity;
 
 namespace GUI
 {
     public partial class formClientes : Form
     {
+        private bool edit = false;
         public formClientes()
         {
             InitializeComponent();
+            ListClient();
             rbID.Checked = true;
             groupBox.Enabled = false;
+        }
+        public void ListClient()
+        {
+            dgvLista.DataSource = ClientController.Instancia.listarSectors();
+
         }
         private void LimpiarCampos()
         {
@@ -31,6 +40,83 @@ namespace GUI
             btnGuardar.Visible = true;
             groupBox.Enabled = true;
             LimpiarCampos();
+        }
+
+        private void dgvLista_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            Client client = new Client();
+            client.dni = txtDni.Text;
+            client.name = txtNombre.Text;
+            client.email = txtCorreo.Text;
+            if (edit)
+            {
+                ClientController.Instancia.editarSector(client);
+
+
+            }
+            else
+            {
+                ClientController.Instancia.insertarSector(client);
+            }
+
+            ListClient();
+            LimpiarCampos();
+            groupBox.Enabled = false;
+            edit = false;
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            string dni = "";
+            DataGridViewRow fila = dgvLista.CurrentRow;
+            dni = fila.Cells[1].Value.ToString();
+            //MessageBox.Show(fila.Cells[0].Value.ToString() );
+            ClientController.Instancia.eliminarSector(dni);
+            ListClient();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            string id = "";
+            DataGridViewRow filaActual = dgvLista.CurrentRow;
+            lbID.Text = filaActual.Cells[0].Value.ToString();
+            txtDni.Text = filaActual.Cells[1].Value.ToString();
+            txtNombre.Text = filaActual.Cells[2].Value.ToString();
+            txtCorreo.Text = filaActual.Cells[3].Value.ToString();
+            btnGuardar.Enabled = true;
+            btnGuardar.Visible = true;
+            groupBox.Enabled = true;
+            edit = true;
+
+        }
+
+        private void btnListarT_Click(object sender, EventArgs e)
+        {
+            ListClient();
+        }
+
+        private void bntBuscar_Click(object sender, EventArgs e)
+        {
+            string search = "";
+            List<Client> lista = ClientController.Instancia.listarSectors();
+            List<Client> lista2 = new List<Client>();
+            search = txtBuscador.Text;
+
+            for (int i = 0; i < lista.Count; i++)
+            {
+                if (lista[i].dni.Contains(search) || lista[i].name.Contains(search)|| lista[i].email.Contains(search))
+                {
+                    lista2.Add(lista[i]);
+                }
+            }
+
+            dgvLista.DataSource = lista2;
         }
     }
 }

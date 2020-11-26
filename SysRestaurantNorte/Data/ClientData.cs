@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using System.Windows.Forms;
 using System.Data.SqlClient;
 using Entity;
 
@@ -26,9 +27,9 @@ namespace Data
             List<Client> lista = new List<Client>();
             try {
                 SqlConnection cn = Conexion.Instancia.Conectar();
+                cn.Open();
                 cmd = new SqlCommand("spMostrarCliente", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
@@ -61,7 +62,6 @@ namespace Data
                 cmd = new SqlCommand("spInsertarCliente", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@id", cli.id);
                 cmd.Parameters.AddWithValue("@dniCliente", cli.dni);
                 cmd.Parameters.AddWithValue("@nombre", cli.name);
                 cmd.Parameters.AddWithValue("@correo", cli.email);
@@ -90,7 +90,6 @@ namespace Data
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("spEditarCliente", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id", cli.id);
                 cmd.Parameters.AddWithValue("@dniCliente", cli.dni);
                 cmd.Parameters.AddWithValue("@nombre", cli.name);
                 cmd.Parameters.AddWithValue("@correo", cli.email);
@@ -111,7 +110,7 @@ namespace Data
 
 
         //Eliminar
-        public Boolean eliminar(int id)
+        public Boolean eliminar(string dni)
         {
             SqlCommand cmd = null;
             Boolean elimina = false;
@@ -120,7 +119,7 @@ namespace Data
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("spEliminarCliente", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@dniCliente", dni);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
