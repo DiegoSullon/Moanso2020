@@ -72,6 +72,48 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="formClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formClientes.Designer.cs">
+      <DependentUpon>formClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formDash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formDash.Designer.cs">
+      <DependentUpon>formDash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formEmpleados.Designer.cs">
+      <DependentUpon>formEmpleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formMesa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formMesa.Designer.cs">
+      <DependentUpon>formMesa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formPedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formPedidos.Designer.cs">
+      <DependentUpon>formPedidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formPlatillos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formPlatillos.Designer.cs">
+      <DependentUpon>formPlatillos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formVentas.Designer.cs">
+      <DependentUpon>formVentas.cs</DependentUpon>
+    </Compile>
     <Compile Include="insertSector.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +136,27 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formClientes.resx">
+      <DependentUpon>formClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formDash.resx">
+      <DependentUpon>formDash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formEmpleados.resx">
+      <DependentUpon>formEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formMesa.resx">
+      <DependentUpon>formMesa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formPedidos.resx">
+      <DependentUpon>formPedidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formPlatillos.resx">
+      <DependentUpon>formPlatillos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formVentas.resx">
+      <DependentUpon>formVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="insertSector.resx">
       <DependentUpon>insertSector.cs</DependentUpon>
