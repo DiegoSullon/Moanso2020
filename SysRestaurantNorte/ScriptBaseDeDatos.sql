@@ -265,6 +265,8 @@ create table Pedido (
 	[idPedido] [int] primary key IDENTITY(1,1) NOT NULL,
 	[idMesa] [int] NULL  ,
 	[dniCliente] [int] NOT NULL,
+	[descripcion] varchar(50) NULL,
+
 )
 GO
 
@@ -275,17 +277,19 @@ go
 
 create proc spInsertarPedido
 @idMesa int,
-@dniCliente int 
+@dniCliente int,
+@descripcion
 as
-insert into Pedido values (@idMesa,@dniCliente)
+insert into Pedido values (@idMesa,@dniCliente,@descripcion)
 go
 
 create proc spEditarPedido
-@idPedido int,
 @idMesa int ,
-@dniCliente int
+@idPedido int,
+@dniCliente int,
+@descripcion varchar(50)
 as
-update Pedido set idMesa =@idMesa, dniCliente=@dniCliente
+update Pedido set idMesa =@idMesa, dniCliente=@dniCliente, descripcion=@descripcion
 where idPedido=@idPedido
 go
 
