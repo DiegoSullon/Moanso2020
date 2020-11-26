@@ -113,8 +113,6 @@ end
 GO
 
 
-spInsertaPlatillo('dx','xd','Desc',0)
-
 
 /****** Object:  StoredProcedure [dbo].[spListaPlatillos]******/
 SET ANSI_NULLS ON
@@ -296,3 +294,4 @@ create proc spEliminarPedido
 as
 delete Pedido where idPedido=@idPedido
 go
+
