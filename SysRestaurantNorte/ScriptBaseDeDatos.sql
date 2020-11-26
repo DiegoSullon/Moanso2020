@@ -23,9 +23,9 @@ GO
 CREATE TABLE [dbo].[Platillo](
 	[idPlatillo] [int] IDENTITY(1,1) NOT NULL,
 	--[idCarta][int]NULL,
-	[nombrePlatillo] [nvarchar](50) NULL,
+	[nombrePlatillo] [nvarchar](50) NOT NULL,
 	[descripcion] [nvarchar](50) NULL,
-	[estPlatillo] [bit] NULL,
+	[estPlatillo] [bit] NOT NULL,
  --CONSTRAINT [FK_IdCarta] FOREIGN KEY (idCarta) REFERENCES Carta(idCarta),
  CONSTRAINT [PK_Platillo] PRIMARY KEY CLUSTERED 
 (
@@ -123,16 +123,16 @@ GO
 
 /************************************************************************************************************************/
 
-/****** Object: Table [dbo].[platillo] ******/
+/****** Object: Table [dbo].[Mesa] ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Mesa](
 	[idMesa] [int] IDENTITY(1,1) NOT NULL,
-	[cantAsientos][int]NULL,
+	[cantAsientos][int] NULL,
 	[descripcion] [nvarchar](50) NULL,
-	[estMesa] [bit] NULL,
+	[estMesa] [bit] NOT NULL,
  CONSTRAINT [PK_Mesa] PRIMARY KEY CLUSTERED 
 (
 	[idMesa] ASC
@@ -187,7 +187,7 @@ begin
 end
 GO
 
-/****** Object:  StoredProcedure [dbo].[spDeshabilitaPlatillo] ******/
+/****** Object:  StoredProcedure [dbo].[spDeshabilitaMesa] ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -203,3 +203,57 @@ begin
 end
 GO 
 
+create table cliente (
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[dniCliente] [int] NOT NULL primary key ,
+	[nombre][nvarchar](50) NOT NULL,
+	[razonSocial] [nvarchar](50) NULL,
+	[correo][nvarchar](50) unique NULL,
+	[celular][nvarchar] (50) NOT NULL,
+	[direccion][nvarchar] (50) NULL,
+	[fecRegCliente] [date] NOT NULL,
+)
+ALTER TABLE cliente add unique (dniCliente);
+GO
+
+create proc spMostrarCliente
+as
+select *from cliente 
+go
+
+
+--Procedimiento almacenado Insertar, agregar
+create proc spInsertarCliente
+@dniCliente int,
+@nombre varchar(50) ,
+@razonSocial varchar(50) ,
+@correo varchar(50) ,
+@celular varchar (50) ,
+@direccion varchar (50),
+@fecRegCliente date
+as
+insert into cliente values (@dniCliente,@nombre,@razonSocial,@correo,@celular,@direccion,@fecRegCliente)
+go
+
+
+--Procedimiento almacenado Editar Modiicar
+create proc spEditarCliente
+@dniCliente int,
+@nombre varchar(50) ,
+@razonSocial varchar(50) ,
+@correo varchar(50) ,
+@celular varchar (50) ,
+@direccion varchar (50),
+@fecRegCliente date
+as
+update cliente set nombre =@nombre,razonSocial=@razonSocial,correo=@correo,celular=@celular,direccion=@direccion,fecRegCliente=@fecRegCliente 
+where dniCliente=@dniCliente
+go
+
+
+--Procedimiento almacenado Elimicar
+create proc spEliminarCliente
+@dniCliente int
+as
+delete cliente where dniCliente=@dniCliente
+go
