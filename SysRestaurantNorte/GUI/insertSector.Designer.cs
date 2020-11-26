@@ -1,4 +1,4 @@
-﻿namespace CapaPresentacion
+﻿namespace GUI
 {
     partial class insertSector
     {
