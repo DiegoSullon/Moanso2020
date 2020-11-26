@@ -257,3 +257,39 @@ create proc spEliminarCliente
 as
 delete cliente where dniCliente=@dniCliente
 go
+
+/*PEDIDO*/
+
+create table Pedido (
+	[idPedido] [int] primary key IDENTITY(1,1) NOT NULL,
+	[idMesa] [int] NULL  ,
+	[dniCliente] [int] NOT NULL,
+)
+GO
+
+create proc spMostrarPedidos
+as
+select *from Pedido 
+go
+
+create proc spInsertarPedido
+@idMesa int,
+@dniCliente int 
+as
+insert into Pedido values (@idMesa,@dniCliente)
+go
+
+create proc spEditarPedido
+@idPedido int,
+@idMesa int ,
+@dniCliente int
+as
+update Pedido set idMesa =@idMesa, dniCliente=@dniCliente
+where idPedido=@idPedido
+go
+
+create proc spEliminarPedido
+@idPedido int
+as
+delete Pedido where idPedido=@idPedido
+go
