@@ -3,7 +3,7 @@ go
 USE [restaurante]
 GO
 /****** Object: Table [dbo].[platillo] ******/
-CREATE TABLE [dbo].[Carta](
+/*CREATE TABLE [dbo].[Carta](
 	[idCarta] [int] IDENTITY(1,1) NOT NULL,
 	[nombreCarta] [nvarchar](50) NULL,
 	[descripcion] [nvarchar](50) NULL,
@@ -14,7 +14,7 @@ CREATE TABLE [dbo].[Carta](
 ) ON [PRIMARY]
 GO
 insert into Carta values(1,'Carta Principal','Carta Principal del restaurante')
-GO
+GO*/
 /****** Object: Table [dbo].[platillo] ******/
 SET ANSI_NULLS ON
 GO
@@ -22,11 +22,11 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Platillo](
 	[idPlatillo] [int] IDENTITY(1,1) NOT NULL,
-	[idCarta][int]NULL,
+	--[idCarta][int]NULL,
 	[nombrePlatillo] [nvarchar](50) NULL,
 	[descripcion] [nvarchar](50) NULL,
 	[estPlatillo] [bit] NULL,
- CONSTRAINT [FK_IdCarta] FOREIGN KEY (idCarta) REFERENCES Carta(idCarta),
+ --CONSTRAINT [FK_IdCarta] FOREIGN KEY (idCarta) REFERENCES Carta(idCarta),
  CONSTRAINT [PK_Platillo] PRIMARY KEY CLUSTERED 
 (
 	[idPlatillo] ASC
@@ -107,8 +107,8 @@ CREATE PROCEDURE [dbo].[spInsertaPlatillo]
 )
 as
 begin 
-	insert into Platillo(idCarta,nombrePlatillo,descripcion,estPlatillo) values
-	(1, @nombrePlatillo,@descripcion, @estPlatillo)--1 es el id de la Carta Principal
+	insert into Platillo(nombrePlatillo,descripcion,estPlatillo) values
+	(@nombrePlatillo,@descripcion, @estPlatillo)
 end
 GO
 /****** Object:  StoredProcedure [dbo].[spListaPlatillos]******/
@@ -201,4 +201,5 @@ begin
 	estMesa = 0
 	where idMesa = @idMesa
 end
-GO
+GO 
+
