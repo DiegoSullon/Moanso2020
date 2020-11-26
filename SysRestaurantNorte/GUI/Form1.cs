@@ -25,7 +25,7 @@ namespace GUI
         }
         public void ListSector()
         {
-            dgvSectors.DataSource = logSector.Instancia.listarSectors();
+            dgvSectors.DataSource = ClientController.Instancia.listarSectors();
           
         }
 
@@ -57,7 +57,7 @@ namespace GUI
             DataGridViewRow filaActual = dgvSectors.CurrentRow;
             id = filaActual.Cells[0].Value.ToString();
             //MessageBox.Show(idCliente.ToString());
-            logSector.Instancia.eliminarSector(id);
+            ClientController.Instancia.eliminarSector(id);
             ListSector();
         }
 
@@ -69,8 +69,8 @@ namespace GUI
         private void searchButton_Click(object sender, EventArgs e)
         {
             string search = "";
-            List<entSector> lista = logSector.Instancia.listarSectors();
-            List<entSector> lista2 = new List<entSector>();
+            List<Client> lista = ClientController.Instancia.listarSectors();
+            List<Client> lista2 = new List<Client>();
             search = inSearch.Text;
 
             for (int i=0;i<lista.Count;i++)

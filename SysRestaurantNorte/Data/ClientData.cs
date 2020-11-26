@@ -10,33 +10,34 @@ using Entity;
 namespace Data
 
 {
-    public class datSector
+    public class ClientData
     {
         //patron de Diseño Singleton
-        private static readonly datSector _instancia = new datSector();
-        public static datSector Instancia
+        private static readonly ClientData _instancia = new ClientData();
+        public static ClientData Instancia
         {
             get { return _instancia; }
         }
 
         //Listado
-        public List<entSector> listar()
+        public List<Client> listar()
         {
             SqlCommand cmd = null;
-            List<entSector> lista = new List<entSector>();
+            List<Client> lista = new List<Client>();
             try {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spListar",cn);
+                cmd = new SqlCommand("spMostrarCliente", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    entSector SEC = new entSector();
-                    SEC.id = dr["id"].ToString();
-                    SEC.name = dr["name"].ToString();
-                    SEC.price = Convert.ToSingle(dr["price"]);
-                    lista.Add(SEC);
+                    Client cli = new Client();
+                    cli.id = Convert.ToInt32(dr["id"]);
+                    cli.dni = dr["dniCliente"].ToString();
+                    cli.name = dr["nombre"].ToString();
+                    cli.email = dr["correo"].ToString();
+                    lista.Add(cli);
                 }
             } 
             catch ( Exception e) {
@@ -50,19 +51,20 @@ namespace Data
      
      //Insertar
 
-        public Boolean insertar(entSector SEC)
+        public Boolean insertar(Client cli)
         {
             SqlCommand cmd = null;
             Boolean inserta = false;
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("insertar", cn);
+                cmd = new SqlCommand("spInsertarCliente", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@id", SEC.id);
-                cmd.Parameters.AddWithValue("@name", SEC.name);
-                cmd.Parameters.AddWithValue("@price", SEC.price);
+                cmd.Parameters.AddWithValue("@id", cli.id);
+                cmd.Parameters.AddWithValue("@dniCliente", cli.dni);
+                cmd.Parameters.AddWithValue("@nombre", cli.name);
+                cmd.Parameters.AddWithValue("@correo", cli.email);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
@@ -79,18 +81,19 @@ namespace Data
         }
 
         //Editar
-        public Boolean editar(entSector SEC)
+        public Boolean editar(Client cli)
         {
             SqlCommand cmd = null;
             Boolean edita = false;
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spModificar", cn);
+                cmd = new SqlCommand("spEditarCliente", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id", SEC.id);
-                cmd.Parameters.AddWithValue("@name", SEC.name);
-                cmd.Parameters.AddWithValue("@price", SEC.price);
+                cmd.Parameters.AddWithValue("@id", cli.id);
+                cmd.Parameters.AddWithValue("@dniCliente", cli.dni);
+                cmd.Parameters.AddWithValue("@nombre", cli.name);
+                cmd.Parameters.AddWithValue("@correo", cli.email);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
@@ -108,14 +111,14 @@ namespace Data
 
 
         //Eliminar
-        public Boolean eliminar(string id)
+        public Boolean eliminar(int id)
         {
             SqlCommand cmd = null;
             Boolean elimina = false;
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spEliminar", cn);
+                cmd = new SqlCommand("spEliminarCliente", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id", id);
                 cn.Open();

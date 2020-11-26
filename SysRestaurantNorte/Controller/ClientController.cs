@@ -9,26 +9,26 @@ using Data;
 namespace Controller
 {
     
-    public class logSector
+    public class ClientController
     {
         #region singleton
-        private static readonly logSector _instancia = new logSector();
-        public static logSector Instancia
+        private static readonly ClientController _instancia = new ClientController();
+        public static ClientController Instancia
         {
-            get { return logSector._instancia; }
+            get { return ClientController._instancia; }
         }
         #endregion singleton
 
-        public List<entSector> listarSectors()
+        public List<Client> listarSectors()
         {
-            return datSector.Instancia.listar();
+            return ClientData.Instancia.listar();
         }
         
-        public void insertarSector(entSector SEC)
+        public void insertarSector(Client SEC)
         {
             try 
             {
-                datSector.Instancia.insertar(SEC);
+                ClientData.Instancia.insertar(SEC);
             }
         catch(Exception e )
             { throw e;  
@@ -36,11 +36,11 @@ namespace Controller
             }
 
         }
-        public void editarSector(entSector SEC)
+        public void editarSector(Client SEC)
         {
             try
             {
-                datSector.Instancia.editar(SEC);
+                ClientData.Instancia.editar(SEC);
             }
             catch (Exception e)
             {
@@ -49,11 +49,11 @@ namespace Controller
             }
 
         }
-        public void eliminarSector(string id)
+        public void eliminarSector(int id)
         {
             try
             {
-                datSector.Instancia.eliminar(id);
+                ClientData.Instancia.eliminar(id);
             }
             catch (Exception e)
             {
