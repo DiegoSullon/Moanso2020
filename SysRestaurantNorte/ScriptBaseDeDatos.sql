@@ -1,6 +1,6 @@
-CREATE DATABASE restaurante5
+CREATE DATABASE restaurante
 go
-USE [restaurante5]
+USE [restaurante]
 GO
 /****** Object: Table [dbo].[platillo] ******/
 /*CREATE TABLE [dbo].[Carta](
@@ -221,8 +221,6 @@ create proc spMostrarCliente
 as
 select *from cliente 
 go
-
-spMostrarCliente
 
 --Procedimiento almacenado Insertar, agregar
 create proc spInsertarCliente
