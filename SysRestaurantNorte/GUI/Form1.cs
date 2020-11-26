@@ -7,10 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CapaEntidad;
-using CapaLogicaNegocio;
+using Entity;
+using Controller;
 
-namespace CapaPresentacion
+namespace GUI
 {
     public partial class Form1 : Form
     {

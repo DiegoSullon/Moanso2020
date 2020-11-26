@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 
-using CapaEntidad;
+using Entity;
 
-namespace CapaAccesoDatos
+namespace Data
+
 {
     public class datSector
     {
@@ -16,7 +17,7 @@ namespace CapaAccesoDatos
         private static readonly datSector _instancia = new datSector();
         public static datSector Instancia
         {
-            get { return datSector._instancia; }
+            get { return _instancia; }
         }
 
         //Listado

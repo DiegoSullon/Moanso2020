@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entity
 {
-    class Table
+    public class Table
     {
         public int id { get; set; }
         public int seats { get; set; }

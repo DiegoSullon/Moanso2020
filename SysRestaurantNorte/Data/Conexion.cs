@@ -7,7 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 
 
-namespace CapaAccesoDatos
+namespace Data
 {
     public class Conexion
     {
