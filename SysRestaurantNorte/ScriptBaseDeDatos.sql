@@ -264,7 +264,6 @@ create table Pedido (
 	[idPedido] [int] primary key IDENTITY(1,1) NOT NULL,
 	[idMesa] [int] NULL  ,
 	[dniCliente] [int] NOT NULL,
-	[descripcion] varchar(50) NULL,
 	CONSTRAINT [FK_dniCliente] FOREIGN KEY (dniCliente) REFERENCES cliente(dniCliente),
 	CONSTRAINT [FK_idMesa] FOREIGN KEY (idMesa) REFERENCES Mesa(idMesa)
 )
@@ -277,19 +276,17 @@ go
 
 create proc spInsertarPedido
 @idMesa int,
-@dniCliente int,
-@descripcion varchar(50)
+@dniCliente int
 as
-insert into Pedido values (@idMesa,@dniCliente,@descripcion)
+insert into Pedido values (@idMesa,@dniCliente)
 go
 
 create proc spEditarPedido
 @idMesa int ,
 @idPedido int,
-@dniCliente int,
-@descripcion varchar(50)
+@dniCliente int
 as
-update Pedido set idMesa =@idMesa, dniCliente=@dniCliente, descripcion=@descripcion
+update Pedido set idMesa =@idMesa, dniCliente=@dniCliente
 where idPedido=@idPedido
 go
 
@@ -303,7 +300,6 @@ create table Detalle(
 	[idDetalle] [int] primary key IDENTITY(1,1) NOT NULL,
 	[idPedido] [int]  NOT NULL,
 	[idPlatillo] [int]  NOT NULL,
-	[cantidad][int] NOT NULL
 	CONSTRAINT [idPedido] FOREIGN KEY (idPedido) REFERENCES Pedido(idPedido),
 	CONSTRAINT [idPlatillo] FOREIGN KEY (idPlatillo) REFERENCES Platillo(idPlatillo)
 )
@@ -311,10 +307,9 @@ GO
 
 create proc spInsertaDetalle
 @idPedido int,
-@idPlatillo int,
-@cantidad int
+@idPlatillo int
 as
-insert into Detalle values (@idPedido,@idPlatillo,@cantidad)
+insert into Detalle values (@idPedido,@idPlatillo)
 go
 
 create proc spEliminaDetalle
@@ -347,15 +342,15 @@ go
 select * from Pedido
 go
 /* PEDIDO 1*/
-insert into Detalle(idPedido,idPlatillo,cantidad) 
+insert into Detalle(idPedido,idPlatillo) 
 values
-	(1,2,2),
-	(1,1,2)
+	(1,2),
+	(1,1)
 go
 /*Pedido 2*/
-insert into Detalle(idPedido,idPlatillo,cantidad) 
+insert into Detalle(idPedido,idPlatillo) 
 values 
-	(2,1,5)
+	(2,1)
 go
 select * from Detalle
 go
@@ -367,7 +362,7 @@ go*/
 create proc spMostrarDetallePlatillos
 @idPedido int 
 as
-select Platillo.nombrePlatillo,Platillo.descripcion,Detalle.cantidad from Pedido inner join Detalle on Pedido.idPedido=Detalle.idPedido inner join Platillo on Detalle.idPlatillo = Platillo.idPlatillo 
+select Platillo.idPlatillo,Platillo.nombrePlatillo,Platillo.descripcion,Platillo.estPlatillo from Pedido inner join Detalle on Pedido.idPedido=Detalle.idPedido inner join Platillo on Detalle.idPlatillo = Platillo.idPlatillo 
 where Pedido.idPedido = @idPedido
 go
 
