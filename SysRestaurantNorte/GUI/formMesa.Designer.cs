@@ -32,7 +32,6 @@ namespace GUI
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnListarT = new System.Windows.Forms.Button();
             this.dgvLista = new System.Windows.Forms.DataGridView();
-            this.txtCantidadAsientos = new System.Windows.Forms.TextBox();
             this.txtBuscador = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.rbID = new System.Windows.Forms.RadioButton();
@@ -50,8 +49,10 @@ namespace GUI
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.spnCantidadAsientos = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.groupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spnCantidadAsientos)).BeginInit();
             this.SuspendLayout();
             // 
             // btnEditar
@@ -89,13 +90,6 @@ namespace GUI
             this.dgvLista.Name = "dgvLista";
             this.dgvLista.Size = new System.Drawing.Size(614, 161);
             this.dgvLista.TabIndex = 51;
-            // 
-            // txtCantidadAsientos
-            // 
-            this.txtCantidadAsientos.Location = new System.Drawing.Point(228, 53);
-            this.txtCantidadAsientos.Name = "txtCantidadAsientos";
-            this.txtCantidadAsientos.Size = new System.Drawing.Size(168, 23);
-            this.txtCantidadAsientos.TabIndex = 49;
             // 
             // txtBuscador
             // 
@@ -208,10 +202,10 @@ namespace GUI
             // 
             // groupBox
             // 
+            this.groupBox.Controls.Add(this.spnCantidadAsientos);
             this.groupBox.Controls.Add(this.cbEstado);
             this.groupBox.Controls.Add(this.btnGuardar);
             this.groupBox.Controls.Add(this.label2);
-            this.groupBox.Controls.Add(this.txtCantidadAsientos);
             this.groupBox.Controls.Add(this.label1);
             this.groupBox.Controls.Add(this.txtDescripcion);
             this.groupBox.Controls.Add(this.label5);
@@ -300,6 +294,13 @@ namespace GUI
             this.label4.TabIndex = 7;
             this.label4.Text = "Descripcion :";
             // 
+            // spnCantidadAsientos
+            // 
+            this.spnCantidadAsientos.Location = new System.Drawing.Point(227, 52);
+            this.spnCantidadAsientos.Name = "spnCantidadAsientos";
+            this.spnCantidadAsientos.Size = new System.Drawing.Size(120, 23);
+            this.spnCantidadAsientos.TabIndex = 50;
+            // 
             // formMesa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -325,6 +326,7 @@ namespace GUI
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
             this.groupBox.ResumeLayout(false);
             this.groupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spnCantidadAsientos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -335,7 +337,6 @@ namespace GUI
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnListarT;
         private System.Windows.Forms.DataGridView dgvLista;
-        private System.Windows.Forms.TextBox txtCantidadAsientos;
         private System.Windows.Forms.TextBox txtBuscador;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.RadioButton rbID;
@@ -353,5 +354,6 @@ namespace GUI
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.NumericUpDown spnCantidadAsientos;
     }
 }

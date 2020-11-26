@@ -31,7 +31,6 @@ namespace GUI
         {
             this.btnListarT = new System.Windows.Forms.Button();
             this.dgvLista = new System.Windows.Forms.DataGridView();
-            this.txtPrecio = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtBuscador = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -52,8 +51,10 @@ namespace GUI
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnEditar = new System.Windows.Forms.Button();
+            this.spnPrecio = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.groupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spnPrecio)).BeginInit();
             this.SuspendLayout();
             // 
             // btnListarT
@@ -77,13 +78,6 @@ namespace GUI
             this.dgvLista.Name = "dgvLista";
             this.dgvLista.Size = new System.Drawing.Size(614, 161);
             this.dgvLista.TabIndex = 36;
-            // 
-            // txtPrecio
-            // 
-            this.txtPrecio.Location = new System.Drawing.Point(120, 475);
-            this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(143, 20);
-            this.txtPrecio.TabIndex = 35;
             // 
             // txtNombre
             // 
@@ -203,6 +197,7 @@ namespace GUI
             // 
             // groupBox
             // 
+            this.groupBox.Controls.Add(this.spnPrecio);
             this.groupBox.Controls.Add(this.cbEstado);
             this.groupBox.Controls.Add(this.btnGuardar);
             this.groupBox.Controls.Add(this.label2);
@@ -319,6 +314,13 @@ namespace GUI
             this.btnEditar.Text = "EDITAR";
             this.btnEditar.UseVisualStyleBackColor = false;
             // 
+            // spnPrecio
+            // 
+            this.spnPrecio.Location = new System.Drawing.Point(98, 93);
+            this.spnPrecio.Name = "spnPrecio";
+            this.spnPrecio.Size = new System.Drawing.Size(143, 23);
+            this.spnPrecio.TabIndex = 21;
+            // 
             // formPlatillos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -328,7 +330,6 @@ namespace GUI
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnListarT);
             this.Controls.Add(this.dgvLista);
-            this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.txtBuscador);
             this.Controls.Add(this.label9);
@@ -346,6 +347,7 @@ namespace GUI
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
             this.groupBox.ResumeLayout(false);
             this.groupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spnPrecio)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -355,7 +357,6 @@ namespace GUI
 
         private System.Windows.Forms.Button btnListarT;
         private System.Windows.Forms.DataGridView dgvLista;
-        private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtBuscador;
         private System.Windows.Forms.Label label9;
@@ -376,5 +377,6 @@ namespace GUI
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.CheckBox cbEstado;
+        private System.Windows.Forms.NumericUpDown spnPrecio;
     }
 }

@@ -32,13 +32,10 @@ namespace GUI
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnListarT = new System.Windows.Forms.Button();
             this.dgvLista = new System.Windows.Forms.DataGridView();
-            this.txtDni = new System.Windows.Forms.TextBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtBuscador = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.rbID = new System.Windows.Forms.RadioButton();
             this.rbNombre = new System.Windows.Forms.RadioButton();
-            this.lbID = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.bntBuscar = new System.Windows.Forms.Button();
@@ -50,6 +47,9 @@ namespace GUI
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.txtDni = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.lbID = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.groupBox.SuspendLayout();
             this.SuspendLayout();
@@ -92,20 +92,6 @@ namespace GUI
             this.dgvLista.Size = new System.Drawing.Size(614, 161);
             this.dgvLista.TabIndex = 51;
             this.dgvLista.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLista_CellContentClick);
-            // 
-            // txtDni
-            // 
-            this.txtDni.Location = new System.Drawing.Point(120, 492);
-            this.txtDni.Name = "txtDni";
-            this.txtDni.Size = new System.Drawing.Size(143, 20);
-            this.txtDni.TabIndex = 50;
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(120, 454);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(143, 20);
-            this.txtNombre.TabIndex = 49;
             // 
             // txtBuscador
             // 
@@ -150,17 +136,6 @@ namespace GUI
             this.rbNombre.TabStop = true;
             this.rbNombre.Text = "Nombre";
             this.rbNombre.UseVisualStyleBackColor = true;
-            // 
-            // lbID
-            // 
-            this.lbID.AutoSize = true;
-            this.lbID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbID.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbID.Location = new System.Drawing.Point(117, 418);
-            this.lbID.Name = "lbID";
-            this.lbID.Size = new System.Drawing.Size(34, 20);
-            this.lbID.TabIndex = 44;
-            this.lbID.Text = "-----";
             // 
             // label7
             // 
@@ -220,6 +195,9 @@ namespace GUI
             // 
             // groupBox
             // 
+            this.groupBox.Controls.Add(this.txtDni);
+            this.groupBox.Controls.Add(this.txtNombre);
+            this.groupBox.Controls.Add(this.lbID);
             this.groupBox.Controls.Add(this.txtCorreo);
             this.groupBox.Controls.Add(this.btnGuardar);
             this.groupBox.Controls.Add(this.label2);
@@ -301,6 +279,31 @@ namespace GUI
             this.label4.TabIndex = 7;
             this.label4.Text = "Correo :";
             // 
+            // txtDni
+            // 
+            this.txtDni.Location = new System.Drawing.Point(100, 95);
+            this.txtDni.Name = "txtDni";
+            this.txtDni.Size = new System.Drawing.Size(143, 23);
+            this.txtDni.TabIndex = 53;
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(100, 57);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(143, 23);
+            this.txtNombre.TabIndex = 52;
+            // 
+            // lbID
+            // 
+            this.lbID.AutoSize = true;
+            this.lbID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbID.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbID.Location = new System.Drawing.Point(97, 21);
+            this.lbID.Name = "lbID";
+            this.lbID.Size = new System.Drawing.Size(34, 20);
+            this.lbID.TabIndex = 51;
+            this.lbID.Text = "-----";
+            // 
             // formClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -310,13 +313,10 @@ namespace GUI
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnListarT);
             this.Controls.Add(this.dgvLista);
-            this.Controls.Add(this.txtDni);
-            this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.txtBuscador);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.rbID);
             this.Controls.Add(this.rbNombre);
-            this.Controls.Add(this.lbID);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.bntBuscar);
@@ -338,13 +338,10 @@ namespace GUI
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnListarT;
         private System.Windows.Forms.DataGridView dgvLista;
-        private System.Windows.Forms.TextBox txtDni;
-        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtBuscador;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.RadioButton rbID;
         private System.Windows.Forms.RadioButton rbNombre;
-        private System.Windows.Forms.Label lbID;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button bntBuscar;
@@ -356,5 +353,8 @@ namespace GUI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtCorreo;
+        private System.Windows.Forms.TextBox txtDni;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.Label lbID;
     }
 }
