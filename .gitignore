@@ -38,3 +38,7 @@ SysRestaurantNorte/SysRestaurantNorte/.vs/SysRestaurantNorte/v16/Server/sqlite3/
 *.ide-wal
 *.ide
 *.ide-wal
+*.ide-shm
+*.ide-shm
+*.ide-wal
+*.ide-shm
