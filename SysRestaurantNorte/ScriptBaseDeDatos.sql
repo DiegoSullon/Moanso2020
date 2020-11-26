@@ -125,6 +125,67 @@ AS
 	SELECT * from Platillo where estPlatillo='1'
 GO
 
+
+/************************************************************************************************************************/
+create table cliente (
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[dniCliente] [nvarchar](50) NOT NULL primary key ,
+	[nombre][nvarchar](50) NOT NULL,
+	--[razonSocial] [nvarchar](50) NULL,
+	[correo][nvarchar](50) unique NULL,
+	--[celular][nvarchar] (50) NOT NULL,
+	--[direccion][nvarchar] (50) NULL,
+	--[fecRegCliente] [date] NOT NULL,
+)
+ALTER TABLE cliente add unique (dniCliente);
+GO
+
+create proc spMostrarCliente
+as 
+select * from cliente 
+go
+
+--Procedimiento almacenado Insertar, agregar
+create proc spInsertarCliente
+@dniCliente varchar(50) ,
+@nombre varchar(50) ,
+--@razonSocial varchar(50) ,
+@correo varchar(50) 
+--@celular varchar (50) ,
+--@direccion varchar (50),
+--@fecRegCliente date
+as
+insert into cliente values (@dniCliente,@nombre,@correo)
+go
+
+create  PROCEDURE [dbo].[spBuscarCliente] 
+  @id int
+  as
+  Begin 
+  Select * from cliente
+  where id= @id
+  end
+GO
+
+--Procedimiento almacenado Editar Modiicar
+create proc spEditarCliente
+@dniCliente varchar(50) ,
+@nombre varchar(50) ,
+@correo varchar(50) 
+as
+update cliente set nombre =@nombre,correo=@correo
+where dniCliente=@dniCliente
+go
+
+
+--Procedimiento almacenado Elimicar
+create proc spEliminarCliente
+@dniCliente varchar(50) 
+as
+delete cliente where dniCliente=@dniCliente
+go
+
+
 /************************************************************************************************************************/
 
 /****** Object: Table [dbo].[Mesa] ******/
@@ -204,66 +265,12 @@ as
 delete Mesa where idMesa=@idMesa
 go
 
-create table cliente (
-	[id] [int] IDENTITY(1,1) NOT NULL,
-	[dniCliente] [int] NOT NULL primary key ,
-	[nombre][nvarchar](50) NOT NULL,
-	[razonSocial] [nvarchar](50) NULL,
-	[correo][nvarchar](50) unique NULL,
-	[celular][nvarchar] (50) NOT NULL,
-	[direccion][nvarchar] (50) NULL,
-	[fecRegCliente] [date] NOT NULL,
-)
-ALTER TABLE cliente add unique (dniCliente);
-GO
-
-create proc spMostrarCliente
-as
-select *from cliente 
-go
-
---Procedimiento almacenado Insertar, agregar
-create proc spInsertarCliente
-@dniCliente int,
-@nombre varchar(50) ,
-@razonSocial varchar(50) ,
-@correo varchar(50) ,
-@celular varchar (50) ,
-@direccion varchar (50),
-@fecRegCliente date
-as
-insert into cliente values (@dniCliente,@nombre,@razonSocial,@correo,@celular,@direccion,@fecRegCliente)
-go
-
-
---Procedimiento almacenado Editar Modiicar
-create proc spEditarCliente
-@dniCliente int,
-@nombre varchar(50) ,
-@razonSocial varchar(50) ,
-@correo varchar(50) ,
-@celular varchar (50) ,
-@direccion varchar (50),
-@fecRegCliente date
-as
-update cliente set nombre =@nombre,razonSocial=@razonSocial,correo=@correo,celular=@celular,direccion=@direccion,fecRegCliente=@fecRegCliente 
-where dniCliente=@dniCliente
-go
-
-
---Procedimiento almacenado Elimicar
-create proc spEliminarCliente
-@dniCliente int
-as
-delete cliente where dniCliente=@dniCliente
-go
-
 
 /*PEDIDO*/
 create table Pedido (
 	[idPedido] [int] primary key IDENTITY(1,1) NOT NULL,
 	[idMesa] [int] NULL  ,
-	[dniCliente] [int] NOT NULL,
+	[dniCliente] nvarchar(50) ,
 	CONSTRAINT [FK_dniCliente] FOREIGN KEY (dniCliente) REFERENCES cliente(dniCliente),
 	CONSTRAINT [FK_idMesa] FOREIGN KEY (idMesa) REFERENCES Mesa(idMesa)
 )
@@ -318,41 +325,6 @@ delete Detalle where idPedido=@idPedido
 go
 
 
-insert into Platillo(nombrePlatillo,descripcion,estPlatillo) 
-values 
-	('Arroz Con Pollo','Riquisimo Arroz Con Pollo',1),
-	('Lomo Saltado','Acompañado de Papas Fritas',1)
-go
-select * from Platillo
-go
-insert into cliente(dniCliente,nombre,razonSocial,correo,celular,direccion,fecRegCliente) values (72918470,'Jose','XD','josema@gmail.com',960492627,'CIX','1/16/2007')
-go
-select * from Cliente
-go
-insert into Mesa(cantAsientos,descripcion,estMesa) values(4,'Mesa Cuadrada',1)
-go
-select * from mesa
-go
-insert into Pedido(idMesa,dniCliente) 
-values
-	(1,72918470),
-	(1,72918470)
-go
-select * from Pedido
-go
-/* PEDIDO 1*/
-insert into Detalle(idPedido,idPlatillo) 
-values
-	(1,2),
-	(1,1)
-go
-/*Pedido 2*/
-insert into Detalle(idPedido,idPlatillo) 
-values 
-	(2,1)
-go
-select * from Detalle
-go
 
 
 /*select Platillo.nombrePlatillo,Platillo.descripcion,
@@ -385,3 +357,42 @@ create table Venta(
 	CONSTRAINT [idMedioDePago] FOREIGN KEY (idMedioDePago) REFERENCES MedioDePago(idMedioDePago)
 )
 GO
+insert into Platillo(nombrePlatillo,descripcion,estPlatillo) 
+values 
+	('Arroz Con Pollo','Riquisimo Arroz Con Pollo',1),
+	('Lomo Saltado','Acompañado de Papas Fritas',1)
+go
+
+
+select * from Platillo
+go
+insert into cliente(dniCliente,nombre,correo) values (72918470,'Jose','josema@gmail.com')
+go
+select * from Cliente
+go
+insert into Mesa(cantAsientos,descripcion,estMesa) values(4,'Mesa Cuadrada',1)
+go
+select * from mesa
+go
+insert into Pedido(idMesa,dniCliente) 
+values
+	(1,'72918470'),
+	(1,'72918470')
+go
+select * from Pedido
+go
+/* PEDIDO 1*/
+insert into Detalle(idPedido,idPlatillo) 
+values
+	(1,2),
+	(1,1)
+go
+/*Pedido 2*/
+insert into Detalle(idPedido,idPlatillo) 
+values 
+	(2,1)
+go
+select * from Detalle
+go
+
+
