@@ -399,7 +399,7 @@ go
 
 /******************************************************************************************************************************/
 create table Rol(
-	idRol[int] IDENTITY(1,1)NOT NULL,
+	idRol[int] IDENTITY(1,1)NOT NULL primary key,
 	descripcion[nvarchar](50) NOT NULL,
 )
 go
@@ -408,12 +408,13 @@ insert into Rol values('Cajero'),('Mesero'),('Gerente'),('Cocina')
 go
 /******************************************************************************************************************************/
 
-create table Empleado (
+create table Empleado(
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[dni] [nvarchar](50) NOT NULL primary key ,
 	[nombre][nvarchar](50) NOT NULL,
 	[correo][nvarchar](50) unique NULL,
-	[idRol][int] NULL,
+	[idRol][int]  NULL,
+	CONSTRAINT [idRol_Empleado] FOREIGN KEY (idRol) REFERENCES Rol(idRol)
 )
 ALTER TABLE Empleado add unique (dni);
 GO
@@ -447,7 +448,7 @@ create proc spEditarEmpleado
 @id int,
 @nombre varchar(50) ,
 @correo varchar(50) ,
-@idRol int
+@idRol int 
 as
 update Empleado set nombre =@nombre,correo=@correo,idRol=@idRol
 where id=@id
