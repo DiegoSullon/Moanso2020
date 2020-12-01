@@ -120,7 +120,7 @@ namespace GUI
                 else msgError("Por favor Ingresar la Contraseña.");
             }
             else msgError("Por favor Ingresar el Usuario.");
-            prueba();
+            //prueba();
         }
         private async Task prueba()
         {
@@ -143,6 +143,8 @@ namespace GUI
             // Create the container and return a container client object
             //BlobContainerClient containerClient = await blobServiceClient.CreateBlobContainerAsync(containerName);
             BlobContainerClient containerClient = blobServiceClient.GetBlobContainerClient(containerName);
+            //MessageBox.Show("container: " + containerClient.Uri);
+            containerClient.CreateIfNotExists();
 
             // Create a local file in the ./data/ directory for uploading and downloading
 
@@ -158,9 +160,8 @@ namespace GUI
             MessageBox.Show(localFilePath);
 
             // Write text to the file
-            File.WriteAllText(localFilePath, "Hello, World!");
+            //File.WriteAllText(localFilePath, "Hello, World!");
 
-            // Get a reference to a blob
             BlobClient blobClient = containerClient.GetBlobClient(fileName);
 
             Console.WriteLine("Uploading to Blob storage as blob:\n\t {0}\n", blobClient.Uri);
@@ -178,16 +179,26 @@ namespace GUI
                 MessageBox.Show("\t" + blobItem.Name);
             }
 
+            SaveFileDialog saveFile = new SaveFileDialog();
+            if (saveFile.ShowDialog() == DialogResult.OK)
+            {
+                localFilePath = saveFile.FileName;
+                //fileName = saveFile.get
+            }
+            MessageBox.Show(localFilePath);
+            // Get a reference to a blob
+            
             // Download the blob to a local file
             // Append the string "DOWNLOADED" before the .txt extension 
             // so you can compare the files in the data directory
-            string downloadFilePath = localFilePath.Replace(".txt", "DOWNLOADED.txt");
+            //string downloadFilePath = localFilePath.Replace(".txt", "DOWNLOADED.txt");
+            string downloadFilePath = localFilePath;
 
-            Console.WriteLine("\nDownloading blob to\n\t{0}\n", downloadFilePath);
+            MessageBox.Show("\nDownloading blob to\n\t{0}\n"+ downloadFilePath);
 
             // Download the blob's contents and save it to a file
             BlobDownloadInfo download = await blobClient.DownloadAsync();
-
+            MessageBox.Show("\nGaaaa\n\t{0}\n" + download.ToString());
             using (FileStream downloadFileStream = File.OpenWrite(downloadFilePath))
             {
                 await download.Content.CopyToAsync(downloadFileStream);

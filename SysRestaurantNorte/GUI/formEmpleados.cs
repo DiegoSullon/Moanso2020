@@ -35,5 +35,10 @@ namespace GUI
             groupBox.Enabled = true;
             LimpiarCampos();
         }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

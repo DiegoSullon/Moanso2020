@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using Entity;
+using Azure.Storage.Blobs;
+using System.IO;
+using System.Windows.Forms;
+using Azure.Storage.Blobs.Models;
 
 namespace Data
 
@@ -139,6 +143,49 @@ namespace Data
             }
             finally { cmd.Connection.Close(); }
             return elimina;
+        }
+
+        //upload cv
+        public async Task uploadCV(OpenFileDialog file)
+        {
+            // Create a BlobServiceClient object which will be used to create a container client
+            BlobServiceClient blobServiceClient = Conexion.Instancia.connectStorage();
+
+            //Create a unique name for the container
+            string containerName = "employeCV";
+            // Create the container and return a container client object
+            BlobContainerClient containerClient = blobServiceClient.GetBlobContainerClient(containerName);
+            containerClient.CreateIfNotExists();
+
+            BlobClient blobClient = containerClient.GetBlobClient(file.SafeFileName);
+
+            // Open the file and upload its data
+            using FileStream uploadFileStream = File.OpenRead(file.FileName);
+            await blobClient.UploadAsync(uploadFileStream, true);
+            uploadFileStream.Close();
+        }
+        //download cv
+        public async Task downloadCV(string downloadFilePath, string fileName)
+        {
+            // Create a BlobServiceClient object which will be used to create a container client
+            BlobServiceClient blobServiceClient = Conexion.Instancia.connectStorage();
+
+            //Create a unique name for the container
+            string containerName = "employeCV";
+            // Create the container and return a container client object
+            BlobContainerClient containerClient = blobServiceClient.GetBlobContainerClient(containerName);
+            containerClient.CreateIfNotExists();
+
+            BlobClient blobClient = containerClient.GetBlobClient(fileName);
+
+            // Download the blob's contents and save it to a file
+            BlobDownloadInfo download = await blobClient.DownloadAsync();
+            MessageBox.Show("\nGaaaa\n\t{0}\n" + download.ToString());
+            using (FileStream downloadFileStream = File.OpenWrite(downloadFilePath))
+            {
+                await download.Content.CopyToAsync(downloadFileStream);
+                downloadFileStream.Close();
+            }
         }
 
     }
