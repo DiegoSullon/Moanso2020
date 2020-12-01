@@ -15,7 +15,7 @@ namespace Controller
         #region singleton
         //patron de Diseño Singleton
         private static readonly logplatillo _instancia = new logplatillo();
-        public static logplatillo Instancia
+        public static logplatillo instance
         {
             get { return logplatillo._instancia; }
         }

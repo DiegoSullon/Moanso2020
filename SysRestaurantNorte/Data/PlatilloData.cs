@@ -38,6 +38,7 @@ namespace Data
                     PLA.name = dr["nombrePlatillo"].ToString();
                     PLA.description = dr["descripcion"].ToString();
                     PLA.state = Convert.ToBoolean(dr["estPlatillo"]);
+                    lista.Add(PLA);
                 }
             }
             catch (Exception e)

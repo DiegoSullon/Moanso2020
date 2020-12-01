@@ -42,6 +42,7 @@ namespace GUI
             this.bntBuscar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.groupBox = new System.Windows.Forms.GroupBox();
+            this.spnPrecio = new System.Windows.Forms.NumericUpDown();
             this.cbEstado = new System.Windows.Forms.CheckBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,7 +52,6 @@ namespace GUI
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnEditar = new System.Windows.Forms.Button();
-            this.spnPrecio = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spnPrecio)).BeginInit();
@@ -62,7 +62,7 @@ namespace GUI
             this.btnListarT.BackColor = System.Drawing.Color.DarkOrange;
             this.btnListarT.FlatAppearance.BorderSize = 0;
             this.btnListarT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnListarT.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnListarT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnListarT.ForeColor = System.Drawing.Color.White;
             this.btnListarT.Location = new System.Drawing.Point(503, 137);
             this.btnListarT.Name = "btnListarT";
@@ -70,6 +70,7 @@ namespace GUI
             this.btnListarT.TabIndex = 38;
             this.btnListarT.Text = "LISTAR TODO";
             this.btnListarT.UseVisualStyleBackColor = false;
+            this.btnListarT.Click += new System.EventHandler(this.btnListarT_Click);
             // 
             // dgvLista
             // 
@@ -133,22 +134,22 @@ namespace GUI
             // lbID
             // 
             this.lbID.AutoSize = true;
-            this.lbID.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbID.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lbID.Location = new System.Drawing.Point(117, 401);
             this.lbID.Name = "lbID";
-            this.lbID.Size = new System.Drawing.Size(33, 18);
+            this.lbID.Size = new System.Drawing.Size(34, 20);
             this.lbID.TabIndex = 29;
             this.lbID.Text = "-----";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial Rounded MT Bold", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label7.Location = new System.Drawing.Point(177, 36);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(471, 33);
+            this.label7.Size = new System.Drawing.Size(456, 33);
             this.label7.TabIndex = 28;
             this.label7.Text = "PLATILLOS DEL RESTAURANTE";
             // 
@@ -157,7 +158,7 @@ namespace GUI
             this.btnNuevo.BackColor = System.Drawing.Color.Green;
             this.btnNuevo.FlatAppearance.BorderSize = 0;
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevo.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnNuevo.Location = new System.Drawing.Point(676, 168);
             this.btnNuevo.Name = "btnNuevo";
@@ -172,7 +173,7 @@ namespace GUI
             this.bntBuscar.BackColor = System.Drawing.Color.DarkOrange;
             this.bntBuscar.FlatAppearance.BorderSize = 0;
             this.bntBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bntBuscar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bntBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bntBuscar.ForeColor = System.Drawing.Color.White;
             this.bntBuscar.Location = new System.Drawing.Point(258, 136);
             this.bntBuscar.Name = "bntBuscar";
@@ -180,13 +181,14 @@ namespace GUI
             this.bntBuscar.TabIndex = 26;
             this.bntBuscar.Text = "BUSCAR";
             this.bntBuscar.UseVisualStyleBackColor = false;
+            this.bntBuscar.Click += new System.EventHandler(this.formPlatillos_Load);
             // 
             // btnEliminar
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnEliminar.FlatAppearance.BorderSize = 0;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnEliminar.Location = new System.Drawing.Point(676, 234);
             this.btnEliminar.Name = "btnEliminar";
@@ -194,6 +196,7 @@ namespace GUI
             this.btnEliminar.TabIndex = 25;
             this.btnEliminar.Text = "ELIMINAR";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // groupBox
             // 
@@ -215,6 +218,13 @@ namespace GUI
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Datos Del Platillo";
             // 
+            // spnPrecio
+            // 
+            this.spnPrecio.Location = new System.Drawing.Point(98, 93);
+            this.spnPrecio.Name = "spnPrecio";
+            this.spnPrecio.Size = new System.Drawing.Size(143, 23);
+            this.spnPrecio.TabIndex = 21;
+            // 
             // cbEstado
             // 
             this.cbEstado.AutoSize = true;
@@ -230,7 +240,7 @@ namespace GUI
             this.btnGuardar.BackColor = System.Drawing.Color.DarkOrange;
             this.btnGuardar.FlatAppearance.BorderSize = 0;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnGuardar.Location = new System.Drawing.Point(642, 58);
             this.btnGuardar.Name = "btnGuardar";
@@ -238,37 +248,38 @@ namespace GUI
             this.btnGuardar.TabIndex = 0;
             this.btnGuardar.Text = "GUARDAR";
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label2.Location = new System.Drawing.Point(5, 55);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 22);
+            this.label2.Size = new System.Drawing.Size(89, 24);
             this.label2.TabIndex = 5;
             this.label2.Text = "Nombre :";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label3.Location = new System.Drawing.Point(6, 93);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 22);
+            this.label3.Size = new System.Drawing.Size(79, 24);
             this.label3.TabIndex = 6;
             this.label3.Text = "Precio : ";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label1.Location = new System.Drawing.Point(6, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 22);
+            this.label1.Size = new System.Drawing.Size(37, 24);
             this.label1.TabIndex = 4;
             this.label1.Text = "ID :";
             // 
@@ -282,21 +293,21 @@ namespace GUI
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label5.Location = new System.Drawing.Point(293, 57);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(0, 22);
+            this.label5.Size = new System.Drawing.Size(0, 24);
             this.label5.TabIndex = 8;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label4.Location = new System.Drawing.Point(293, 23);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(130, 22);
+            this.label4.Size = new System.Drawing.Size(120, 24);
             this.label4.TabIndex = 7;
             this.label4.Text = "Descripcion :";
             // 
@@ -305,7 +316,7 @@ namespace GUI
             this.btnEditar.BackColor = System.Drawing.Color.MidnightBlue;
             this.btnEditar.FlatAppearance.BorderSize = 0;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnEditar.Location = new System.Drawing.Point(676, 297);
             this.btnEditar.Name = "btnEditar";
@@ -313,13 +324,7 @@ namespace GUI
             this.btnEditar.TabIndex = 39;
             this.btnEditar.Text = "EDITAR";
             this.btnEditar.UseVisualStyleBackColor = false;
-            // 
-            // spnPrecio
-            // 
-            this.spnPrecio.Location = new System.Drawing.Point(98, 93);
-            this.spnPrecio.Name = "spnPrecio";
-            this.spnPrecio.Size = new System.Drawing.Size(143, 23);
-            this.spnPrecio.TabIndex = 21;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // formPlatillos
             // 

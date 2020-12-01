@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using Entity;
 using Data;
 
@@ -28,6 +29,7 @@ namespace Controller
         {
             try
             {
+
                 EmployeData.Instancia.insertar(SEC);
             }
             catch (Exception e)
@@ -37,10 +39,14 @@ namespace Controller
             }
 
         }
-        public void editarSector(Employe SEC)
+        public bool editarSector(Employe SEC)
         {
             try
             {
+                if (!isEmail(SEC.email))
+                {
+                    return false;
+                }
                 EmployeData.Instancia.editar(SEC);
             }
             catch (Exception e)
@@ -48,6 +54,7 @@ namespace Controller
                 throw e;
 
             }
+            return true;
 
         }
         public void eliminarSector(int id)
@@ -62,6 +69,26 @@ namespace Controller
 
             }
 
+        }
+        private Boolean isEmail(String email)
+        {
+            String expresion;
+            expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+            if (Regex.IsMatch(email, expresion))
+            {
+                if (Regex.Replace(email, expresion, String.Empty).Length == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
