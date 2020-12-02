@@ -152,6 +152,7 @@ namespace GUI
             string fileName = string.Empty;
 
             OpenFileDialog openFile = new OpenFileDialog();
+            openFile.Filter = "PDF files (*.pdf)|*.pdf;";
             if (openFile.ShowDialog() == DialogResult.OK)
             {
                 localFilePath = openFile.FileName;
@@ -193,6 +194,8 @@ namespace GUI
             // so you can compare the files in the data directory
             //string downloadFilePath = localFilePath.Replace(".txt", "DOWNLOADED.txt");
             string downloadFilePath = localFilePath;
+            downloadFilePath = downloadFilePath.Replace(".pdf","");
+            downloadFilePath = downloadFilePath + ".pdf";
 
             MessageBox.Show("\nDownloading blob to\n\t{0}\n"+ downloadFilePath);
 

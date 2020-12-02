@@ -27,25 +27,29 @@ namespace Data
             List<Client> lista = new List<Client>();
             try {
                 SqlConnection cn = Conexion.Instancia.Conectar();
+                MessageBox.Show("1");
                 cn.Open();
-                cmd = new SqlCommand("spMostrarCliente", cn);
+                MessageBox.Show("2");
+                cmd = new SqlCommand("spListarCliente", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
                     Client cli = new Client();
-                    cli.id = Convert.ToInt32(dr["id"]);
-                    cli.dni = dr["dniCliente"].ToString();
-                    cli.name = dr["nombre"].ToString();
-                    cli.email = dr["correo"].ToString();
+                    cli.id = Convert.ToInt32(dr["ClienteID"]);
+                    cli.dni = dr["DNI"].ToString();
+                    cli.name = dr["Nombre"].ToString();
+                    cli.email = dr["Correo"].ToString();
                     lista.Add(cli);
                 }
             } 
             catch ( Exception e) {
-                Console.WriteLine("Error en la conexion");
+                MessageBox.Show("Error: "+e);
                 throw e;
             }
-            finally { cmd.Connection.Close(); }
+            finally { 
+                cmd.Connection.Close(); 
+            }
             return lista;
 
         }

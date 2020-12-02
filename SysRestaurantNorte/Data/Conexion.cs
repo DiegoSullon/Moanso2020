@@ -13,15 +13,20 @@ namespace Data
     {
         //patron de Diseño Singleton
         private static readonly Conexion _instancia = new Conexion();
+        public static readonly SqlConnection connection = _instancia.Conectar();
         public static Conexion Instancia
         {
             get { return Conexion._instancia; }
         }
-    
+        public static SqlConnection Connection
+        {
+            get { return connection; }
+        }
+
         public SqlConnection Conectar()
         {
             SqlConnection cn = new SqlConnection();
-            cn.ConnectionString = "Data Source=DESKTOP-FV5LUU9\\SQLEXPRESS; Initial Catalog=RestaurantNorte; Integrated Security=true";
+            cn.ConnectionString = "Server=tcp:restaurantnorte.database.windows.net,1433;Initial Catalog=RestaurantNorte;Persist Security Info=False;User ID=sysrestaurantnorte;Password=Moanso2020;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
             return cn;
         }
