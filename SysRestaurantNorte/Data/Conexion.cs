@@ -36,7 +36,7 @@ namespace Data
 
 
             // Create a BlobServiceClient object which will be used to create a container client
-            BlobServiceClient blobServiceClient = new BlobServiceClient(connectionString);
+            BlobServiceClient blobServiceClient = new BlobServiceClient("DefaultEndpointsProtocol=https;AccountName=restaurantnorteblob;AccountKey=G/W1+gDwqqPpM2Xo5m+UfKbdiC9/qFegrVqR7pvHmIHbQL8Q3uQqSTzrZgqacdee3rAfqZokV3WYtx3es0hY2g==;EndpointSuffix=core.windows.net");
 
             return blobServiceClient;
         }

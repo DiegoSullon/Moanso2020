@@ -5,7 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using Entity;
+using System.IO;
 using Data;
+using System.Windows.Forms;
 
 namespace Controller
 {
@@ -20,44 +22,42 @@ namespace Controller
         }
         #endregion singleton
 
-        public List<Employe> listarSectors()
+        public List<Employe> listar()
         {
             return EmployeData.Instancia.listar();
         }
 
-        public void insertarSector(Employe SEC)
+        public async Task insertarAsync(Employe SEC, OpenFileDialog file)
         {
             try
             {
-
+                await EmployeData.Instancia.uploadCV(file);
                 EmployeData.Instancia.insertar(SEC);
             }
             catch (Exception e)
             {
+                MessageBox.Show("Error: " + e);
                 throw e;
 
             }
 
         }
-        public bool editarSector(Employe SEC)
+        public bool editar(Employe SEC)
         {
             try
             {
-                if (!isEmail(SEC.email))
-                {
-                    return false;
-                }
                 EmployeData.Instancia.editar(SEC);
             }
             catch (Exception e)
             {
+                MessageBox.Show("Error: " + e);
                 throw e;
 
             }
             return true;
 
         }
-        public void eliminarSector(int id)
+        public void eliminar(int id)
         {
             try
             {
@@ -65,6 +65,21 @@ namespace Controller
             }
             catch (Exception e)
             {
+                MessageBox.Show("Error: " + e);
+                throw e;
+
+            }
+
+        }
+        public async Task downloadCvAsync(string downloadFilePath, string fileName)
+        {
+            try
+            {
+               await EmployeData.Instancia.downloadCV(downloadFilePath, fileName);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error: " + e);
                 throw e;
 
             }

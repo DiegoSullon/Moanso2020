@@ -38,17 +38,20 @@ namespace Data
                 while (dr.Read())
                 {
                     Employe cli = new Employe();
-                    cli.id = Convert.ToInt32(dr["id"]);
-                    cli.dni = dr["dniCliente"].ToString();
-                    cli.name = dr["nombre"].ToString();
-                    cli.email = dr["correo"].ToString();
-                    cli.idRol = Convert.ToInt32(dr["idRol"]);
+                    cli.id = Convert.ToInt32(dr["EmpleadoID"]);
+                    cli.name = dr["Nombre"].ToString();
+                    cli.idRol = Convert.ToInt32(dr["RollID"]);
+                    cli.name = dr["Apellido"].ToString();
+                    cli.dni = dr["DNI"].ToString();
+                    cli.cv = dr["CV"].ToString();
+                    cli.telefono = dr["Telefono"].ToString();
+                    cli.fNacimiento = Convert.ToDateTime(dr["FechaNacimiento"]);
                     lista.Add(cli);
                 }
             }
             catch (Exception e)
             {
-                Console.WriteLine("Error en la conexion");
+                MessageBox.Show("Error: " + e);
                 throw e;
             }
             finally { cmd.Connection.Close(); }
@@ -68,11 +71,13 @@ namespace Data
                 cmd = new SqlCommand("spInsertaEmpleado", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@id", cli.id);
-                cmd.Parameters.AddWithValue("@dniCliente", cli.dni);
-                cmd.Parameters.AddWithValue("@nombre", cli.name);
-                cmd.Parameters.AddWithValue("@correo", cli.email);
-                cmd.Parameters.AddWithValue("@idRol", cli.idRol);
+                cmd.Parameters.AddWithValue("@Nombre", cli.name);
+                cmd.Parameters.AddWithValue("@RolID", cli.idRol);
+                cmd.Parameters.AddWithValue("@Apellido", cli.apellido);
+                cmd.Parameters.AddWithValue("@DNI", cli.dni);
+                cmd.Parameters.AddWithValue("@CV", cli.cv);
+                cmd.Parameters.AddWithValue("@Telefono", cli.telefono);
+                cmd.Parameters.AddWithValue("@FechaNacimiento", cli.fNacimiento);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
@@ -82,6 +87,7 @@ namespace Data
             }
             catch (Exception e)
             {
+                MessageBox.Show("Error: " + e);
                 throw e;
             }
             finally { cmd.Connection.Close(); }
@@ -98,11 +104,14 @@ namespace Data
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("spEditarEmpleado", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id", cli.id);
-                cmd.Parameters.AddWithValue("@dniCliente", cli.dni);
-                cmd.Parameters.AddWithValue("@nombre", cli.name);
-                cmd.Parameters.AddWithValue("@correo", cli.email);
-                cmd.Parameters.AddWithValue("@idRol", cli.idRol);
+                cmd.Parameters.AddWithValue("@EmpleadoID", cli.id);
+                cmd.Parameters.AddWithValue("@Nombre", cli.name);
+                cmd.Parameters.AddWithValue("@RolID", cli.idRol);
+                cmd.Parameters.AddWithValue("@Apellido", cli.apellido);
+                cmd.Parameters.AddWithValue("@DNI", cli.dni);
+                cmd.Parameters.AddWithValue("@CV", cli.cv);
+                cmd.Parameters.AddWithValue("@Telefono", cli.telefono);
+                cmd.Parameters.AddWithValue("@FechaNacimiento", cli.fNacimiento);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
@@ -112,6 +121,7 @@ namespace Data
             }
             catch (Exception e)
             {
+                MessageBox.Show("Error: " + e);
                 throw e;
             }
             finally { cmd.Connection.Close(); }
@@ -129,7 +139,7 @@ namespace Data
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("spEliminarEmpleado", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@EmpleadoID",id);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
@@ -139,6 +149,7 @@ namespace Data
             }
             catch (Exception e)
             {
+                MessageBox.Show("Error: " + e);
                 throw e;
             }
             finally { cmd.Connection.Close(); }

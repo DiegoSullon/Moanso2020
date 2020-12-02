@@ -55,6 +55,7 @@ namespace GUI
             client.email = txtCorreo.Text;
             if (edit)
             {
+                client.id = Convert.ToInt32(lbID.Text);
                 ClientController.Instancia.editarSector(client);
 
 
@@ -83,7 +84,6 @@ namespace GUI
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            string id = "";
             DataGridViewRow filaActual = dgvLista.CurrentRow;
             lbID.Text = filaActual.Cells[0].Value.ToString();
             txtDni.Text = filaActual.Cells[1].Value.ToString();
