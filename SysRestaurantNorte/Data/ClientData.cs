@@ -37,9 +37,14 @@ namespace Data
                 {
                     Client cli = new Client();
                     cli.id = Convert.ToInt32(dr["ClienteID"]);
+                    cli.ciudadId = Convert.ToInt32(dr["CiudadID"]);
+                    cli.tipoClienteId = Convert.ToInt32(dr["TipoclienteID"]);
                     cli.dni = dr["DNI"].ToString();
                     cli.name = dr["Nombre"].ToString();
+                    cli.apellidos = dr["Apellidos"].ToString();
                     cli.email = dr["Correo"].ToString();
+                    cli.ruc = dr["RUC"].ToString();
+                    cli.fNacmiento =Convert.ToDateTime(dr["FechaNacimiento"]);
                     lista.Add(cli);
                 }
             } 
@@ -63,12 +68,17 @@ namespace Data
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spInsertarCliente", cn);
+                cmd = new SqlCommand("spInsertaCliente", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@dniCliente", cli.dni);
-                cmd.Parameters.AddWithValue("@nombre", cli.name);
-                cmd.Parameters.AddWithValue("@correo", cli.email);
+                cmd.Parameters.AddWithValue("@CiudadID", cli.ciudadId);
+                cmd.Parameters.AddWithValue("@Nombre", cli.name);
+                cmd.Parameters.AddWithValue("@TipoclienteID", cli.tipoClienteId);
+                cmd.Parameters.AddWithValue("@Apellidos", cli.apellidos);
+                cmd.Parameters.AddWithValue("@DNI", cli.dni);
+                cmd.Parameters.AddWithValue("@RUC", cli.ruc);
+                cmd.Parameters.AddWithValue("@Correo", cli.email);
+                cmd.Parameters.AddWithValue("@FechaNacimiento", cli.fNacmiento);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
@@ -92,11 +102,17 @@ namespace Data
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spEditarCliente", cn);
+                cmd = new SqlCommand("spEditaCliente", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@dniCliente", cli.dni);
-                cmd.Parameters.AddWithValue("@nombre", cli.name);
-                cmd.Parameters.AddWithValue("@correo", cli.email);
+                cmd.Parameters.AddWithValue("@ClienteID", cli.id);
+                cmd.Parameters.AddWithValue("@CiudadID", cli.ciudadId);
+                cmd.Parameters.AddWithValue("@Nombre", cli.name);
+                cmd.Parameters.AddWithValue("@TipoclienteID", cli.tipoClienteId);
+                cmd.Parameters.AddWithValue("@Apellidos", cli.apellidos);
+                cmd.Parameters.AddWithValue("@DNI", cli.dni);
+                cmd.Parameters.AddWithValue("@RUC", cli.ruc);
+                cmd.Parameters.AddWithValue("@Correo", cli.email);
+                cmd.Parameters.AddWithValue("@FechaNacimiento", cli.fNacmiento);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
@@ -114,16 +130,16 @@ namespace Data
 
 
         //Eliminar
-        public Boolean eliminar(string dni)
+        public Boolean eliminar(int id)
         {
             SqlCommand cmd = null;
             Boolean elimina = false;
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spEliminarCliente", cn);
+                cmd = new SqlCommand("spEliminaCliente", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@dniCliente", dni);
+                cmd.Parameters.AddWithValue("@ClienteID", id);;
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)

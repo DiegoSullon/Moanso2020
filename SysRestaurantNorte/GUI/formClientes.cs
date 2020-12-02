@@ -73,11 +73,11 @@ namespace GUI
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            string dni = "";
+            int id = 0;
             DataGridViewRow fila = dgvLista.CurrentRow;
-            dni = fila.Cells[1].Value.ToString();
+            id = Convert.ToInt32(fila.Cells[0].Value);
             //MessageBox.Show(fila.Cells[0].Value.ToString() );
-            ClientController.Instancia.eliminarSector(dni);
+            ClientController.Instancia.eliminarSector(id);
             ListClient();
         }
 
