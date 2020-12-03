@@ -44,12 +44,18 @@
   <ItemGroup>
     <Compile Include="ClientController.cs" />
     <Compile Include="EmployeController.cs" />
+    <Compile Include="IngredientesController.cs" />
+    <Compile Include="IngredientesPlatilloController.cs" />
     <Compile Include="OrderController.cs" />
     <Compile Include="PlatilloController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TableController.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Data\Data.csproj">
+      <Project>{adaf10d5-afea-4942-aee1-b0938d79ff6e}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Entity\Entities.csproj">
       <Project>{6c3b1068-694b-4efc-93be-82496f782755}</Project>
       <Name>Entities</Name>

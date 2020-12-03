@@ -103,7 +103,8 @@ namespace Data
                 cmd.Parameters.AddWithValue("@Table", "Platillo");
                 cmd.Parameters.AddWithValue("@Column", "PlatilloID");
                 SqlDataReader dr = cmd.ExecuteReader();
-                id = dr.GetInt32(0);
+                while (dr.Read()) { id = dr.GetInt32(0); }
+                
 
                 cmd = new SqlCommand("spInsertaIngredienteplatillo", cn);
                 cmd.CommandType = CommandType.StoredProcedure;

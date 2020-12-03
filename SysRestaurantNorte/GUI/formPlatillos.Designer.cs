@@ -47,7 +47,7 @@ namespace GUI
             this.rbBebida = new System.Windows.Forms.RadioButton();
             this.rbEntrada = new System.Windows.Forms.RadioButton();
             this.rbSegundo = new System.Windows.Forms.RadioButton();
-            this.spnPrecio = new System.Windows.Forms.NumericUpDown();
+            this.cbPrecio = new System.Windows.Forms.NumericUpDown();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -61,7 +61,7 @@ namespace GUI
             this.groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIngredientes)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spnPrecio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbPrecio)).BeginInit();
             this.SuspendLayout();
             // 
             // btnListarT
@@ -114,9 +114,9 @@ namespace GUI
             this.label9.Location = new System.Drawing.Point(45, 132);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(108, 20);
+            this.label9.Size = new System.Drawing.Size(75, 20);
             this.label9.TabIndex = 32;
-            this.label9.Text = "Buscar por:";
+            this.label9.Text = "Buscar:";
             // 
             // lbID
             // 
@@ -196,7 +196,7 @@ namespace GUI
             this.groupBox.Controls.Add(this.label6);
             this.groupBox.Controls.Add(this.dgvIngredientes);
             this.groupBox.Controls.Add(this.groupBox1);
-            this.groupBox.Controls.Add(this.spnPrecio);
+            this.groupBox.Controls.Add(this.cbPrecio);
             this.groupBox.Controls.Add(this.txtNombre);
             this.groupBox.Controls.Add(this.btnGuardar);
             this.groupBox.Controls.Add(this.label2);
@@ -299,13 +299,13 @@ namespace GUI
             this.rbSegundo.Text = "Segundo";
             this.rbSegundo.UseVisualStyleBackColor = true;
             // 
-            // spnPrecio
+            // cbPrecio
             // 
-            this.spnPrecio.Location = new System.Drawing.Point(126, 104);
-            this.spnPrecio.Margin = new System.Windows.Forms.Padding(4);
-            this.spnPrecio.Name = "spnPrecio";
-            this.spnPrecio.Size = new System.Drawing.Size(189, 27);
-            this.spnPrecio.TabIndex = 21;
+            this.cbPrecio.Location = new System.Drawing.Point(126, 104);
+            this.cbPrecio.Margin = new System.Windows.Forms.Padding(4);
+            this.cbPrecio.Name = "cbPrecio";
+            this.cbPrecio.Size = new System.Drawing.Size(189, 27);
+            this.cbPrecio.TabIndex = 21;
             // 
             // btnGuardar
             // 
@@ -448,7 +448,7 @@ namespace GUI
             ((System.ComponentModel.ISupportInitialize)(this.dgvIngredientes)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spnPrecio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbPrecio)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -475,7 +475,7 @@ namespace GUI
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.NumericUpDown spnPrecio;
+        private System.Windows.Forms.NumericUpDown cbPrecio;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView dgvIngredientes;

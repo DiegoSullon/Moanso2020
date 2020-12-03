@@ -140,6 +140,7 @@
     <Compile Include="ClientData.cs" />
     <Compile Include="EmployeData.cs" />
     <Compile Include="IngredientesData.cs" />
+    <Compile Include="IngredientesPlatilloData.cs" />
     <Compile Include="OrderData.cs" />
     <Compile Include="PlatilloData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

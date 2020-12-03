@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Data
 {
-    class IngredientesData
+    public class IngredientesData
     {
         //patron de Diseño Singleton
         private static readonly IngredientesData _instancia = new IngredientesData();
@@ -34,8 +34,8 @@ namespace Data
                 while (dr.Read())
                 {
                     Ingrediente ing = new Ingrediente();
-                    ing.id = Convert.ToInt32(dr["CiudadID"]);
-                    ing.name = dr["Nombre"].ToString();
+                    ing.id = Convert.ToInt32(dr["IngredientesID"]);
+                    ing.name = dr["NombreIngrediente"].ToString();
                     lista.Add(ing);
                 }
             }
