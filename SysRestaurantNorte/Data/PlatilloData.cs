@@ -80,7 +80,7 @@ namespace Data
         {
             SqlCommand cmd = null;
             Boolean inserted = false;
-            int id;
+            int id=0;
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
