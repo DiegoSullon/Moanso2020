@@ -46,7 +46,6 @@ namespace Data
                     //MessageBox.Show(PLA.name);
                 }
                 dr.Close();
-                MessageBox.Show(lista.Count.ToString());
                 for (int i=0;i<lista.Count;i++)
                 {
                     cmd = new SqlCommand("spListaIngredienteplatillo", cn);
@@ -60,11 +59,9 @@ namespace Data
                         ing.name = dr2["NombreIngrediente"].ToString();
                         lista[i].ingredientes.Add(ing);
                         //MessageBox.Show(lista[i].name);
-                        MessageBox.Show(i.ToString());
                     }
                     dr2.Close();
                 }
-               
             }
             catch (Exception e)
             {

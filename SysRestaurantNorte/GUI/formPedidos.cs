@@ -36,11 +36,11 @@ namespace GUI
         private void combobox()
         {
             //Build a list
-            var dataSource = RolData.Instancia.listar();
+            var dataSource = TableController.instance.list();
 
             //Setup data binding
             this.boxMesa.DataSource = dataSource;
-            this.boxMesa.DisplayMember = "name";
+            this.boxMesa.DisplayMember = "id";
             this.boxMesa.ValueMember = "id";
 
             // make it readonly
