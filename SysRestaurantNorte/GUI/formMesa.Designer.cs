@@ -250,7 +250,7 @@ namespace GUI
             // 
             this.cbEstado.AutoSize = true;
             this.cbEstado.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbEstado.Location = new System.Drawing.Point(683, 60);
+            this.cbEstado.Location = new System.Drawing.Point(673, 57);
             this.cbEstado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbEstado.Name = "cbEstado";
             this.cbEstado.Size = new System.Drawing.Size(105, 27);
