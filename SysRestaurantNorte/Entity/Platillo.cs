@@ -18,5 +18,10 @@ namespace Entity
         public List<Ingrediente> ingredientes { get; set; }
         //variable auxiliar, no ingresar a db
         public int count { get; set; }
+
+        public Platillo()
+        {
+            this.ingredientes = new List<Ingrediente>();
+        }
     }
 }
