@@ -35,29 +35,27 @@ namespace GUI
             this.dgvListaPlatillo = new System.Windows.Forms.DataGridView();
             this.groupBox = new System.Windows.Forms.GroupBox();
             this.btnBuscarPlatillo = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numberCount = new System.Windows.Forms.NumericUpDown();
             this.button1 = new System.Windows.Forms.Button();
             this.txtBuscarPlatillo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textCliente = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.btnCrear_Pedido = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.listBox = new System.Windows.Forms.ListBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.dgvListaDetalle = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             this.boxMesa = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaPlatillo)).BeginInit();
             this.groupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numberCount)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListaDetalle)).BeginInit();
             this.SuspendLayout();
             // 
             // label7
@@ -75,7 +73,7 @@ namespace GUI
             // 
             this.dgvListaCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaCliente.Location = new System.Drawing.Point(220, 123);
-            this.dgvListaCliente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvListaCliente.Margin = new System.Windows.Forms.Padding(2);
             this.dgvListaCliente.Name = "dgvListaCliente";
             this.dgvListaCliente.RowHeadersWidth = 51;
             this.dgvListaCliente.RowTemplate.Height = 24;
@@ -104,7 +102,7 @@ namespace GUI
             // groupBox
             // 
             this.groupBox.Controls.Add(this.btnBuscarPlatillo);
-            this.groupBox.Controls.Add(this.numericUpDown1);
+            this.groupBox.Controls.Add(this.numberCount);
             this.groupBox.Controls.Add(this.button1);
             this.groupBox.Controls.Add(this.txtBuscarPlatillo);
             this.groupBox.Controls.Add(this.label1);
@@ -133,14 +131,14 @@ namespace GUI
             this.btnBuscarPlatillo.Text = "BUSCAR";
             this.btnBuscarPlatillo.UseVisualStyleBackColor = false;
             // 
-            // numericUpDown1
+            // numberCount
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(348, 164);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(72, 23);
-            this.numericUpDown1.TabIndex = 60;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.numberCount.Location = new System.Drawing.Point(348, 164);
+            this.numberCount.Margin = new System.Windows.Forms.Padding(2);
+            this.numberCount.Name = "numberCount";
+            this.numberCount.Size = new System.Drawing.Size(72, 23);
+            this.numberCount.TabIndex = 60;
+            this.numberCount.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -201,12 +199,12 @@ namespace GUI
             this.label6.TabIndex = 56;
             this.label6.Text = "ClienteID: ";
             // 
-            // textBox1
+            // textCliente
             // 
-            this.textBox1.Location = new System.Drawing.Point(125, 101);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(72, 20);
-            this.textBox1.TabIndex = 57;
+            this.textCliente.Location = new System.Drawing.Point(125, 101);
+            this.textCliente.Name = "textCliente";
+            this.textCliente.Size = new System.Drawing.Size(72, 20);
+            this.textCliente.TabIndex = 57;
             // 
             // textBox2
             // 
@@ -253,14 +251,14 @@ namespace GUI
             this.btnCrear_Pedido.TabIndex = 55;
             this.btnCrear_Pedido.Text = "Crear Pedido";
             this.btnCrear_Pedido.UseVisualStyleBackColor = false;
+            this.btnCrear_Pedido.Click += new System.EventHandler(this.btnCrear_Pedido_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.listBox);
             this.groupBox1.Controls.Add(this.btnCrear_Pedido);
             this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.dgvListaDetalle);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.groupBox1.Location = new System.Drawing.Point(463, 126);
@@ -269,6 +267,15 @@ namespace GUI
             this.groupBox1.TabIndex = 58;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalle Pedido";
+            // 
+            // listBox
+            // 
+            this.listBox.FormattingEnabled = true;
+            this.listBox.ItemHeight = 17;
+            this.listBox.Location = new System.Drawing.Point(15, 22);
+            this.listBox.Name = "listBox";
+            this.listBox.Size = new System.Drawing.Size(297, 378);
+            this.listBox.TabIndex = 60;
             // 
             // button2
             // 
@@ -283,15 +290,7 @@ namespace GUI
             this.button2.TabIndex = 59;
             this.button2.Text = "ELIMINAR";
             this.button2.UseVisualStyleBackColor = false;
-            // 
-            // dgvListaDetalle
-            // 
-            this.dgvListaDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaDetalle.Location = new System.Drawing.Point(15, 23);
-            this.dgvListaDetalle.Name = "dgvListaDetalle";
-            this.dgvListaDetalle.RowHeadersWidth = 51;
-            this.dgvListaDetalle.Size = new System.Drawing.Size(297, 384);
-            this.dgvListaDetalle.TabIndex = 51;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label4
             // 
@@ -303,25 +302,11 @@ namespace GUI
             this.label4.Size = new System.Drawing.Size(0, 24);
             this.label4.TabIndex = 8;
             // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button3.Location = new System.Drawing.Point(155, 160);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(72, 32);
-            this.button3.TabIndex = 40;
-            this.button3.Text = "ELIMINAR";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
             // boxMesa
             // 
             this.boxMesa.FormattingEnabled = true;
             this.boxMesa.Location = new System.Drawing.Point(125, 137);
-            this.boxMesa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.boxMesa.Margin = new System.Windows.Forms.Padding(2);
             this.boxMesa.Name = "boxMesa";
             this.boxMesa.Size = new System.Drawing.Size(72, 21);
             this.boxMesa.TabIndex = 59;
@@ -337,7 +322,7 @@ namespace GUI
             this.Controls.Add(this.btnBuscarCliente);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textCliente);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dgvListaCliente);
             this.Controls.Add(this.label3);
@@ -350,10 +335,9 @@ namespace GUI
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaPlatillo)).EndInit();
             this.groupBox.ResumeLayout(false);
             this.groupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numberCount)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListaDetalle)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -367,21 +351,20 @@ namespace GUI
         private System.Windows.Forms.GroupBox groupBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textCliente;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnBuscarCliente;
         private System.Windows.Forms.Button btnCrear_Pedido;
         private System.Windows.Forms.Button btnBuscarPlatillo;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numberCount;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtBuscarPlatillo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DataGridView dgvListaDetalle;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ComboBox boxMesa;
+        private System.Windows.Forms.ListBox listBox;
     }
 }
