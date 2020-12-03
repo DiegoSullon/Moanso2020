@@ -45,6 +45,7 @@
     <Compile Include="Client.cs" />
     <Compile Include="Employe.cs" />
     <Compile Include="Ingrediente.cs" />
+    <Compile Include="IngredientePlatillo.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Platillo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

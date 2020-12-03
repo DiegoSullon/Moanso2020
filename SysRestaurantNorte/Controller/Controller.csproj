@@ -44,6 +44,8 @@
   <ItemGroup>
     <Compile Include="ClientController.cs" />
     <Compile Include="EmployeController.cs" />
+    <Compile Include="IngredientesController.cs" />
+    <Compile Include="IngredientesPlatilloController.cs" />
     <Compile Include="OrderController.cs" />
     <Compile Include="PlatilloController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
