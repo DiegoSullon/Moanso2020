@@ -29,6 +29,11 @@ namespace GUI
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnListarT = new System.Windows.Forms.Button();
             this.dgvLista = new System.Windows.Forms.DataGridView();
@@ -41,6 +46,8 @@ namespace GUI
             this.bntBuscar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.groupBox = new System.Windows.Forms.GroupBox();
+            this.boxTipoCliente = new System.Windows.Forms.ComboBox();
+            this.boxCiudad = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -58,8 +65,6 @@ namespace GUI
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.boxCiudad = new System.Windows.Forms.ComboBox();
-            this.boxTipoCliente = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.groupBox.SuspendLayout();
             this.SuspendLayout();
@@ -96,9 +101,41 @@ namespace GUI
             // 
             // dgvLista
             // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkOrange;
+            this.dgvLista.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvLista.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkOrange;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLista.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkOrange;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvLista.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvLista.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvLista.Location = new System.Drawing.Point(34, 185);
             this.dgvLista.Name = "dgvLista";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkOrange;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLista.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkOrange;
+            this.dgvLista.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvLista.Size = new System.Drawing.Size(614, 161);
             this.dgvLista.TabIndex = 51;
             this.dgvLista.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLista_CellContentClick);
@@ -232,6 +269,23 @@ namespace GUI
             this.groupBox.TabIndex = 52;
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Datos Del Cliente";
+            // 
+            // boxTipoCliente
+            // 
+            this.boxTipoCliente.FormattingEnabled = true;
+            this.boxTipoCliente.Location = new System.Drawing.Point(429, 20);
+            this.boxTipoCliente.Name = "boxTipoCliente";
+            this.boxTipoCliente.Size = new System.Drawing.Size(197, 25);
+            this.boxTipoCliente.TabIndex = 75;
+            // 
+            // boxCiudad
+            // 
+            this.boxCiudad.FormattingEnabled = true;
+            this.boxCiudad.Location = new System.Drawing.Point(429, 59);
+            this.boxCiudad.Name = "boxCiudad";
+            this.boxCiudad.Size = new System.Drawing.Size(197, 25);
+            this.boxCiudad.TabIndex = 74;
+            this.boxCiudad.SelectedIndexChanged += new System.EventHandler(this.boxCiudad_SelectedIndexChanged);
             // 
             // label11
             // 
@@ -400,23 +454,6 @@ namespace GUI
             this.label4.Size = new System.Drawing.Size(78, 24);
             this.label4.TabIndex = 7;
             this.label4.Text = "Correo :";
-            // 
-            // boxCiudad
-            // 
-            this.boxCiudad.FormattingEnabled = true;
-            this.boxCiudad.Location = new System.Drawing.Point(429, 59);
-            this.boxCiudad.Name = "boxCiudad";
-            this.boxCiudad.Size = new System.Drawing.Size(197, 25);
-            this.boxCiudad.TabIndex = 74;
-            this.boxCiudad.SelectedIndexChanged += new System.EventHandler(this.boxCiudad_SelectedIndexChanged);
-            // 
-            // boxTipoCliente
-            // 
-            this.boxTipoCliente.FormattingEnabled = true;
-            this.boxTipoCliente.Location = new System.Drawing.Point(429, 20);
-            this.boxTipoCliente.Name = "boxTipoCliente";
-            this.boxTipoCliente.Size = new System.Drawing.Size(197, 25);
-            this.boxTipoCliente.TabIndex = 75;
             // 
             // formClientes
             // 

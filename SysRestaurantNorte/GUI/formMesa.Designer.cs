@@ -29,6 +29,11 @@ namespace GUI
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnListarT = new System.Windows.Forms.Button();
             this.dgvLista = new System.Windows.Forms.DataGridView();
@@ -62,10 +67,9 @@ namespace GUI
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnEditar.Location = new System.Drawing.Point(901, 386);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEditar.Location = new System.Drawing.Point(676, 314);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(132, 39);
+            this.btnEditar.Size = new System.Drawing.Size(99, 32);
             this.btnEditar.TabIndex = 54;
             this.btnEditar.Text = "EDITAR";
             this.btnEditar.UseVisualStyleBackColor = false;
@@ -78,10 +82,9 @@ namespace GUI
             this.btnListarT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnListarT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnListarT.ForeColor = System.Drawing.Color.White;
-            this.btnListarT.Location = new System.Drawing.Point(671, 190);
-            this.btnListarT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnListarT.Location = new System.Drawing.Point(503, 154);
             this.btnListarT.Name = "btnListarT";
-            this.btnListarT.Size = new System.Drawing.Size(193, 25);
+            this.btnListarT.Size = new System.Drawing.Size(145, 20);
             this.btnListarT.TabIndex = 53;
             this.btnListarT.Text = "LISTAR TODO";
             this.btnListarT.UseVisualStyleBackColor = false;
@@ -89,20 +92,55 @@ namespace GUI
             // 
             // dgvLista
             // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkOrange;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvLista.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvLista.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkOrange;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLista.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLista.Location = new System.Drawing.Point(45, 228);
-            this.dgvLista.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkOrange;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvLista.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvLista.Location = new System.Drawing.Point(34, 185);
             this.dgvLista.Name = "dgvLista";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkOrange;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLista.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvLista.RowHeadersWidth = 51;
-            this.dgvLista.Size = new System.Drawing.Size(819, 198);
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkOrange;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvLista.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvLista.Size = new System.Drawing.Size(614, 161);
             this.dgvLista.TabIndex = 51;
             // 
             // txtBuscador
             // 
-            this.txtBuscador.Location = new System.Drawing.Point(45, 188);
-            this.txtBuscador.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBuscador.Location = new System.Drawing.Point(34, 153);
             this.txtBuscador.Name = "txtBuscador";
-            this.txtBuscador.Size = new System.Drawing.Size(349, 22);
+            this.txtBuscador.Size = new System.Drawing.Size(263, 20);
             this.txtBuscador.TabIndex = 48;
             // 
             // label9
@@ -110,10 +148,9 @@ namespace GUI
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label9.Location = new System.Drawing.Point(45, 153);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(34, 124);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(108, 20);
+            this.label9.Size = new System.Drawing.Size(87, 16);
             this.label9.TabIndex = 47;
             this.label9.Text = "Buscar por:";
             // 
@@ -122,10 +159,9 @@ namespace GUI
             this.rbID.AutoSize = true;
             this.rbID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbID.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.rbID.Location = new System.Drawing.Point(341, 150);
-            this.rbID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbID.Location = new System.Drawing.Point(256, 122);
             this.rbID.Name = "rbID";
-            this.rbID.Size = new System.Drawing.Size(49, 24);
+            this.rbID.Size = new System.Drawing.Size(41, 20);
             this.rbID.TabIndex = 46;
             this.rbID.TabStop = true;
             this.rbID.Text = "ID";
@@ -136,10 +172,9 @@ namespace GUI
             this.rbCantidadAsientos.AutoSize = true;
             this.rbCantidadAsientos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbCantidadAsientos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.rbCantidadAsientos.Location = new System.Drawing.Point(169, 150);
-            this.rbCantidadAsientos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbCantidadAsientos.Location = new System.Drawing.Point(127, 122);
             this.rbCantidadAsientos.Name = "rbCantidadAsientos";
-            this.rbCantidadAsientos.Size = new System.Drawing.Size(153, 24);
+            this.rbCantidadAsientos.Size = new System.Drawing.Size(126, 20);
             this.rbCantidadAsientos.TabIndex = 45;
             this.rbCantidadAsientos.TabStop = true;
             this.rbCantidadAsientos.Text = "C. de Asientos";
@@ -150,10 +185,9 @@ namespace GUI
             this.lbID.AutoSize = true;
             this.lbID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbID.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbID.Location = new System.Drawing.Point(156, 514);
-            this.lbID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbID.Location = new System.Drawing.Point(117, 418);
             this.lbID.Name = "lbID";
-            this.lbID.Size = new System.Drawing.Size(47, 25);
+            this.lbID.Size = new System.Drawing.Size(34, 20);
             this.lbID.TabIndex = 44;
             this.lbID.Text = "-----";
             // 
@@ -162,10 +196,9 @@ namespace GUI
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label7.Location = new System.Drawing.Point(236, 65);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(177, 53);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(521, 42);
+            this.label7.Size = new System.Drawing.Size(402, 33);
             this.label7.TabIndex = 43;
             this.label7.Text = "MESAS DEL RESTAURANTE";
             // 
@@ -176,10 +209,9 @@ namespace GUI
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevo.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnNuevo.Location = new System.Drawing.Point(901, 228);
-            this.btnNuevo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNuevo.Location = new System.Drawing.Point(676, 185);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(132, 39);
+            this.btnNuevo.Size = new System.Drawing.Size(99, 32);
             this.btnNuevo.TabIndex = 42;
             this.btnNuevo.Text = "NUEVO";
             this.btnNuevo.UseVisualStyleBackColor = false;
@@ -192,10 +224,9 @@ namespace GUI
             this.bntBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bntBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bntBuscar.ForeColor = System.Drawing.Color.White;
-            this.bntBuscar.Location = new System.Drawing.Point(425, 190);
-            this.bntBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bntBuscar.Location = new System.Drawing.Point(319, 154);
             this.bntBuscar.Name = "bntBuscar";
-            this.bntBuscar.Size = new System.Drawing.Size(100, 25);
+            this.bntBuscar.Size = new System.Drawing.Size(75, 20);
             this.bntBuscar.TabIndex = 41;
             this.bntBuscar.Text = "BUSCAR";
             this.bntBuscar.UseVisualStyleBackColor = false;
@@ -208,10 +239,9 @@ namespace GUI
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnEliminar.Location = new System.Drawing.Point(901, 309);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEliminar.Location = new System.Drawing.Point(676, 251);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(132, 39);
+            this.btnEliminar.Size = new System.Drawing.Size(99, 32);
             this.btnEliminar.TabIndex = 40;
             this.btnEliminar.Text = "ELIMINAR";
             this.btnEliminar.UseVisualStyleBackColor = false;
@@ -229,31 +259,27 @@ namespace GUI
             this.groupBox.Controls.Add(this.label4);
             this.groupBox.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBox.Location = new System.Drawing.Point(29, 489);
-            this.groupBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox.Location = new System.Drawing.Point(22, 397);
             this.groupBox.Name = "groupBox";
-            this.groupBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox.Size = new System.Drawing.Size(1008, 186);
+            this.groupBox.Size = new System.Drawing.Size(756, 151);
             this.groupBox.TabIndex = 52;
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Datos De la Mesa";
             // 
             // spnCantidadAsientos
             // 
-            this.spnCantidadAsientos.Location = new System.Drawing.Point(303, 64);
-            this.spnCantidadAsientos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spnCantidadAsientos.Location = new System.Drawing.Point(227, 52);
             this.spnCantidadAsientos.Name = "spnCantidadAsientos";
-            this.spnCantidadAsientos.Size = new System.Drawing.Size(160, 27);
+            this.spnCantidadAsientos.Size = new System.Drawing.Size(120, 23);
             this.spnCantidadAsientos.TabIndex = 50;
             // 
             // cbEstado
             // 
             this.cbEstado.AutoSize = true;
             this.cbEstado.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbEstado.Location = new System.Drawing.Point(683, 60);
-            this.cbEstado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbEstado.Location = new System.Drawing.Point(512, 49);
             this.cbEstado.Name = "cbEstado";
-            this.cbEstado.Size = new System.Drawing.Size(105, 27);
+            this.cbEstado.Size = new System.Drawing.Size(87, 25);
             this.cbEstado.TabIndex = 20;
             this.cbEstado.Text = "Estado ";
             this.cbEstado.UseVisualStyleBackColor = true;
@@ -265,10 +291,9 @@ namespace GUI
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnGuardar.Location = new System.Drawing.Point(856, 71);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGuardar.Location = new System.Drawing.Point(642, 58);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(132, 39);
+            this.btnGuardar.Size = new System.Drawing.Size(99, 32);
             this.btnGuardar.TabIndex = 0;
             this.btnGuardar.Text = "GUARDAR";
             this.btnGuardar.UseVisualStyleBackColor = false;
@@ -279,10 +304,9 @@ namespace GUI
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(8, 60);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(6, 49);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(253, 29);
+            this.label2.Size = new System.Drawing.Size(198, 24);
             this.label2.TabIndex = 5;
             this.label2.Text = "Cantidad de Asientos :";
             // 
@@ -291,19 +315,17 @@ namespace GUI
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(8, 21);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(6, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 29);
+            this.label1.Size = new System.Drawing.Size(37, 24);
             this.label1.TabIndex = 4;
             this.label1.Text = "ID :";
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(303, 118);
-            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDescripcion.Location = new System.Drawing.Point(227, 96);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(485, 27);
+            this.txtDescripcion.Size = new System.Drawing.Size(365, 23);
             this.txtDescripcion.TabIndex = 19;
             this.txtDescripcion.TextChanged += new System.EventHandler(this.txtDescripcion_TextChanged);
             // 
@@ -312,10 +334,9 @@ namespace GUI
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Location = new System.Drawing.Point(391, 70);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(293, 57);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(0, 29);
+            this.label5.Size = new System.Drawing.Size(0, 24);
             this.label5.TabIndex = 8;
             // 
             // label4
@@ -323,19 +344,18 @@ namespace GUI
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Location = new System.Drawing.Point(15, 116);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(11, 94);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(153, 29);
+            this.label4.Size = new System.Drawing.Size(120, 24);
             this.label4.TabIndex = 7;
             this.label4.Text = "Descripcion :";
             // 
             // formMesa
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(1067, 738);
+            this.ClientSize = new System.Drawing.Size(800, 600);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnListarT);
             this.Controls.Add(this.dgvLista);
@@ -350,7 +370,6 @@ namespace GUI
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.groupBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "formMesa";
             this.Text = "formMesa";
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
