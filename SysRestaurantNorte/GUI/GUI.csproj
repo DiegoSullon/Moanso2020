@@ -215,10 +215,6 @@
       <Project>{d55113ad-d5ac-4046-9c0b-78b6125d937a}</Project>
       <Name>Controller</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Data\Data.csproj">
-      <Project>{adaf10d5-afea-4942-aee1-b0938d79ff6e}</Project>
-      <Name>Data</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

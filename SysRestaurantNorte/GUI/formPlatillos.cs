@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Controller;
 using Entity;
+using Data;
 
 namespace GUI
 {
@@ -19,7 +20,6 @@ namespace GUI
         {
             InitializeComponent();
             ListPlatillos();
-            rbID.Checked = true;
             groupBox.Enabled = false;
         }
 
@@ -31,15 +31,18 @@ namespace GUI
         private void LimpiarCampos()
         {
             lbID.Text = "";
-            txtDescripcion.Text = " ";
-            cbEstado.Checked = false;
+            txtTiempo.Text = " ";
             txtNombre.Text = " ";
+            rbSegundo.Checked = false;
+            rbEntrada.Checked = false;
+            rbBebida.Checked = false;
         }
 
 
         private void btnNuevo_Click_1(object sender, EventArgs e)
         {
-            btnGuardar.Enabled = true;
+            
+            btnGuardar.Enabled = true; 
             btnGuardar.Visible = true;
             groupBox.Enabled = true;
             LimpiarCampos();
@@ -94,8 +97,7 @@ namespace GUI
             DataGridViewRow filaActual = dgvLista.CurrentRow;
             lbID.Text = filaActual.Cells[0].Value.ToString();
             txtNombre.Text = filaActual.Cells[1].Value.ToString();
-            txtDescripcion.Text = filaActual.Cells[2].Value.ToString();
-            cbEstado.Checked = Convert.ToBoolean(filaActual.Cells[3].Value);
+            txtTiempo.Text = filaActual.Cells[2].Value.ToString();
             btnGuardar.Enabled = true;
             btnGuardar.Visible = true;
             groupBox.Enabled = true;

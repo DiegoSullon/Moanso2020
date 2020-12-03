@@ -34,36 +34,34 @@ namespace GUI
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtBuscador = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.rbID = new System.Windows.Forms.RadioButton();
-            this.rbNombre = new System.Windows.Forms.RadioButton();
             this.lbID = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.bntBuscar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.groupBox = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dgvIngredientes = new System.Windows.Forms.DataGridView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbBebida = new System.Windows.Forms.RadioButton();
+            this.rbEntrada = new System.Windows.Forms.RadioButton();
+            this.rbSegundo = new System.Windows.Forms.RadioButton();
             this.spnPrecio = new System.Windows.Forms.NumericUpDown();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.txtTiempo = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnEditar = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label6 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.groupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spnPrecio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvIngredientes)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spnPrecio)).BeginInit();
             this.SuspendLayout();
             // 
             // btnListarT
@@ -119,34 +117,6 @@ namespace GUI
             this.label9.Size = new System.Drawing.Size(108, 20);
             this.label9.TabIndex = 32;
             this.label9.Text = "Buscar por:";
-            // 
-            // rbID
-            // 
-            this.rbID.AutoSize = true;
-            this.rbID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbID.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.rbID.Location = new System.Drawing.Point(281, 132);
-            this.rbID.Margin = new System.Windows.Forms.Padding(4);
-            this.rbID.Name = "rbID";
-            this.rbID.Size = new System.Drawing.Size(49, 24);
-            this.rbID.TabIndex = 31;
-            this.rbID.TabStop = true;
-            this.rbID.Text = "ID";
-            this.rbID.UseVisualStyleBackColor = true;
-            // 
-            // rbNombre
-            // 
-            this.rbNombre.AutoSize = true;
-            this.rbNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbNombre.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.rbNombre.Location = new System.Drawing.Point(176, 132);
-            this.rbNombre.Margin = new System.Windows.Forms.Padding(4);
-            this.rbNombre.Name = "rbNombre";
-            this.rbNombre.Size = new System.Drawing.Size(95, 24);
-            this.rbNombre.TabIndex = 30;
-            this.rbNombre.TabStop = true;
-            this.rbNombre.Text = "Nombre";
-            this.rbNombre.UseVisualStyleBackColor = true;
             // 
             // lbID
             // 
@@ -224,7 +194,7 @@ namespace GUI
             // 
             this.groupBox.Controls.Add(this.button1);
             this.groupBox.Controls.Add(this.label6);
-            this.groupBox.Controls.Add(this.dataGridView1);
+            this.groupBox.Controls.Add(this.dgvIngredientes);
             this.groupBox.Controls.Add(this.groupBox1);
             this.groupBox.Controls.Add(this.spnPrecio);
             this.groupBox.Controls.Add(this.txtNombre);
@@ -232,7 +202,7 @@ namespace GUI
             this.groupBox.Controls.Add(this.label2);
             this.groupBox.Controls.Add(this.label3);
             this.groupBox.Controls.Add(this.label1);
-            this.groupBox.Controls.Add(this.txtDescripcion);
+            this.groupBox.Controls.Add(this.txtTiempo);
             this.groupBox.Controls.Add(this.lbID);
             this.groupBox.Controls.Add(this.label5);
             this.groupBox.Controls.Add(this.label4);
@@ -246,6 +216,88 @@ namespace GUI
             this.groupBox.TabIndex = 37;
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Datos Del Platillo";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Green;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button1.Location = new System.Drawing.Point(866, 28);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(132, 39);
+            this.button1.TabIndex = 40;
+            this.button1.Text = "AGREGAR";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label6.Location = new System.Drawing.Point(403, 28);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(147, 29);
+            this.label6.TabIndex = 36;
+            this.label6.Text = "Ingredientes";
+            // 
+            // dgvIngredientes
+            // 
+            this.dgvIngredientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvIngredientes.Location = new System.Drawing.Point(568, 28);
+            this.dgvIngredientes.Name = "dgvIngredientes";
+            this.dgvIngredientes.RowHeadersWidth = 51;
+            this.dgvIngredientes.RowTemplate.Height = 24;
+            this.dgvIngredientes.Size = new System.Drawing.Size(261, 174);
+            this.dgvIngredientes.TabIndex = 35;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rbBebida);
+            this.groupBox1.Controls.Add(this.rbEntrada);
+            this.groupBox1.Controls.Add(this.rbSegundo);
+            this.groupBox1.Location = new System.Drawing.Point(16, 151);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(363, 113);
+            this.groupBox1.TabIndex = 23;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Tipo Platillo";
+            // 
+            // rbBebida
+            // 
+            this.rbBebida.AutoSize = true;
+            this.rbBebida.Location = new System.Drawing.Point(245, 26);
+            this.rbBebida.Name = "rbBebida";
+            this.rbBebida.Size = new System.Drawing.Size(91, 25);
+            this.rbBebida.TabIndex = 2;
+            this.rbBebida.TabStop = true;
+            this.rbBebida.Text = "Bebida";
+            this.rbBebida.UseVisualStyleBackColor = true;
+            // 
+            // rbEntrada
+            // 
+            this.rbEntrada.AutoSize = true;
+            this.rbEntrada.Location = new System.Drawing.Point(125, 26);
+            this.rbEntrada.Name = "rbEntrada";
+            this.rbEntrada.Size = new System.Drawing.Size(98, 25);
+            this.rbEntrada.TabIndex = 1;
+            this.rbEntrada.TabStop = true;
+            this.rbEntrada.Text = "Entrada";
+            this.rbEntrada.UseVisualStyleBackColor = true;
+            // 
+            // rbSegundo
+            // 
+            this.rbSegundo.AutoSize = true;
+            this.rbSegundo.Location = new System.Drawing.Point(15, 26);
+            this.rbSegundo.Name = "rbSegundo";
+            this.rbSegundo.Size = new System.Drawing.Size(104, 25);
+            this.rbSegundo.TabIndex = 0;
+            this.rbSegundo.TabStop = true;
+            this.rbSegundo.Text = "Segundo";
+            this.rbSegundo.UseVisualStyleBackColor = true;
             // 
             // spnPrecio
             // 
@@ -307,13 +359,13 @@ namespace GUI
             this.label1.TabIndex = 4;
             this.label1.Text = "ID :";
             // 
-            // txtDescripcion
+            // txtTiempo
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(568, 230);
-            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4);
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(261, 27);
-            this.txtDescripcion.TabIndex = 19;
+            this.txtTiempo.Location = new System.Drawing.Point(568, 230);
+            this.txtTiempo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTiempo.Name = "txtTiempo";
+            this.txtTiempo.Size = new System.Drawing.Size(261, 27);
+            this.txtTiempo.TabIndex = 19;
             // 
             // label5
             // 
@@ -354,88 +406,6 @@ namespace GUI
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.radioButton3);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Location = new System.Drawing.Point(16, 151);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(363, 113);
-            this.groupBox1.TabIndex = 23;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Tipo Platillo";
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(15, 26);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(104, 25);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Segundo";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(125, 26);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(98, 25);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Entrada";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(245, 26);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(91, 25);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Bebida";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(568, 28);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(261, 174);
-            this.dataGridView1.TabIndex = 35;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label6.Location = new System.Drawing.Point(403, 28);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(147, 29);
-            this.label6.TabIndex = 36;
-            this.label6.Text = "Ingredientes";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Green;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(866, 28);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(132, 39);
-            this.button1.TabIndex = 40;
-            this.button1.Text = "AGREGAR";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.DarkOrange;
@@ -463,8 +433,6 @@ namespace GUI
             this.Controls.Add(this.dgvLista);
             this.Controls.Add(this.txtBuscador);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.rbID);
-            this.Controls.Add(this.rbNombre);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.bntBuscar);
@@ -477,10 +445,10 @@ namespace GUI
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
             this.groupBox.ResumeLayout(false);
             this.groupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spnPrecio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvIngredientes)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spnPrecio)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -493,8 +461,6 @@ namespace GUI
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtBuscador;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.RadioButton rbID;
-        private System.Windows.Forms.RadioButton rbNombre;
         private System.Windows.Forms.Label lbID;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnNuevo;
@@ -505,18 +471,18 @@ namespace GUI
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtDescripcion;
+        private System.Windows.Forms.TextBox txtTiempo;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.NumericUpDown spnPrecio;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvIngredientes;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rbBebida;
+        private System.Windows.Forms.RadioButton rbEntrada;
+        private System.Windows.Forms.RadioButton rbSegundo;
         private System.Windows.Forms.Button button2;
     }
 }
