@@ -53,19 +53,22 @@ namespace GUI
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkOrange;
             this.panel1.Controls.Add(this.pictureBox3);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Controls.Add(this.btnminimizar);
+            this.panel1.Controls.Add(this.btncerrar);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(250, 330);
+            this.panel1.Size = new System.Drawing.Size(566, 183);
             this.panel1.TabIndex = 0;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(-100, 33);
+            this.pictureBox3.Location = new System.Drawing.Point(114, -4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(376, 290);
+            this.pictureBox3.Size = new System.Drawing.Size(338, 188);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
             this.pictureBox3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox3_MouseDown);
@@ -78,7 +81,7 @@ namespace GUI
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.lineShape2,
             this.lineShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(780, 330);
+            this.shapeContainer1.Size = new System.Drawing.Size(566, 586);
             this.shapeContainer1.TabIndex = 1;
             this.shapeContainer1.TabStop = false;
             // 
@@ -87,20 +90,20 @@ namespace GUI
             this.lineShape2.BorderColor = System.Drawing.Color.DimGray;
             this.lineShape2.Enabled = false;
             this.lineShape2.Name = "lineShape2";
-            this.lineShape2.X1 = 337;
-            this.lineShape2.X2 = 704;
-            this.lineShape2.Y1 = 165;
-            this.lineShape2.Y2 = 165;
+            this.lineShape2.X1 = 99;
+            this.lineShape2.X2 = 466;
+            this.lineShape2.Y1 = 406;
+            this.lineShape2.Y2 = 406;
             // 
             // lineShape1
             // 
             this.lineShape1.BorderColor = System.Drawing.Color.DimGray;
             this.lineShape1.Enabled = false;
             this.lineShape1.Name = "lineShape1";
-            this.lineShape1.X1 = 335;
-            this.lineShape1.X2 = 702;
-            this.lineShape1.Y1 = 100;
-            this.lineShape1.Y2 = 100;
+            this.lineShape1.X1 = 98;
+            this.lineShape1.X2 = 465;
+            this.lineShape1.Y1 = 337;
+            this.lineShape1.Y2 = 337;
             // 
             // txtuser
             // 
@@ -108,7 +111,7 @@ namespace GUI
             this.txtuser.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtuser.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtuser.ForeColor = System.Drawing.Color.DimGray;
-            this.txtuser.Location = new System.Drawing.Point(335, 78);
+            this.txtuser.Location = new System.Drawing.Point(100, 310);
             this.txtuser.Name = "txtuser";
             this.txtuser.Size = new System.Drawing.Size(368, 20);
             this.txtuser.TabIndex = 1;
@@ -122,7 +125,7 @@ namespace GUI
             this.txtpass.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtpass.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtpass.ForeColor = System.Drawing.Color.DimGray;
-            this.txtpass.Location = new System.Drawing.Point(337, 141);
+            this.txtpass.Location = new System.Drawing.Point(98, 380);
             this.txtpass.Name = "txtpass";
             this.txtpass.Size = new System.Drawing.Size(366, 20);
             this.txtpass.TabIndex = 2;
@@ -133,11 +136,11 @@ namespace GUI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(479, 6);
+            this.label1.Location = new System.Drawing.Point(214, 209);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 33);
+            this.label1.Size = new System.Drawing.Size(138, 44);
             this.label1.TabIndex = 1;
             this.label1.Text = "LOGIN";
             // 
@@ -150,9 +153,9 @@ namespace GUI
             this.btnlogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnlogin.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnlogin.ForeColor = System.Drawing.Color.LightGray;
-            this.btnlogin.Location = new System.Drawing.Point(321, 230);
+            this.btnlogin.Location = new System.Drawing.Point(98, 481);
             this.btnlogin.Name = "btnlogin";
-            this.btnlogin.Size = new System.Drawing.Size(400, 40);
+            this.btnlogin.Size = new System.Drawing.Size(370, 40);
             this.btnlogin.TabIndex = 3;
             this.btnlogin.Text = "ACCEDER";
             this.btnlogin.UseVisualStyleBackColor = false;
@@ -161,7 +164,7 @@ namespace GUI
             // btncerrar
             // 
             this.btncerrar.Image = ((System.Drawing.Image)(resources.GetObject("btncerrar.Image")));
-            this.btncerrar.Location = new System.Drawing.Point(762, 3);
+            this.btncerrar.Location = new System.Drawing.Point(541, 4);
             this.btncerrar.Name = "btncerrar";
             this.btncerrar.Size = new System.Drawing.Size(15, 15);
             this.btncerrar.TabIndex = 6;
@@ -171,7 +174,7 @@ namespace GUI
             // btnminimizar
             // 
             this.btnminimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnminimizar.Image")));
-            this.btnminimizar.Location = new System.Drawing.Point(741, 3);
+            this.btnminimizar.Location = new System.Drawing.Point(518, 4);
             this.btnminimizar.Name = "btnminimizar";
             this.btnminimizar.Size = new System.Drawing.Size(15, 15);
             this.btnminimizar.TabIndex = 7;
@@ -183,7 +186,7 @@ namespace GUI
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Century Gothic", 6.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel1.LinkColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.linkLabel1.Location = new System.Drawing.Point(677, 314);
+            this.linkLabel1.Location = new System.Drawing.Point(232, 564);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(99, 13);
             this.linkLabel1.TabIndex = 0;
@@ -197,7 +200,7 @@ namespace GUI
             this.lblErrorMessagge.ForeColor = System.Drawing.Color.DarkGray;
             this.lblErrorMessagge.Image = ((System.Drawing.Image)(resources.GetObject("lblErrorMessagge.Image")));
             this.lblErrorMessagge.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblErrorMessagge.Location = new System.Drawing.Point(335, 192);
+            this.lblErrorMessagge.Location = new System.Drawing.Point(99, 441);
             this.lblErrorMessagge.Name = "lblErrorMessagge";
             this.lblErrorMessagge.Size = new System.Drawing.Size(114, 12);
             this.lblErrorMessagge.TabIndex = 8;
@@ -209,11 +212,9 @@ namespace GUI
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.ClientSize = new System.Drawing.Size(780, 330);
+            this.ClientSize = new System.Drawing.Size(566, 586);
             this.Controls.Add(this.lblErrorMessagge);
             this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.btnminimizar);
-            this.Controls.Add(this.btncerrar);
             this.Controls.Add(this.btnlogin);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtpass);
@@ -227,6 +228,7 @@ namespace GUI
             this.Text = "login";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.login_MouseDown);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btncerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnminimizar)).EndInit();
