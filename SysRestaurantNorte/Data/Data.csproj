@@ -142,6 +142,7 @@
     <Compile Include="OrderData.cs" />
     <Compile Include="PlatilloData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RolData.cs" />
     <Compile Include="TableData.cs" />
     <Compile Include="TipoCliente.cs" />
     <Compile Include="TipoClienteData.cs" />

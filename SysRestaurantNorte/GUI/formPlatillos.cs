@@ -32,7 +32,7 @@ namespace GUI
         {
             lbID.Text = "";
             txtDescripcion.Text = " ";
-            cbEstado.Checked = false;
+            //cbEstado.Checked = false;
             txtNombre.Text = " ";
         }
 
@@ -95,7 +95,7 @@ namespace GUI
             lbID.Text = filaActual.Cells[0].Value.ToString();
             txtNombre.Text = filaActual.Cells[1].Value.ToString();
             txtDescripcion.Text = filaActual.Cells[2].Value.ToString();
-            cbEstado.Checked = Convert.ToBoolean(filaActual.Cells[3].Value);
+            // cbEstado.Checked = Convert.ToBoolean(filaActual.Cells[3].Value);
             btnGuardar.Enabled = true;
             btnGuardar.Visible = true;
             groupBox.Enabled = true;
