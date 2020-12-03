@@ -54,8 +54,7 @@ namespace GUI
         {
             Platillo platillo = new Platillo();
             platillo.name = txtNombre.Text;
-            platillo.description = txtDescripcion.Text;
-            platillo.state = cbEstado.Checked;
+
 
             if (edit)
             {

@@ -30,7 +30,7 @@ namespace Data
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cn.Open();
-                cmd = new SqlCommand("spListaPlatillos", cn);
+                cmd = new SqlCommand("spListaPlatillo", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())

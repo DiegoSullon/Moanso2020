@@ -135,6 +135,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CiudadData.cs" />
     <Compile Include="Conexion.cs" />
     <Compile Include="ClientData.cs" />
     <Compile Include="EmployeData.cs" />
@@ -142,6 +143,9 @@
     <Compile Include="PlatilloData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TableData.cs" />
+    <Compile Include="TipoCliente.cs" />
+    <Compile Include="TipoClienteData.cs" />
+    <Compile Include="VentaData.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Entity\Entities.csproj">
