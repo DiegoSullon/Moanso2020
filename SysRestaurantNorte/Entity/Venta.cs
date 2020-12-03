@@ -12,5 +12,6 @@ namespace Entity
         public int metodoPagoID { set; get;}
         public float total { set; get;}
         public int pedidoID {set; get;}
+        public DateTime fecha;
     }
 }
