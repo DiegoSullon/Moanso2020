@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Data
 {
-    class VentaData
+    public class VentaData
     {
         //patron de Diseño Singleton
         private static readonly VentaData _instancia = new VentaData();
@@ -28,12 +28,13 @@ namespace Data
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cn.Open();
-                cmd = new SqlCommand("spListarVenta", cn);
+                cmd = new SqlCommand("spListaVenta", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
                     Venta ven = new Venta();
+                    ven.id = Convert.ToInt32(dr["VentaID"]);
                     ven.metodoPagoID = Convert.ToInt32(dr["MetodopagoID"]);
                     ven.total = Convert.ToSingle(dr["MontoTotal"]);
                     ven.pedidoID = Convert.ToInt32(dr["PedidoID"]);
@@ -63,13 +64,19 @@ namespace Data
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spInsertaVenta", cn);
+                cmd = new SqlCommand("spInsertarVenta", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@MetodopagoID", ven.metodoPagoID);
                 cmd.Parameters.AddWithValue("@MontoTotal", ven.total);
                 cmd.Parameters.AddWithValue("@PedidoID", ven.pedidoID);
-                cmd.Parameters.AddWithValue("@FechaVenta", ven.fecha);
+                //cmd.Parameters.AddWithValue("@FechaVenta", ven.fecha);
+                SqlParameter parameter = cmd.Parameters.Add("@FechaVenta",
+                System.Data.SqlDbType.DateTime);
+
+                // Set the value.
+                parameter.Value = DateTime.Now;
+
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)

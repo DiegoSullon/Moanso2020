@@ -8,10 +8,11 @@ namespace Entity
 {
     public class Venta
     {
-        public int id { set; get; }
-        public int metodoPagoID { set; get;}
-        public float total { set; get;}
-        public int pedidoID {set; get;}
-        public DateTime fecha;
+        public int id { get; set; }
+        public int metodoPagoID { get; set; }
+        public float total { get; set; }
+        public int pedidoID { get; set; }
+
+        public DateTime fecha { get; set; }
     }
 }
