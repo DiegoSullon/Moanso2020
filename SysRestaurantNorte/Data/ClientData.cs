@@ -27,9 +27,7 @@ namespace Data
             List<Client> lista = new List<Client>();
             try {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                MessageBox.Show("1");
                 cn.Open();
-                MessageBox.Show("2");
                 cmd = new SqlCommand("spListarCliente", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataReader dr = cmd.ExecuteReader();
