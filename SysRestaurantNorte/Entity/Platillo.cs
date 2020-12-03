@@ -11,8 +11,12 @@ namespace Entity
     {
         public int id { get; set; }
         public string name { get; set; }
-        public string description { get; set; }
-        public bool state { get; set; }
+        public int tipoPlatilloId { get; set; }
+        public string tPreparacion { get; set; }
+        public float precio { get; set; }
 
+        public List<Ingrediente> ingredientes { get; set; }
+        //variable auxiliar, no ingresar a db
+        public int count { get; set; }
     }
 }

@@ -40,8 +40,8 @@ namespace Data
                     Employe cli = new Employe();
                     cli.id = Convert.ToInt32(dr["EmpleadoID"]);
                     cli.name = dr["Nombre"].ToString();
-                    cli.idRol = Convert.ToInt32(dr["RollID"]);
-                    cli.name = dr["Apellido"].ToString();
+                    cli.idRol = Convert.ToInt32(dr["RolID"]);
+                    cli.apellido = dr["Apellido"].ToString();
                     cli.dni = dr["DNI"].ToString();
                     cli.cv = dr["CV"].ToString();
                     cli.telefono = dr["Telefono"].ToString();

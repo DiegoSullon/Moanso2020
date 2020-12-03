@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Entity;
 using Data;
-
+using System.Windows.Forms;
 
 namespace Controller
 {
@@ -34,6 +34,7 @@ namespace Controller
             }
             catch (Exception e)
             {
+                MessageBox.Show("Error: " + e);
                 throw e;
 
             }
@@ -47,6 +48,7 @@ namespace Controller
             }
             catch (Exception e)
             {
+                MessageBox.Show("Error: " + e);
                 throw e;
 
             }
@@ -60,6 +62,7 @@ namespace Controller
             }
             catch (Exception e)
             {
+                MessageBox.Show("Error: " + e);
                 throw e;
 
             }

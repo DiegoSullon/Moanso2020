@@ -27,9 +27,7 @@ namespace Data
             List<Client> lista = new List<Client>();
             try {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                MessageBox.Show("1");
                 cn.Open();
-                MessageBox.Show("2");
                 cmd = new SqlCommand("spListarCliente", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -137,12 +135,20 @@ namespace Data
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
+                cn.Open();
+                cmd = new SqlCommand("spSetDefaultClient", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ClienteID", id); ;
+                int i = cmd.ExecuteNonQuery();
+                if (i < 0)
+                {
+                    return false;
+                }
                 cmd = new SqlCommand("spEliminaCliente", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@ClienteID", id);;
-                cn.Open();
-                int i = cmd.ExecuteNonQuery();
-                if (i > 0)
+                int h = cmd.ExecuteNonQuery();
+                if (h > 0)
                 {
                     elimina = true;
                 }
