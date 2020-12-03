@@ -33,6 +33,7 @@ namespace Data
                 cmd = new SqlCommand("spListaPlatillo", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataReader dr = cmd.ExecuteReader();
+                SqlDataReader dr2;
                 while (dr.Read())
                 {
                     Platillo PLA = new Platillo();
@@ -41,19 +42,25 @@ namespace Data
                     PLA.tipoPlatilloId = Convert.ToInt32(dr["TipoPlatilloID"]);
                     PLA.tPreparacion = dr["TiempoPreparacion"].ToString();
                     PLA.precio = Convert.ToSingle(dr["Precio"]);
-
-                    cmd2 = new SqlCommand("spListaIngredienteplatillo", cn);
-                    cmd2.CommandType = CommandType.StoredProcedure;
-                    cmd2.Parameters.AddWithValue("@PlatilloID ", PLA.id);
-                    SqlDataReader dr2 = cmd.ExecuteReader();
+                    lista.Add(PLA);
+                    //MessageBox.Show(PLA.name);
+                }
+                dr.Close();
+                for (int i=0;i<lista.Count;i++)
+                {
+                    cmd = new SqlCommand("spListaIngredienteplatillo", cn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@PlatilloID ", lista[i].id);
+                    dr2 = cmd.ExecuteReader();
                     while (dr2.Read())
                     {
                         Ingrediente ing = new Ingrediente();
-                        ing.id = Convert.ToInt32(dr2["PlatilloID"]);
-                        ing.name = dr2["NombrePlatillo"].ToString();
-                        PLA.ingredientes.Add(ing);
+                        ing.id = Convert.ToInt32(dr2["IngredientesID"]);
+                        ing.name = dr2["NombreIngrediente"].ToString();
+                        lista[i].ingredientes.Add(ing);
+                        //MessageBox.Show(lista[i].name);
                     }
-                    lista.Add(PLA);
+                    dr2.Close();
                 }
             }
             catch (Exception e)
@@ -62,6 +69,7 @@ namespace Data
                 throw e;
             }
             finally { cmd.Connection.Close(); }
+            
             return lista;
 
         }

@@ -43,6 +43,7 @@ namespace GUI
             this.label5 = new System.Windows.Forms.Label();
             this.lbID = new System.Windows.Forms.Label();
             this.groupBox = new System.Windows.Forms.GroupBox();
+            this.boxRol = new System.Windows.Forms.ComboBox();
             this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
             this.txtTelefono = new System.Windows.Forms.TextBox();
@@ -58,7 +59,6 @@ namespace GUI
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.linkCV = new System.Windows.Forms.LinkLabel();
-            this.boxRol = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.groupBox.SuspendLayout();
             this.SuspendLayout();
@@ -76,6 +76,7 @@ namespace GUI
             this.btnEditar.TabIndex = 54;
             this.btnEditar.Text = "EDITAR";
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnListarT
             // 
@@ -90,6 +91,7 @@ namespace GUI
             this.btnListarT.TabIndex = 53;
             this.btnListarT.Text = "LISTAR TODO";
             this.btnListarT.UseVisualStyleBackColor = false;
+            this.btnListarT.Click += new System.EventHandler(this.btnListarT_Click);
             // 
             // dgvLista
             // 
@@ -198,6 +200,7 @@ namespace GUI
             this.btnEliminar.TabIndex = 40;
             this.btnEliminar.Text = "ELIMINAR";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // label5
             // 
@@ -248,6 +251,14 @@ namespace GUI
             this.groupBox.TabIndex = 58;
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Datos Del Empleado";
+            // 
+            // boxRol
+            // 
+            this.boxRol.FormattingEnabled = true;
+            this.boxRol.Location = new System.Drawing.Point(396, 58);
+            this.boxRol.Name = "boxRol";
+            this.boxRol.Size = new System.Drawing.Size(197, 25);
+            this.boxRol.TabIndex = 66;
             // 
             // dtpFechaNacimiento
             // 
@@ -312,6 +323,7 @@ namespace GUI
             this.fileButton.TabIndex = 59;
             this.fileButton.Text = "Selecionar archivo";
             this.fileButton.UseVisualStyleBackColor = false;
+            this.fileButton.Click += new System.EventHandler(this.fileButton_Click);
             // 
             // label6
             // 
@@ -403,14 +415,7 @@ namespace GUI
             this.linkCV.TabIndex = 66;
             this.linkCV.TabStop = true;
             this.linkCV.Text = "Descargar CV";
-            // 
-            // boxRol
-            // 
-            this.boxRol.FormattingEnabled = true;
-            this.boxRol.Location = new System.Drawing.Point(396, 58);
-            this.boxRol.Name = "boxRol";
-            this.boxRol.Size = new System.Drawing.Size(197, 25);
-            this.boxRol.TabIndex = 66;
+            this.linkCV.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkCV_LinkClicked);
             // 
             // formEmpleados
             // 

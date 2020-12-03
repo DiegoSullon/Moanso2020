@@ -27,11 +27,26 @@ namespace Controller
             return EmployeData.Instancia.listar();
         }
 
-        public async Task insertarAsync(Employe SEC, OpenFileDialog file)
+        public void insertar(Employe SEC, OpenFileDialog file)
         {
             try
             {
-                await EmployeData.Instancia.uploadCV(file);
+                if (file != null)
+                {
+                    if (file.FileName.Equals(""))
+                    {
+                        MessageBox.Show("vacio");
+                    }
+                    else
+                    {
+                        EmployeData.Instancia.uploadCV(file);
+                        MessageBox.Show(file.ToString());
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Cv no cargado");
+                }
                 EmployeData.Instancia.insertar(SEC);
             }
             catch (Exception e)
@@ -42,10 +57,26 @@ namespace Controller
             }
 
         }
-        public bool editar(Employe SEC)
+        public bool editar(Employe SEC, OpenFileDialog file)
         {
             try
             {
+                if (file != null)
+                {
+                    if (file.FileName.Equals(""))
+                    {
+                        MessageBox.Show("vacio");
+                    }
+                    else
+                    {
+                        MessageBox.Show("vacio: " + file.ToString());
+                        EmployeData.Instancia.uploadCV(file);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Cv no cargado");
+                }
                 EmployeData.Instancia.editar(SEC);
             }
             catch (Exception e)
@@ -71,11 +102,11 @@ namespace Controller
             }
 
         }
-        public async Task downloadCvAsync(string downloadFilePath, string fileName)
+        public void downloadCv(string downloadFilePath, string fileName)
         {
             try
             {
-               await EmployeData.Instancia.downloadCV(downloadFilePath, fileName);
+                EmployeData.Instancia.downloadCV(downloadFilePath, fileName);
             }
             catch (Exception e)
             {
