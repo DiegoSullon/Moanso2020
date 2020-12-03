@@ -40,7 +40,6 @@ namespace GUI
             this.btnNuevo = new System.Windows.Forms.Button();
             this.bntBuscar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.txtRol = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.lbID = new System.Windows.Forms.Label();
             this.groupBox = new System.Windows.Forms.GroupBox();
@@ -50,7 +49,7 @@ namespace GUI
             this.txtDni = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.fileButton = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -59,6 +58,7 @@ namespace GUI
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.linkCV = new System.Windows.Forms.LinkLabel();
+            this.boxRol = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.groupBox.SuspendLayout();
             this.SuspendLayout();
@@ -199,13 +199,6 @@ namespace GUI
             this.btnEliminar.Text = "ELIMINAR";
             this.btnEliminar.UseVisualStyleBackColor = false;
             // 
-            // txtRol
-            // 
-            this.txtRol.Location = new System.Drawing.Point(396, 55);
-            this.txtRol.Name = "txtRol";
-            this.txtRol.Size = new System.Drawing.Size(197, 23);
-            this.txtRol.TabIndex = 20;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -230,6 +223,7 @@ namespace GUI
             // 
             // groupBox
             // 
+            this.groupBox.Controls.Add(this.boxRol);
             this.groupBox.Controls.Add(this.dtpFechaNacimiento);
             this.groupBox.Controls.Add(this.label10);
             this.groupBox.Controls.Add(this.txtTelefono);
@@ -237,7 +231,7 @@ namespace GUI
             this.groupBox.Controls.Add(this.txtDni);
             this.groupBox.Controls.Add(this.txtNombre);
             this.groupBox.Controls.Add(this.label8);
-            this.groupBox.Controls.Add(this.button1);
+            this.groupBox.Controls.Add(this.fileButton);
             this.groupBox.Controls.Add(this.label6);
             this.groupBox.Controls.Add(this.txtApellido);
             this.groupBox.Controls.Add(this.btnGuardar);
@@ -246,7 +240,6 @@ namespace GUI
             this.groupBox.Controls.Add(this.label1);
             this.groupBox.Controls.Add(this.label5);
             this.groupBox.Controls.Add(this.label4);
-            this.groupBox.Controls.Add(this.txtRol);
             this.groupBox.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.groupBox.Location = new System.Drawing.Point(26, 332);
@@ -306,19 +299,19 @@ namespace GUI
             this.label8.TabIndex = 60;
             this.label8.Text = "Telefono: ";
             // 
-            // button1
+            // fileButton
             // 
-            this.button1.BackColor = System.Drawing.Color.DarkOrange;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(396, 135);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(197, 23);
-            this.button1.TabIndex = 59;
-            this.button1.Text = "Selecionar archivo";
-            this.button1.UseVisualStyleBackColor = false;
+            this.fileButton.BackColor = System.Drawing.Color.DarkOrange;
+            this.fileButton.FlatAppearance.BorderSize = 0;
+            this.fileButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fileButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fileButton.ForeColor = System.Drawing.Color.White;
+            this.fileButton.Location = new System.Drawing.Point(396, 135);
+            this.fileButton.Name = "fileButton";
+            this.fileButton.Size = new System.Drawing.Size(197, 23);
+            this.fileButton.TabIndex = 59;
+            this.fileButton.Text = "Selecionar archivo";
+            this.fileButton.UseVisualStyleBackColor = false;
             // 
             // label6
             // 
@@ -411,6 +404,14 @@ namespace GUI
             this.linkCV.TabStop = true;
             this.linkCV.Text = "Descargar CV";
             // 
+            // boxRol
+            // 
+            this.boxRol.FormattingEnabled = true;
+            this.boxRol.Location = new System.Drawing.Point(396, 58);
+            this.boxRol.Name = "boxRol";
+            this.boxRol.Size = new System.Drawing.Size(197, 25);
+            this.boxRol.TabIndex = 66;
+            // 
             // formEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -454,7 +455,6 @@ namespace GUI
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button bntBuscar;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.TextBox txtRol;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lbID;
         private System.Windows.Forms.GroupBox groupBox;
@@ -465,7 +465,7 @@ namespace GUI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button fileButton;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.TextBox txtDni;
         private System.Windows.Forms.TextBox txtNombre;
@@ -473,5 +473,6 @@ namespace GUI
         private System.Windows.Forms.DateTimePicker dtpFechaNacimiento;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.LinkLabel linkCV;
+        private System.Windows.Forms.ComboBox boxRol;
     }
 }
