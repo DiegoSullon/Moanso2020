@@ -21,7 +21,7 @@ namespace GUI
     private void LimpiarCampos()
     {
         lbID.Text = "";
-        txtCorreo.Text = " ";
+        txtApellido.Text = " ";
         txtNombre.Text = " ";
         txtDni.Text = " ";
         txtRol.Text = " ";
