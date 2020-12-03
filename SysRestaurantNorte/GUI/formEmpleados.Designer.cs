@@ -44,6 +44,12 @@ namespace GUI
             this.label5 = new System.Windows.Forms.Label();
             this.lbID = new System.Windows.Forms.Label();
             this.groupBox = new System.Windows.Forms.GroupBox();
+            this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.txtDni = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.txtApellido = new System.Windows.Forms.TextBox();
@@ -52,12 +58,6 @@ namespace GUI
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtDni = new System.Windows.Forms.TextBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtTelefono = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.linkCV = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.groupBox.SuspendLayout();
@@ -183,6 +183,7 @@ namespace GUI
             this.bntBuscar.TabIndex = 41;
             this.bntBuscar.Text = "BUSCAR";
             this.bntBuscar.UseVisualStyleBackColor = false;
+            this.bntBuscar.Click += new System.EventHandler(this.bntBuscar_Click);
             // 
             // btnEliminar
             // 
@@ -254,6 +255,56 @@ namespace GUI
             this.groupBox.TabIndex = 58;
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Datos Del Empleado";
+            // 
+            // dtpFechaNacimiento
+            // 
+            this.dtpFechaNacimiento.Location = new System.Drawing.Point(297, 174);
+            this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
+            this.dtpFechaNacimiento.Size = new System.Drawing.Size(296, 23);
+            this.dtpFechaNacimiento.TabIndex = 65;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label10.Location = new System.Drawing.Point(9, 173);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(201, 24);
+            this.label10.TabIndex = 64;
+            this.label10.Text = "Fecha de Nacimiento: ";
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono.Location = new System.Drawing.Point(110, 136);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(161, 23);
+            this.txtTelefono.TabIndex = 63;
+            // 
+            // txtDni
+            // 
+            this.txtDni.Location = new System.Drawing.Point(108, 100);
+            this.txtDni.Name = "txtDni";
+            this.txtDni.Size = new System.Drawing.Size(161, 23);
+            this.txtDni.TabIndex = 62;
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(108, 58);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(161, 23);
+            this.txtNombre.TabIndex = 61;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label8.Location = new System.Drawing.Point(9, 135);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(95, 24);
+            this.label8.TabIndex = 60;
+            this.label8.Text = "Telefono: ";
             // 
             // button1
             // 
@@ -347,56 +398,6 @@ namespace GUI
             this.label4.TabIndex = 7;
             this.label4.Text = "Apellido :";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label8.Location = new System.Drawing.Point(9, 135);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(95, 24);
-            this.label8.TabIndex = 60;
-            this.label8.Text = "Telefono: ";
-            // 
-            // txtDni
-            // 
-            this.txtDni.Location = new System.Drawing.Point(108, 100);
-            this.txtDni.Name = "txtDni";
-            this.txtDni.Size = new System.Drawing.Size(161, 23);
-            this.txtDni.TabIndex = 62;
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(108, 58);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(161, 23);
-            this.txtNombre.TabIndex = 61;
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.Location = new System.Drawing.Point(110, 136);
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(161, 23);
-            this.txtTelefono.TabIndex = 63;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label10.Location = new System.Drawing.Point(9, 173);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(201, 24);
-            this.label10.TabIndex = 64;
-            this.label10.Text = "Fecha de Nacimiento: ";
-            // 
-            // dtpFechaNacimiento
-            // 
-            this.dtpFechaNacimiento.Location = new System.Drawing.Point(297, 174);
-            this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
-            this.dtpFechaNacimiento.Size = new System.Drawing.Size(296, 23);
-            this.dtpFechaNacimiento.TabIndex = 65;
             // 
             // linkCV
             // 

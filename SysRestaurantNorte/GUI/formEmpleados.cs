@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,9 +18,15 @@ namespace GUI
             InitializeComponent();
             rbID.Checked = true;
             groupBox.Enabled = false;
+            List();
         }
-    private void LimpiarCampos()
-    {
+        public void List()
+        {
+            dgvLista.DataSource = EmployeController.Instancia.listar();
+
+        }
+        private void LimpiarCampos()
+        {
         lbID.Text = "";
         txtApellido.Text = " ";
         txtNombre.Text = " ";
@@ -42,6 +49,11 @@ namespace GUI
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bntBuscar_Click(object sender, EventArgs e)
         {
 
         }
