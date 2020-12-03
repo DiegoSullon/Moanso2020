@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using Entity;
+using System.Windows.Forms;
 
 namespace Data
 {
@@ -25,23 +26,23 @@ namespace Data
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spListaMesas", cn);
+                cmd = new SqlCommand("spListaMesa", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
                     Table Tab = new Table();
-                    Tab.id = Convert.ToInt32(dr["idMesa"]);
-                    Tab.seats = Convert.ToInt32(dr["cantAsientos"]);
-                    Tab.description = dr["descripcion"].ToString();
-                    Tab.state = Convert.ToBoolean(dr["estMesa"]);
+                    Tab.id = Convert.ToInt32(dr["MesaID"]);
+                    Tab.description = dr["Descripcion"].ToString();
+                    Tab.seats = Convert.ToInt32(dr["CantidadAsientos"]);
+                    Tab.state = Convert.ToBoolean(dr["Estado"]);
                     list.Add(Tab);
                 }
             }
             catch (Exception e)
             {
-                Console.WriteLine("Error en la conexion");
+                MessageBox.Show("Error: " + e);
                 throw e;
             }
             finally { cmd.Connection.Close(); }
@@ -60,9 +61,9 @@ namespace Data
                 cmd = new SqlCommand("spInsertaMesa", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@cantAsientos ", tab.seats);
-                cmd.Parameters.AddWithValue("@descripcion ", tab.description);
-                cmd.Parameters.AddWithValue("@estMesa ", tab.state);
+                cmd.Parameters.AddWithValue("@CantidadAsientos ", tab.seats);
+                cmd.Parameters.AddWithValue("@Descripcion ", tab.description);
+                cmd.Parameters.AddWithValue("@Estado ", tab.state);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
@@ -72,6 +73,7 @@ namespace Data
             }
             catch (Exception e)
             {
+                MessageBox.Show("Error: " + e);
                 throw e;
             }
             finally { cmd.Connection.Close(); }
@@ -88,10 +90,10 @@ namespace Data
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("spEditaMesa", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idMesa ", tab.id);
-                cmd.Parameters.AddWithValue("@cantAsientos  ", tab.seats);
-                cmd.Parameters.AddWithValue("@descripcion ", tab.description);
-                cmd.Parameters.AddWithValue("@estMesa ", tab.state);
+                cmd.Parameters.AddWithValue("@MesaID ", tab.id);
+                cmd.Parameters.AddWithValue("@CantidadAsientos ", tab.seats);
+                cmd.Parameters.AddWithValue("@Descripcion ", tab.description);
+                cmd.Parameters.AddWithValue("@Estado ", tab.state);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
@@ -101,6 +103,7 @@ namespace Data
             }
             catch (Exception e)
             {
+                MessageBox.Show("Error: " + e);
                 throw e;
             }
             finally { cmd.Connection.Close(); }
@@ -118,7 +121,7 @@ namespace Data
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("spEliminaMesa", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idMesa", id);
+                cmd.Parameters.AddWithValue("@MesaID ", id);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
@@ -128,6 +131,7 @@ namespace Data
             }
             catch (Exception e)
             {
+                MessageBox.Show("Error: " + e);
                 throw e;
             }
             finally { cmd.Connection.Close(); }

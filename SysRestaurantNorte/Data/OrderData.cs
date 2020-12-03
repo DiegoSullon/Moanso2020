@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using Entity;
+using System.Windows.Forms;
 
 namespace Data
 {
@@ -23,31 +24,33 @@ namespace Data
             SqlCommand cmd = null;
             SqlCommand cmd2 = null;
             List<Order> list = new List<Order>();
+            
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cn.Open();
-                cmd = new SqlCommand("spMostrarPedidos", cn);
+                cmd = new SqlCommand("spListarPedido", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
                     Order Ord = new Order();
-                    Ord.id = Convert.ToInt32(dr["id"]);
-                    Ord.idCliente = Convert.ToInt32(dr["idCliente"]);
-                    Ord.idMesa = Convert.ToInt32(dr["idMesa"]);
+                    Ord.id = Convert.ToInt32(dr["PedidoID"]);
+                    Ord.idCliente = Convert.ToInt32(dr["ClienteID"]);
+                    Ord.idMesa = Convert.ToInt32(dr["mesID"]);
 
-                    cmd2 = new SqlCommand("spMostrarDetallePlatillos", cn);
+                    cmd2 = new SqlCommand("spListaDetallepedido", cn);
                     cmd2.CommandType = CommandType.StoredProcedure;
-                    cmd2.Parameters.AddWithValue("@id ", Ord.id);
+                    cmd2.Parameters.AddWithValue("@PedidoID ", Ord.id);
                     SqlDataReader dr2 = cmd.ExecuteReader();
                     while (dr2.Read())
                     {
                         Platillo plat = new Platillo();
-                        plat.id = Convert.ToInt32(dr["idPlatillo"]);
-                        plat.name = dr["nombrePlatillo"].ToString();
-                        plat.description = dr["descripcion"].ToString();
-                        plat.state = Convert.ToBoolean(dr["estPlatillo"]);
+                        plat.id = Convert.ToInt32(dr2["PlatilloID"]);
+                        plat.name = dr2["NombrePlatillo"].ToString();
+                        plat.tipoPlatilloId = Convert.ToInt32(dr2["TipoPlatilloID"]);
+                        plat.tPreparacion = dr2["TiempoPreparacion"].ToString();
+                        plat.precio = Convert.ToSingle(dr2["Precio"]);
                         Ord.platillo.Add(plat);
                     }
 
@@ -57,7 +60,7 @@ namespace Data
             }
             catch (Exception e)
             {
-                Console.WriteLine("Error list order data");
+                MessageBox.Show("Error: " + e);
                 throw e;
             }
             finally { cmd.Connection.Close(); }
@@ -70,26 +73,52 @@ namespace Data
         {
             SqlCommand cmd = null;
             Boolean inserted = false;
+            int id;
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cn.Open();
-                cmd = new SqlCommand("spInsertarPedido", cn);
+                cmd = new SqlCommand("spInsertaPedido", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idMesa ", Ord.idMesa);
-                cmd.Parameters.AddWithValue("@idCliente ", Ord.idCliente);
+                cmd.Parameters.AddWithValue("@ClienteID", Ord.idCliente);
+                cmd.Parameters.AddWithValue("@MesaID", Ord.idMesa);
                 int i = cmd.ExecuteNonQuery();
                 if (i <= 0)
                 {
                     return false;
                 }
-                cmd = new SqlCommand("spInsertaDetalle", cn);
+
+                cmd = new SqlCommand("spMayorIndice", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                for (int j =0;i< Ord.platillo.Count;j++)
+                cmd.Parameters.AddWithValue("@Table", "Pedido");
+                cmd.Parameters.AddWithValue("@Column", "PedidoID");
+                SqlDataReader dr = cmd.ExecuteReader();
+                id = dr.GetInt32(0);
+
+                cmd = new SqlCommand("spInsertaDetallepedido", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                List<Platillo> carry = new List<Platillo>();
+                int count = -1;
+                for (int j = 0; i < Ord.platillo.Count; j++)
+                {
+                    if (!carry.Contains(Ord.platillo[j]))
+                    {
+                        count++;
+                        carry.Add(Ord.platillo[j]);
+                        carry[count].count = 1;
+                    }
+                    else
+                    {
+                        carry[count].count++;
+                    }
+                    
+                }
+                for (int j =0;i< carry.Count;j++)
                 {
                     
-                    cmd.Parameters.AddWithValue("@idPedido ", Ord.id);
-                    cmd.Parameters.AddWithValue("@idPlatillo", Ord.platillo[j].id);
+                    cmd.Parameters.AddWithValue("@PedidoID", id);
+                    cmd.Parameters.AddWithValue("@Cantidad", carry[j].count);
+                    cmd.Parameters.AddWithValue("@PlatilloID", carry[j].id);
                     int h = cmd.ExecuteNonQuery();
                     if (h > 0)
                     {
@@ -99,6 +128,7 @@ namespace Data
             }
             catch (Exception e)
             {
+                MessageBox.Show("Error: " + e);
                 throw e;
             }
             finally { cmd.Connection.Close(); }
@@ -114,17 +144,17 @@ namespace Data
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cn.Open();
-                cmd = new SqlCommand("spEliminarPedido", cn);
+                cmd = new SqlCommand("spEliminaVPedido", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idPedido", id);
+                cmd.Parameters.AddWithValue("@PedidoID", id);
                 int i = cmd.ExecuteNonQuery();
                 if (i <= 0)
                 {
                     return false;
                 }
-                cmd = new SqlCommand("spEliminaDetalle", cn);
+                cmd = new SqlCommand("spEliminaDetallepedido", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idPedido", id);
+                cmd.Parameters.AddWithValue("@PedidoID", id);
                 int h = cmd.ExecuteNonQuery();
                 if (h > 0)
                 {
@@ -133,6 +163,7 @@ namespace Data
             }
             catch (Exception e)
             {
+                MessageBox.Show("Error: " + e);
                 throw e;
             }
             finally { cmd.Connection.Close(); }

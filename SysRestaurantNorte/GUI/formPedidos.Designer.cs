@@ -29,342 +29,378 @@ namespace GUI
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.btnListarT = new System.Windows.Forms.Button();
-            this.txtMesa = new System.Windows.Forms.TextBox();
-            this.txtDniCliente = new System.Windows.Forms.TextBox();
-            this.txtBuscador = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.rbID = new System.Windows.Forms.RadioButton();
-            this.rbNombre = new System.Windows.Forms.RadioButton();
-            this.lbID = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.btnNuevo = new System.Windows.Forms.Button();
-            this.bntBuscar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.groupBox = new System.Windows.Forms.GroupBox();
-            this.dgvDetalle = new System.Windows.Forms.DataGridView();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
+            this.dgvDetalle = new System.Windows.Forms.DataGridView();
+            this.groupBox = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnBuscarCliente = new System.Windows.Forms.Button();
+            this.btnCrear_Pedido = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtBuscarPlatillo = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
-            this.dgvLista = new System.Windows.Forms.DataGridView();
-            this.groupBox.SuspendLayout();
+            this.button3 = new System.Windows.Forms.Button();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.btnBuscarPlatillo = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
+            this.groupBox.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.BackColor = System.Drawing.Color.MidnightBlue;
-            this.btnEditar.FlatAppearance.BorderSize = 0;
-            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnEditar.Location = new System.Drawing.Point(676, 314);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(99, 32);
-            this.btnEditar.TabIndex = 54;
-            this.btnEditar.Text = "EDITAR";
-            this.btnEditar.UseVisualStyleBackColor = false;
-            // 
-            // btnListarT
-            // 
-            this.btnListarT.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnListarT.FlatAppearance.BorderSize = 0;
-            this.btnListarT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnListarT.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnListarT.ForeColor = System.Drawing.Color.White;
-            this.btnListarT.Location = new System.Drawing.Point(503, 154);
-            this.btnListarT.Name = "btnListarT";
-            this.btnListarT.Size = new System.Drawing.Size(145, 20);
-            this.btnListarT.TabIndex = 53;
-            this.btnListarT.Text = "LISTAR TODO";
-            this.btnListarT.UseVisualStyleBackColor = false;
-            // 
-            // txtMesa
-            // 
-            this.txtMesa.Location = new System.Drawing.Point(452, 20);
-            this.txtMesa.Name = "txtMesa";
-            this.txtMesa.Size = new System.Drawing.Size(53, 23);
-            this.txtMesa.TabIndex = 50;
-            // 
-            // txtDniCliente
-            // 
-            this.txtDniCliente.Location = new System.Drawing.Point(232, 21);
-            this.txtDniCliente.Name = "txtDniCliente";
-            this.txtDniCliente.Size = new System.Drawing.Size(119, 23);
-            this.txtDniCliente.TabIndex = 49;
-            // 
-            // txtBuscador
-            // 
-            this.txtBuscador.Location = new System.Drawing.Point(34, 153);
-            this.txtBuscador.Name = "txtBuscador";
-            this.txtBuscador.Size = new System.Drawing.Size(218, 20);
-            this.txtBuscador.TabIndex = 48;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label9.Location = new System.Drawing.Point(34, 124);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(87, 16);
-            this.label9.TabIndex = 47;
-            this.label9.Text = "Buscar por:";
-            // 
-            // rbID
-            // 
-            this.rbID.AutoSize = true;
-            this.rbID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbID.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.rbID.Location = new System.Drawing.Point(211, 124);
-            this.rbID.Name = "rbID";
-            this.rbID.Size = new System.Drawing.Size(41, 20);
-            this.rbID.TabIndex = 46;
-            this.rbID.TabStop = true;
-            this.rbID.Text = "ID";
-            this.rbID.UseVisualStyleBackColor = true;
-            // 
-            // rbNombre
-            // 
-            this.rbNombre.AutoSize = true;
-            this.rbNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbNombre.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.rbNombre.Location = new System.Drawing.Point(132, 124);
-            this.rbNombre.Name = "rbNombre";
-            this.rbNombre.Size = new System.Drawing.Size(64, 20);
-            this.rbNombre.TabIndex = 45;
-            this.rbNombre.TabStop = true;
-            this.rbNombre.Text = "Mesa";
-            this.rbNombre.UseVisualStyleBackColor = true;
-            // 
-            // lbID
-            // 
-            this.lbID.AutoSize = true;
-            this.lbID.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbID.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbID.Location = new System.Drawing.Point(53, 22);
-            this.lbID.Name = "lbID";
-            this.lbID.Size = new System.Drawing.Size(33, 18);
-            this.lbID.TabIndex = 44;
-            this.lbID.Text = "-----";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial Rounded MT Bold", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label7.Location = new System.Drawing.Point(183, 52);
+            this.label7.Location = new System.Drawing.Point(244, 52);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(439, 33);
+            this.label7.Size = new System.Drawing.Size(566, 43);
             this.label7.TabIndex = 43;
             this.label7.Text = "PEDIDOS DEL RESTAURANTE";
             // 
-            // btnNuevo
+            // dataGridView1
             // 
-            this.btnNuevo.BackColor = System.Drawing.Color.Green;
-            this.btnNuevo.FlatAppearance.BorderSize = 0;
-            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevo.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnNuevo.Location = new System.Drawing.Point(676, 185);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(99, 32);
-            this.btnNuevo.TabIndex = 42;
-            this.btnNuevo.Text = "NUEVO";
-            this.btnNuevo.UseVisualStyleBackColor = false;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click_1);
-            // 
-            // bntBuscar
-            // 
-            this.bntBuscar.BackColor = System.Drawing.Color.DarkOrange;
-            this.bntBuscar.FlatAppearance.BorderSize = 0;
-            this.bntBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bntBuscar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bntBuscar.ForeColor = System.Drawing.Color.White;
-            this.bntBuscar.Location = new System.Drawing.Point(258, 153);
-            this.bntBuscar.Name = "bntBuscar";
-            this.bntBuscar.Size = new System.Drawing.Size(75, 20);
-            this.bntBuscar.TabIndex = 41;
-            this.bntBuscar.Text = "BUSCAR";
-            this.bntBuscar.UseVisualStyleBackColor = false;
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnEliminar.FlatAppearance.BorderSize = 0;
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnEliminar.Location = new System.Drawing.Point(676, 251);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(99, 32);
-            this.btnEliminar.TabIndex = 40;
-            this.btnEliminar.Text = "ELIMINAR";
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            // 
-            // groupBox
-            // 
-            this.groupBox.Controls.Add(this.dgvDetalle);
-            this.groupBox.Controls.Add(this.btnGuardar);
-            this.groupBox.Controls.Add(this.label2);
-            this.groupBox.Controls.Add(this.txtMesa);
-            this.groupBox.Controls.Add(this.label3);
-            this.groupBox.Controls.Add(this.txtDniCliente);
-            this.groupBox.Controls.Add(this.label1);
-            this.groupBox.Controls.Add(this.lbID);
-            this.groupBox.Controls.Add(this.label5);
-            this.groupBox.Controls.Add(this.label4);
-            this.groupBox.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBox.Location = new System.Drawing.Point(22, 357);
-            this.groupBox.Name = "groupBox";
-            this.groupBox.Size = new System.Drawing.Size(756, 231);
-            this.groupBox.TabIndex = 52;
-            this.groupBox.TabStop = false;
-            this.groupBox.Text = "Datos Del Pedido";
-            // 
-            // dgvDetalle
-            // 
-            this.dgvDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDetalle.Location = new System.Drawing.Point(15, 87);
-            this.dgvDetalle.Name = "dgvDetalle";
-            this.dgvDetalle.Size = new System.Drawing.Size(724, 128);
-            this.dgvDetalle.TabIndex = 51;
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnGuardar.FlatAppearance.BorderSize = 0;
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnGuardar.Location = new System.Drawing.Point(640, 22);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(99, 32);
-            this.btnGuardar.TabIndex = 0;
-            this.btnGuardar.Text = "GUARDAR";
-            this.btnGuardar.UseVisualStyleBackColor = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(106, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(120, 22);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Dni Cliente :";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(372, 21);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 22);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Mesa : ";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(6, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 22);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "ID :";
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(294, 151);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(302, 181);
+            this.dataGridView1.TabIndex = 55;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Location = new System.Drawing.Point(293, 57);
+            this.label5.Location = new System.Drawing.Point(391, 70);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(0, 22);
+            this.label5.Size = new System.Drawing.Size(0, 28);
             this.label5.TabIndex = 8;
+            // 
+            // dgvDetalle
+            // 
+            this.dgvDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetalle.Location = new System.Drawing.Point(20, 76);
+            this.dgvDetalle.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvDetalle.Name = "dgvDetalle";
+            this.dgvDetalle.RowHeadersWidth = 51;
+            this.dgvDetalle.Size = new System.Drawing.Size(437, 258);
+            this.dgvDetalle.TabIndex = 51;
+            // 
+            // groupBox
+            // 
+            this.groupBox.Controls.Add(this.btnBuscarPlatillo);
+            this.groupBox.Controls.Add(this.numericUpDown1);
+            this.groupBox.Controls.Add(this.button1);
+            this.groupBox.Controls.Add(this.txtBuscarPlatillo);
+            this.groupBox.Controls.Add(this.label1);
+            this.groupBox.Controls.Add(this.dgvDetalle);
+            this.groupBox.Controls.Add(this.label5);
+            this.groupBox.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.groupBox.Location = new System.Drawing.Point(29, 368);
+            this.groupBox.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox.Name = "groupBox";
+            this.groupBox.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox.Size = new System.Drawing.Size(580, 355);
+            this.groupBox.TabIndex = 52;
+            this.groupBox.TabStop = false;
+            this.groupBox.Text = "Platillos";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label3.Location = new System.Drawing.Point(36, 162);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(93, 28);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Mesa : ";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label6.Location = new System.Drawing.Point(36, 118);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(134, 28);
+            this.label6.TabIndex = 56;
+            this.label6.Text = "ClienteID: ";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(167, 124);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(95, 22);
+            this.textBox1.TabIndex = 57;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(481, 122);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(115, 22);
+            this.textBox2.TabIndex = 52;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label8.Location = new System.Drawing.Point(289, 116);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(197, 28);
+            this.label8.TabIndex = 52;
+            this.label8.Text = "Buscar Cliente: ";
+            // 
+            // btnBuscarCliente
+            // 
+            this.btnBuscarCliente.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnBuscarCliente.FlatAppearance.BorderSize = 0;
+            this.btnBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarCliente.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarCliente.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnBuscarCliente.Location = new System.Drawing.Point(604, 120);
+            this.btnBuscarCliente.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscarCliente.Name = "btnBuscarCliente";
+            this.btnBuscarCliente.Size = new System.Drawing.Size(92, 24);
+            this.btnBuscarCliente.TabIndex = 52;
+            this.btnBuscarCliente.Text = "BUSCAR";
+            this.btnBuscarCliente.UseVisualStyleBackColor = false;
+            // 
+            // btnCrear_Pedido
+            // 
+            this.btnCrear_Pedido.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnCrear_Pedido.FlatAppearance.BorderSize = 0;
+            this.btnCrear_Pedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCrear_Pedido.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCrear_Pedido.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCrear_Pedido.Location = new System.Drawing.Point(275, 508);
+            this.btnCrear_Pedido.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCrear_Pedido.Name = "btnCrear_Pedido";
+            this.btnCrear_Pedido.Size = new System.Drawing.Size(141, 39);
+            this.btnCrear_Pedido.TabIndex = 55;
+            this.btnCrear_Pedido.Text = "Crear Pedido";
+            this.btnCrear_Pedido.UseVisualStyleBackColor = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Location = new System.Drawing.Point(21, 37);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(195, 28);
+            this.label1.TabIndex = 58;
+            this.label1.Text = "Buscar Platillo: ";
+            // 
+            // txtBuscarPlatillo
+            // 
+            this.txtBuscarPlatillo.Location = new System.Drawing.Point(223, 37);
+            this.txtBuscarPlatillo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBuscarPlatillo.Name = "txtBuscarPlatillo";
+            this.txtBuscarPlatillo.Size = new System.Drawing.Size(234, 27);
+            this.txtBuscarPlatillo.TabIndex = 58;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button1.Location = new System.Drawing.Point(465, 156);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(96, 39);
+            this.button1.TabIndex = 59;
+            this.button1.Text = "AGREGAR";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnCrear_Pedido);
+            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.dataGridView2);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.groupBox1.Location = new System.Drawing.Point(617, 155);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(437, 568);
+            this.groupBox1.TabIndex = 58;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Detalle Pedido";
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button2.Location = new System.Drawing.Point(20, 508);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(94, 39);
+            this.button2.TabIndex = 59;
+            this.button2.Text = "ELIMINAR";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(20, 28);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 51;
+            this.dataGridView2.Size = new System.Drawing.Size(396, 472);
+            this.dataGridView2.TabIndex = 51;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Location = new System.Drawing.Point(11, 57);
+            this.label4.Location = new System.Drawing.Point(391, 70);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 22);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Detalle :";
+            this.label4.Size = new System.Drawing.Size(0, 28);
+            this.label4.TabIndex = 8;
             // 
-            // dgvLista
+            // button3
             // 
-            this.dgvLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLista.Location = new System.Drawing.Point(34, 185);
-            this.dgvLista.Name = "dgvLista";
-            this.dgvLista.Size = new System.Drawing.Size(614, 161);
-            this.dgvLista.TabIndex = 51;
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button3.Location = new System.Drawing.Point(207, 197);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(96, 39);
+            this.button3.TabIndex = 40;
+            this.button3.Text = "ELIMINAR";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(464, 202);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(96, 27);
+            this.numericUpDown1.TabIndex = 60;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // btnBuscarPlatillo
+            // 
+            this.btnBuscarPlatillo.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnBuscarPlatillo.FlatAppearance.BorderSize = 0;
+            this.btnBuscarPlatillo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarPlatillo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarPlatillo.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnBuscarPlatillo.Location = new System.Drawing.Point(464, 35);
+            this.btnBuscarPlatillo.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscarPlatillo.Name = "btnBuscarPlatillo";
+            this.btnBuscarPlatillo.Size = new System.Drawing.Size(97, 33);
+            this.btnBuscarPlatillo.TabIndex = 59;
+            this.btnBuscarPlatillo.Text = "BUSCAR";
+            this.btnBuscarPlatillo.UseVisualStyleBackColor = false;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(167, 169);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(95, 24);
+            this.comboBox1.TabIndex = 59;
             // 
             // formPedidos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(800, 600);
-            this.Controls.Add(this.btnEditar);
-            this.Controls.Add(this.btnListarT);
-            this.Controls.Add(this.dgvLista);
-            this.Controls.Add(this.txtBuscador);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.rbID);
-            this.Controls.Add(this.rbNombre);
+            this.ClientSize = new System.Drawing.Size(1067, 738);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.btnBuscarCliente);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.btnNuevo);
-            this.Controls.Add(this.bntBuscar);
-            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.groupBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "formPedidos";
             this.Text = "formPedidos";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).EndInit();
             this.groupBox.ResumeLayout(false);
             this.groupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.Button btnListarT;
-        private System.Windows.Forms.TextBox txtMesa;
-        private System.Windows.Forms.TextBox txtDniCliente;
-        private System.Windows.Forms.TextBox txtBuscador;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.RadioButton rbID;
-        private System.Windows.Forms.RadioButton rbNombre;
-        private System.Windows.Forms.Label lbID;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.Button bntBuscar;
-        private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.GroupBox groupBox;
-        private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dgvDetalle;
-        private System.Windows.Forms.DataGridView dgvLista;
+        private System.Windows.Forms.GroupBox groupBox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnBuscarCliente;
+        private System.Windows.Forms.Button btnCrear_Pedido;
+        private System.Windows.Forms.Button btnBuscarPlatillo;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtBuscarPlatillo;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

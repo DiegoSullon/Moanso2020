@@ -42,18 +42,23 @@ namespace GUI
             this.btnEliminar = new System.Windows.Forms.Button();
             this.txtRol = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtDni = new System.Windows.Forms.TextBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
             this.lbID = new System.Windows.Forms.Label();
             this.groupBox = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtCorreo = new System.Windows.Forms.TextBox();
+            this.txtApellido = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtDni = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
+            this.linkCV = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.groupBox.SuspendLayout();
             this.SuspendLayout();
@@ -65,7 +70,7 @@ namespace GUI
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnEditar.Location = new System.Drawing.Point(668, 294);
+            this.btnEditar.Location = new System.Drawing.Point(668, 265);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(99, 32);
             this.btnEditar.TabIndex = 54;
@@ -79,9 +84,9 @@ namespace GUI
             this.btnListarT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnListarT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnListarT.ForeColor = System.Drawing.Color.White;
-            this.btnListarT.Location = new System.Drawing.Point(495, 134);
+            this.btnListarT.Location = new System.Drawing.Point(495, 133);
             this.btnListarT.Name = "btnListarT";
-            this.btnListarT.Size = new System.Drawing.Size(145, 20);
+            this.btnListarT.Size = new System.Drawing.Size(145, 21);
             this.btnListarT.TabIndex = 53;
             this.btnListarT.Text = "LISTAR TODO";
             this.btnListarT.UseVisualStyleBackColor = false;
@@ -174,7 +179,7 @@ namespace GUI
             this.bntBuscar.ForeColor = System.Drawing.Color.White;
             this.bntBuscar.Location = new System.Drawing.Point(250, 133);
             this.bntBuscar.Name = "bntBuscar";
-            this.bntBuscar.Size = new System.Drawing.Size(75, 20);
+            this.bntBuscar.Size = new System.Drawing.Size(75, 21);
             this.bntBuscar.TabIndex = 41;
             this.bntBuscar.Text = "BUSCAR";
             this.bntBuscar.UseVisualStyleBackColor = false;
@@ -186,7 +191,7 @@ namespace GUI
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnEliminar.Location = new System.Drawing.Point(668, 231);
+            this.btnEliminar.Location = new System.Drawing.Point(667, 215);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(99, 32);
             this.btnEliminar.TabIndex = 40;
@@ -195,9 +200,9 @@ namespace GUI
             // 
             // txtRol
             // 
-            this.txtRol.Location = new System.Drawing.Point(429, 57);
+            this.txtRol.Location = new System.Drawing.Point(396, 55);
             this.txtRol.Name = "txtRol";
-            this.txtRol.Size = new System.Drawing.Size(145, 23);
+            this.txtRol.Size = new System.Drawing.Size(197, 23);
             this.txtRol.TabIndex = 20;
             // 
             // label5
@@ -205,32 +210,18 @@ namespace GUI
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Location = new System.Drawing.Point(293, 57);
+            this.label5.Location = new System.Drawing.Point(293, 55);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(48, 24);
             this.label5.TabIndex = 8;
             this.label5.Text = "Rol :";
-            // 
-            // txtDni
-            // 
-            this.txtDni.Location = new System.Drawing.Point(114, 467);
-            this.txtDni.Name = "txtDni";
-            this.txtDni.Size = new System.Drawing.Size(143, 20);
-            this.txtDni.TabIndex = 57;
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(114, 429);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(143, 20);
-            this.txtNombre.TabIndex = 56;
             // 
             // lbID
             // 
             this.lbID.AutoSize = true;
             this.lbID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbID.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbID.Location = new System.Drawing.Point(111, 393);
+            this.lbID.Location = new System.Drawing.Point(104, 19);
             this.lbID.Name = "lbID";
             this.lbID.Size = new System.Drawing.Size(34, 20);
             this.lbID.TabIndex = 55;
@@ -238,9 +229,16 @@ namespace GUI
             // 
             // groupBox
             // 
+            this.groupBox.Controls.Add(this.dtpFechaNacimiento);
+            this.groupBox.Controls.Add(this.label10);
+            this.groupBox.Controls.Add(this.txtTelefono);
+            this.groupBox.Controls.Add(this.lbID);
+            this.groupBox.Controls.Add(this.txtDni);
+            this.groupBox.Controls.Add(this.txtNombre);
+            this.groupBox.Controls.Add(this.label8);
             this.groupBox.Controls.Add(this.button1);
             this.groupBox.Controls.Add(this.label6);
-            this.groupBox.Controls.Add(this.txtCorreo);
+            this.groupBox.Controls.Add(this.txtApellido);
             this.groupBox.Controls.Add(this.btnGuardar);
             this.groupBox.Controls.Add(this.label2);
             this.groupBox.Controls.Add(this.label3);
@@ -250,9 +248,9 @@ namespace GUI
             this.groupBox.Controls.Add(this.txtRol);
             this.groupBox.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBox.Location = new System.Drawing.Point(16, 372);
+            this.groupBox.Location = new System.Drawing.Point(26, 332);
             this.groupBox.Name = "groupBox";
-            this.groupBox.Size = new System.Drawing.Size(756, 151);
+            this.groupBox.Size = new System.Drawing.Size(746, 217);
             this.groupBox.TabIndex = 58;
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Datos Del Empleado";
@@ -264,9 +262,9 @@ namespace GUI
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(429, 96);
+            this.button1.Location = new System.Drawing.Point(396, 135);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(145, 23);
+            this.button1.Size = new System.Drawing.Size(197, 23);
             this.button1.TabIndex = 59;
             this.button1.Text = "Selecionar archivo";
             this.button1.UseVisualStyleBackColor = false;
@@ -276,19 +274,19 @@ namespace GUI
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label6.Location = new System.Drawing.Point(293, 95);
+            this.label6.Location = new System.Drawing.Point(293, 135);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(41, 24);
             this.label6.TabIndex = 21;
             this.label6.Text = "CV:";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
-            // txtCorreo
+            // txtApellido
             // 
-            this.txtCorreo.Location = new System.Drawing.Point(429, 21);
-            this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(197, 23);
-            this.txtCorreo.TabIndex = 20;
+            this.txtApellido.Location = new System.Drawing.Point(396, 100);
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(197, 23);
+            this.txtApellido.TabIndex = 20;
             // 
             // btnGuardar
             // 
@@ -297,7 +295,7 @@ namespace GUI
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnGuardar.Location = new System.Drawing.Point(642, 61);
+            this.btnGuardar.Location = new System.Drawing.Point(641, 98);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(99, 32);
             this.btnGuardar.TabIndex = 0;
@@ -343,11 +341,74 @@ namespace GUI
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Location = new System.Drawing.Point(293, 21);
+            this.label4.Location = new System.Drawing.Point(293, 97);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(78, 24);
+            this.label4.Size = new System.Drawing.Size(89, 24);
             this.label4.TabIndex = 7;
-            this.label4.Text = "Correo :";
+            this.label4.Text = "Apellido :";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label8.Location = new System.Drawing.Point(9, 135);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(95, 24);
+            this.label8.TabIndex = 60;
+            this.label8.Text = "Telefono: ";
+            // 
+            // txtDni
+            // 
+            this.txtDni.Location = new System.Drawing.Point(108, 100);
+            this.txtDni.Name = "txtDni";
+            this.txtDni.Size = new System.Drawing.Size(161, 23);
+            this.txtDni.TabIndex = 62;
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(108, 58);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(161, 23);
+            this.txtNombre.TabIndex = 61;
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono.Location = new System.Drawing.Point(110, 136);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(161, 23);
+            this.txtTelefono.TabIndex = 63;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label10.Location = new System.Drawing.Point(9, 173);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(201, 24);
+            this.label10.TabIndex = 64;
+            this.label10.Text = "Fecha de Nacimiento: ";
+            // 
+            // dtpFechaNacimiento
+            // 
+            this.dtpFechaNacimiento.Location = new System.Drawing.Point(297, 174);
+            this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
+            this.dtpFechaNacimiento.Size = new System.Drawing.Size(296, 23);
+            this.dtpFechaNacimiento.TabIndex = 65;
+            // 
+            // linkCV
+            // 
+            this.linkCV.AutoSize = true;
+            this.linkCV.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkCV.LinkColor = System.Drawing.Color.DarkOrange;
+            this.linkCV.Location = new System.Drawing.Point(664, 308);
+            this.linkCV.Name = "linkCV";
+            this.linkCV.Size = new System.Drawing.Size(113, 18);
+            this.linkCV.TabIndex = 66;
+            this.linkCV.TabStop = true;
+            this.linkCV.Text = "Descargar CV";
             // 
             // formEmpleados
             // 
@@ -355,9 +416,7 @@ namespace GUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.txtDni);
-            this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.lbID);
+            this.Controls.Add(this.linkCV);
             this.Controls.Add(this.groupBox);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnListarT);
@@ -396,11 +455,9 @@ namespace GUI
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.TextBox txtRol;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtDni;
-        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lbID;
         private System.Windows.Forms.GroupBox groupBox;
-        private System.Windows.Forms.TextBox txtCorreo;
+        private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -408,5 +465,12 @@ namespace GUI
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtTelefono;
+        private System.Windows.Forms.TextBox txtDni;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DateTimePicker dtpFechaNacimiento;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.LinkLabel linkCV;
     }
 }
