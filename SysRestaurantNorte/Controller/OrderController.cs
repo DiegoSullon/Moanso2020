@@ -7,7 +7,7 @@ using Entity;
 using Data;
 namespace Controller
 {
-    class OrderController
+    public class OrderController
     {
         #region singleton
         private static readonly OrderController _instance = new OrderController();

@@ -37,12 +37,18 @@ namespace Data
                     Order Ord = new Order();
                     Ord.id = Convert.ToInt32(dr["PedidoID"]);
                     Ord.idCliente = Convert.ToInt32(dr["ClienteID"]);
-                    Ord.idMesa = Convert.ToInt32(dr["mesID"]);
+                    Ord.idMesa = Convert.ToInt32(dr["MesaID"]);
 
+
+                    list.Add(Ord);
+                }
+                dr.Close();
+                for (int i=0;i< list.Count;i++)
+                {
                     cmd2 = new SqlCommand("spListaDetallepedido", cn);
                     cmd2.CommandType = CommandType.StoredProcedure;
-                    cmd2.Parameters.AddWithValue("@PedidoID ", Ord.id);
-                    SqlDataReader dr2 = cmd.ExecuteReader();
+                    cmd2.Parameters.AddWithValue("@PedidoID ", list[i].id);
+                    SqlDataReader dr2 = cmd2.ExecuteReader();
                     while (dr2.Read())
                     {
                         Platillo plat = new Platillo();
@@ -51,12 +57,10 @@ namespace Data
                         plat.tipoPlatilloId = Convert.ToInt32(dr2["TipoPlatilloID"]);
                         plat.tPreparacion = dr2["TiempoPreparacion"].ToString();
                         plat.precio = Convert.ToSingle(dr2["Precio"]);
-                        Ord.platillo.Add(plat);
+                        list[i].platillo.Add(plat);
                     }
-
-                    list.Add(Ord);
+                    dr2.Close();
                 }
-                
             }
             catch (Exception e)
             {
@@ -73,7 +77,7 @@ namespace Data
         {
             SqlCommand cmd = null;
             Boolean inserted = false;
-            int id;
+            int id=0;
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
@@ -93,13 +97,17 @@ namespace Data
                 cmd.Parameters.AddWithValue("@Table", "Pedido");
                 cmd.Parameters.AddWithValue("@Column", "PedidoID");
                 SqlDataReader dr = cmd.ExecuteReader();
-                id = dr.GetInt32(0);
+                while (dr.Read())
+                {
+                    id = dr.GetInt32(0);
+                }
+                dr.Close();
 
-                cmd = new SqlCommand("spInsertaDetallepedido", cn);
-                cmd.CommandType = CommandType.StoredProcedure;
+                
+                
                 List<Platillo> carry = new List<Platillo>();
                 int count = -1;
-                for (int j = 0; i < Ord.platillo.Count; j++)
+                for (int j = 0; j < Ord.platillo.Count; j++)
                 {
                     if (!carry.Contains(Ord.platillo[j]))
                     {
@@ -113,9 +121,10 @@ namespace Data
                     }
                     
                 }
-                for (int j =0;i< carry.Count;j++)
+                for (int j =0;j< carry.Count;j++)
                 {
-                    
+                    cmd = new SqlCommand("spInsertaDetallepedido", cn);
+                    cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@PedidoID", id);
                     cmd.Parameters.AddWithValue("@Cantidad", carry[j].count);
                     cmd.Parameters.AddWithValue("@PlatilloID", carry[j].id);

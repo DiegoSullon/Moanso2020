@@ -11,10 +11,14 @@ using System.Runtime.InteropServices;//LIBRERIA PARA MOVER LA VENTANA
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using System.IO;
+using Entity;
+using Controller;
+
 namespace GUI
 {
     public partial class login : Form
     {
+        private bool loged = false;
         public login()
         {
             InitializeComponent();
@@ -92,35 +96,32 @@ namespace GUI
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-
         private void btnlogin_Click(object sender, EventArgs e)
         {
-            if (txtuser.Text != "USUARIO" && txtuser.TextLength > 0)
+            MenuVertical mainMenu = new MenuVertical();
+            mainMenu.Show();
+            mainMenu.FormClosed += Logout;
+            this.Hide();
+            /*
+            List<Employe> employes = EmployeController.Instancia.listar();
+            for(int i=0;i< employes.Count; i++)
             {
-                if (txtpass.Text != "CONTRASEÑA")
-                {/*
-                    UserModel user = new UserModel();
-                    var validLogin = user.LoginUser(txtuser.Text, txtpass.Text);
-                    if (validLogin == true)
-                    {*/
+                //MessageBox.Show(employes[i].name);
+                //MessageBox.Show(employes[i].dni);
+                if (txtuser.Text == employes[i].name && txtpass.Text== employes[i].dni)
+                {
                         MenuVertical mainMenu = new MenuVertical();
-                        MessageBox.Show(" Bienvenido ");
                         mainMenu.Show();
                         mainMenu.FormClosed += Logout;
-                        this.Hide();/*
-                    }
-                    else
-                    {
-                        msgError("Incorrect username or password entered. \n   Please try again.");
-                        txtpass.Text = "Password";
-                        txtpass.UseSystemPasswordChar = false;
-                        txtuser.Focus();
-                    }*/
+                        this.Hide();
                 }
-                else msgError("Por favor Ingresar la Contraseña.");
             }
-            else msgError("Por favor Ingresar el Usuario.");
-            //prueba();
+            if (!loged)
+            {
+                msgError("Usuario o contraseña incorrecta.");
+            }
+            */
+
         }
         private async Task prueba()
         {

@@ -40,8 +40,8 @@ namespace Data
                     Employe cli = new Employe();
                     cli.id = Convert.ToInt32(dr["EmpleadoID"]);
                     cli.name = dr["Nombre"].ToString();
-                    cli.idRol = Convert.ToInt32(dr["RollID"]);
-                    cli.name = dr["Apellido"].ToString();
+                    cli.idRol = Convert.ToInt32(dr["RolID"]);
+                    cli.apellido = dr["Apellido"].ToString();
                     cli.dni = dr["DNI"].ToString();
                     cli.cv = dr["CV"].ToString();
                     cli.telefono = dr["Telefono"].ToString();
@@ -163,13 +163,12 @@ namespace Data
             BlobServiceClient blobServiceClient = Conexion.Instancia.connectStorage();
 
             //Create a unique name for the container
-            string containerName = "employeCV";
+            string containerName = "employecv";
             // Create the container and return a container client object
             BlobContainerClient containerClient = blobServiceClient.GetBlobContainerClient(containerName);
             containerClient.CreateIfNotExists();
 
             BlobClient blobClient = containerClient.GetBlobClient(file.SafeFileName);
-
             // Open the file and upload its data
             using FileStream uploadFileStream = File.OpenRead(file.FileName);
             await blobClient.UploadAsync(uploadFileStream, true);
@@ -182,7 +181,7 @@ namespace Data
             BlobServiceClient blobServiceClient = Conexion.Instancia.connectStorage();
 
             //Create a unique name for the container
-            string containerName = "employeCV";
+            string containerName = "employecv";
             // Create the container and return a container client object
             BlobContainerClient containerClient = blobServiceClient.GetBlobContainerClient(containerName);
             containerClient.CreateIfNotExists();
@@ -191,10 +190,11 @@ namespace Data
 
             // Download the blob's contents and save it to a file
             BlobDownloadInfo download = await blobClient.DownloadAsync();
-            MessageBox.Show("\nGaaaa\n\t{0}\n" + download.ToString());
+            //MessageBox.Show("\nGaaaa\n\t{0}\n" + download.ToString());
             using (FileStream downloadFileStream = File.OpenWrite(downloadFilePath))
             {
                 await download.Content.CopyToAsync(downloadFileStream);
+                MessageBox.Show("Descargado");
                 downloadFileStream.Close();
             }
         }

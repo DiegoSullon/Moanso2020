@@ -13,6 +13,10 @@ namespace Entity
         public int idCliente {set;get;}
 
         public List<Platillo> platillo;
-        
+
+        public Order()
+        {
+            platillo = new List<Platillo>();
+        }
     }
 }

@@ -19,7 +19,7 @@ namespace GUI
         {
             InitializeComponent();
             ListPlatillos();
-            rbID.Checked = true;
+            ListIngredientes();
             groupBox.Enabled = false;
         }
 
@@ -27,12 +27,16 @@ namespace GUI
         {
             dgvLista.DataSource = logplatillo.instance.listarPlatillos();
         }
+        public void ListIngredientes()
+        {
+            dgvIngredientes.DataSource = IngredienteController.instance.list();
+        }
 
         private void LimpiarCampos()
         {
             lbID.Text = "";
-            txtDescripcion.Text = " ";
-            cbEstado.Checked = false;
+            txtTiempo.Text = " ";
+            //cbEstado.Checked = false;
             txtNombre.Text = " ";
         }
 
@@ -52,10 +56,25 @@ namespace GUI
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            IngredientePlatillo ingrepla = new IngredientePlatillo();
+            DataGridViewRow filaActual1 = dgvIngredientes.CurrentRow;
+            
             Platillo platillo = new Platillo();
             platillo.name = txtNombre.Text;
-            platillo.description = txtDescripcion.Text;
-            platillo.state = cbEstado.Checked;
+            platillo.precio= float.Parse(cbPrecio.Text); 
+            if (rbSegundo.Checked)
+            {
+                platillo.tipoPlatilloId = 1;
+            }
+            else if (rbEntrada.Checked)
+            {
+                platillo.tipoPlatilloId = 2;
+            }
+            else if (rbBebida.Checked)
+            {
+                platillo.tipoPlatilloId = 3;
+            }
+            platillo.tPreparacion = txtTiempo.Text;
 
             if (edit)
             {
@@ -69,6 +88,7 @@ namespace GUI
             }
 
             ListPlatillos();
+            ListIngredientes();
             LimpiarCampos();
             groupBox.Enabled = false;
             edit = false;
@@ -82,11 +102,13 @@ namespace GUI
             //MessageBox.Show(fila.Cells[0].Value.ToString() );
             logplatillo.instance.eliminarPlatillo(id);
             ListPlatillos();
+            ListIngredientes();
         }
 
         private void btnListarT_Click(object sender, EventArgs e)
         {
             ListPlatillos();
+            ListIngredientes();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -95,8 +117,8 @@ namespace GUI
             DataGridViewRow filaActual = dgvLista.CurrentRow;
             lbID.Text = filaActual.Cells[0].Value.ToString();
             txtNombre.Text = filaActual.Cells[1].Value.ToString();
-            txtDescripcion.Text = filaActual.Cells[2].Value.ToString();
-            cbEstado.Checked = Convert.ToBoolean(filaActual.Cells[3].Value);
+            txtTiempo.Text = filaActual.Cells[2].Value.ToString();
+            // cbEstado.Checked = Convert.ToBoolean(filaActual.Cells[3].Value);
             btnGuardar.Enabled = true;
             btnGuardar.Visible = true;
             groupBox.Enabled = true;
@@ -104,6 +126,11 @@ namespace GUI
         }
 
         private void formPlatillos_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }

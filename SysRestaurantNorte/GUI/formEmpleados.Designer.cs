@@ -40,11 +40,17 @@ namespace GUI
             this.btnNuevo = new System.Windows.Forms.Button();
             this.bntBuscar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.txtRol = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.lbID = new System.Windows.Forms.Label();
             this.groupBox = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.boxRol = new System.Windows.Forms.ComboBox();
+            this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.txtDni = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.fileButton = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -52,12 +58,6 @@ namespace GUI
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtDni = new System.Windows.Forms.TextBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtTelefono = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.linkCV = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.groupBox.SuspendLayout();
@@ -76,6 +76,7 @@ namespace GUI
             this.btnEditar.TabIndex = 54;
             this.btnEditar.Text = "EDITAR";
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnListarT
             // 
@@ -90,6 +91,7 @@ namespace GUI
             this.btnListarT.TabIndex = 53;
             this.btnListarT.Text = "LISTAR TODO";
             this.btnListarT.UseVisualStyleBackColor = false;
+            this.btnListarT.Click += new System.EventHandler(this.btnListarT_Click);
             // 
             // dgvLista
             // 
@@ -183,6 +185,7 @@ namespace GUI
             this.bntBuscar.TabIndex = 41;
             this.bntBuscar.Text = "BUSCAR";
             this.bntBuscar.UseVisualStyleBackColor = false;
+            this.bntBuscar.Click += new System.EventHandler(this.bntBuscar_Click);
             // 
             // btnEliminar
             // 
@@ -197,13 +200,7 @@ namespace GUI
             this.btnEliminar.TabIndex = 40;
             this.btnEliminar.Text = "ELIMINAR";
             this.btnEliminar.UseVisualStyleBackColor = false;
-            // 
-            // txtRol
-            // 
-            this.txtRol.Location = new System.Drawing.Point(396, 55);
-            this.txtRol.Name = "txtRol";
-            this.txtRol.Size = new System.Drawing.Size(197, 23);
-            this.txtRol.TabIndex = 20;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // label5
             // 
@@ -229,6 +226,7 @@ namespace GUI
             // 
             // groupBox
             // 
+            this.groupBox.Controls.Add(this.boxRol);
             this.groupBox.Controls.Add(this.dtpFechaNacimiento);
             this.groupBox.Controls.Add(this.label10);
             this.groupBox.Controls.Add(this.txtTelefono);
@@ -236,7 +234,7 @@ namespace GUI
             this.groupBox.Controls.Add(this.txtDni);
             this.groupBox.Controls.Add(this.txtNombre);
             this.groupBox.Controls.Add(this.label8);
-            this.groupBox.Controls.Add(this.button1);
+            this.groupBox.Controls.Add(this.fileButton);
             this.groupBox.Controls.Add(this.label6);
             this.groupBox.Controls.Add(this.txtApellido);
             this.groupBox.Controls.Add(this.btnGuardar);
@@ -245,7 +243,6 @@ namespace GUI
             this.groupBox.Controls.Add(this.label1);
             this.groupBox.Controls.Add(this.label5);
             this.groupBox.Controls.Add(this.label4);
-            this.groupBox.Controls.Add(this.txtRol);
             this.groupBox.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.groupBox.Location = new System.Drawing.Point(26, 332);
@@ -255,19 +252,78 @@ namespace GUI
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Datos Del Empleado";
             // 
-            // button1
+            // boxRol
             // 
-            this.button1.BackColor = System.Drawing.Color.DarkOrange;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(396, 135);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(197, 23);
-            this.button1.TabIndex = 59;
-            this.button1.Text = "Selecionar archivo";
-            this.button1.UseVisualStyleBackColor = false;
+            this.boxRol.FormattingEnabled = true;
+            this.boxRol.Location = new System.Drawing.Point(396, 58);
+            this.boxRol.Name = "boxRol";
+            this.boxRol.Size = new System.Drawing.Size(197, 25);
+            this.boxRol.TabIndex = 66;
+            // 
+            // dtpFechaNacimiento
+            // 
+            this.dtpFechaNacimiento.Location = new System.Drawing.Point(297, 174);
+            this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
+            this.dtpFechaNacimiento.Size = new System.Drawing.Size(296, 23);
+            this.dtpFechaNacimiento.TabIndex = 65;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label10.Location = new System.Drawing.Point(9, 173);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(201, 24);
+            this.label10.TabIndex = 64;
+            this.label10.Text = "Fecha de Nacimiento: ";
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono.Location = new System.Drawing.Point(110, 136);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(161, 23);
+            this.txtTelefono.TabIndex = 63;
+            // 
+            // txtDni
+            // 
+            this.txtDni.Location = new System.Drawing.Point(108, 100);
+            this.txtDni.Name = "txtDni";
+            this.txtDni.Size = new System.Drawing.Size(161, 23);
+            this.txtDni.TabIndex = 62;
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(108, 58);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(161, 23);
+            this.txtNombre.TabIndex = 61;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label8.Location = new System.Drawing.Point(9, 135);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(95, 24);
+            this.label8.TabIndex = 60;
+            this.label8.Text = "Telefono: ";
+            // 
+            // fileButton
+            // 
+            this.fileButton.BackColor = System.Drawing.Color.DarkOrange;
+            this.fileButton.FlatAppearance.BorderSize = 0;
+            this.fileButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fileButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fileButton.ForeColor = System.Drawing.Color.White;
+            this.fileButton.Location = new System.Drawing.Point(396, 135);
+            this.fileButton.Name = "fileButton";
+            this.fileButton.Size = new System.Drawing.Size(197, 23);
+            this.fileButton.TabIndex = 59;
+            this.fileButton.Text = "Selecionar archivo";
+            this.fileButton.UseVisualStyleBackColor = false;
+            this.fileButton.Click += new System.EventHandler(this.fileButton_Click);
             // 
             // label6
             // 
@@ -348,56 +404,6 @@ namespace GUI
             this.label4.Text = "Apellido :";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label8.Location = new System.Drawing.Point(9, 135);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(95, 24);
-            this.label8.TabIndex = 60;
-            this.label8.Text = "Telefono: ";
-            // 
-            // txtDni
-            // 
-            this.txtDni.Location = new System.Drawing.Point(108, 100);
-            this.txtDni.Name = "txtDni";
-            this.txtDni.Size = new System.Drawing.Size(161, 23);
-            this.txtDni.TabIndex = 62;
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(108, 58);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(161, 23);
-            this.txtNombre.TabIndex = 61;
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.Location = new System.Drawing.Point(110, 136);
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(161, 23);
-            this.txtTelefono.TabIndex = 63;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label10.Location = new System.Drawing.Point(9, 173);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(201, 24);
-            this.label10.TabIndex = 64;
-            this.label10.Text = "Fecha de Nacimiento: ";
-            // 
-            // dtpFechaNacimiento
-            // 
-            this.dtpFechaNacimiento.Location = new System.Drawing.Point(297, 174);
-            this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
-            this.dtpFechaNacimiento.Size = new System.Drawing.Size(296, 23);
-            this.dtpFechaNacimiento.TabIndex = 65;
-            // 
             // linkCV
             // 
             this.linkCV.AutoSize = true;
@@ -409,6 +415,7 @@ namespace GUI
             this.linkCV.TabIndex = 66;
             this.linkCV.TabStop = true;
             this.linkCV.Text = "Descargar CV";
+            this.linkCV.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkCV_LinkClicked);
             // 
             // formEmpleados
             // 
@@ -453,7 +460,6 @@ namespace GUI
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button bntBuscar;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.TextBox txtRol;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lbID;
         private System.Windows.Forms.GroupBox groupBox;
@@ -464,7 +470,7 @@ namespace GUI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button fileButton;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.TextBox txtDni;
         private System.Windows.Forms.TextBox txtNombre;
@@ -472,5 +478,6 @@ namespace GUI
         private System.Windows.Forms.DateTimePicker dtpFechaNacimiento;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.LinkLabel linkCV;
+        private System.Windows.Forms.ComboBox boxRol;
     }
 }
